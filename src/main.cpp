@@ -145,10 +145,16 @@ void loop() {
 		Serial.println( result );
 		
 		if (result == node.ku8MBSuccess) {
-			for (j = 0; j < c; j++) {
-				Serial.print(j); Serial.print(": ");
-				Serial.println(node.getResponseBuffer(j));
-			}
+			Serial.print("Light: "); Serial.print(node.getResponseBuffer(0) * 10 ); Serial.println(" Lux");
+			Serial.print("UVI: "); Serial.print(node.getResponseBuffer(1) / 10 , 1); Serial.println("");
+			Serial.print("Temperature: "); Serial.print(node.getResponseBuffer(2) / 10 - 40 , 1); Serial.println(" °C");
+			Serial.print("Humidity: "); Serial.print(node.getResponseBuffer(3)); Serial.println(" %");
+			Serial.print("Wind Speed: "); Serial.print(node.getResponseBuffer(4) / 10 , 1); Serial.println(" m/s");
+			Serial.print("Gust Speed: "); Serial.print(node.getResponseBuffer(5) / 10 , 1); Serial.println(" m/s");
+			Serial.print("Wind Direction: "); Serial.print(node.getResponseBuffer(6)); Serial.println(" °");
+			Serial.print("Rainfall: "); Serial.print(node.getResponseBuffer(7) / 10 , 1); Serial.println(" mm");
+			Serial.print("ABS Pressure: "); Serial.print(node.getResponseBuffer(8) / 10 , 1); Serial.println(" mbar");
+			Serial.print("Rain Counter: "); Serial.print(node.getResponseBuffer(9) / 100), 2; Serial.println(" mm");
 		} 
 	}
 
