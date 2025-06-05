@@ -34,12 +34,12 @@
 #define APP_1wire_vorhanden?		0x0000
 // Offset: 0, BitOffset: 7, Size: 1 Bit, Text: 1wire Sensor
 #define ParamAPP_1wire_vorhanden? knx.paramBit(APP_1wire_vorhanden?, 7)
-#define APP_Feinstaubsensor_vorhanden?		0x0003
+#define APP_Feinstaubsensor_vorhanden		0x0003
 // Offset: 3, Size: 1 Bit, Text: Feinstaubsensor
-#define ParamAPP_Feinstaubsensor_vorhanden? knx.paramBit(APP_Feinstaubsensor_vorhanden?, 0)
-#define APP_Uhrzeit_beim_Start_lesen?		0x0003
+#define ParamAPP_Feinstaubsensor_vorhanden knx.paramBit(APP_Feinstaubsensor_vorhanden, 0)
+#define APP_Uhrzeit_beim_Start_lesen		0x0003
 // Offset: 3, BitOffset: 1, Size: 1 Bit, Text: Uhrzeit beim Start lesen
-#define ParamAPP_Uhrzeit_beim_Start_lesen? knx.paramBit(APP_Uhrzeit_beim_Start_lesen?, 1)
+#define ParamAPP_Uhrzeit_beim_Start_lesen knx.paramBit(APP_Uhrzeit_beim_Start_lesen, 1)
 #define APP_Temperatur_DPT		0x0003
 // Offset: 3, BitOffset: 2, Size: 1 Bit, Text: Sende Temperatur als
 #define ParamAPP_Temperatur_DPT knx.paramBit(APP_Temperatur_DPT, 2)
