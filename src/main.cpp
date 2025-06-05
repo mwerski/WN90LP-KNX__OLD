@@ -1,18 +1,51 @@
 #include <Arduino.h>
+#include "utilities.h"
 #include <WiFi.h>
 #include <ESPmDNS.h>
 #include <ArduinoOTA.h>
 #include <WiFiManager.h>
 #include <WebServer.h>
 #include <ElegantOTA.h>
+#include <Adafruit_NeoPixel.h>
+#include <ModbusMaster.h>
 
-#include "kaenx-creator/knxprod.h"
+#include "knxprod.h"
 
 const char* hostname = "wn90";
 WebServer server(80);
 
+Adafruit_NeoPixel pixels(NUMPIXELS, LED_PIN, NEO_GRB + NEO_KHZ800);
+
+// Modbus
+ModbusMaster node;
+bool RS485mode = true;
+void RS485_Mode(int Mode);
+void RS485_TX();
+void RS485_RX();
+
+void progLedOff() {
+	pixels.clear();
+	pixels.show();
+}
+
+void progLedOn() {
+	pixels.setPixelColor(0, pixels.Color(20, 0, 0));
+	pixels.show();
+}
+
 void setup() {
 	Serial.begin(115200);
+
+	pinMode(RS485_CON_PIN, OUTPUT);
+	pinMode(KEY_PIN, INPUT_PULLUP);
+	Serial485.begin(RS485_BAUD, SERIAL_8N1, RS485_RX_PIN, RS485_TX_PIN, true);
+	// communicate with Modbus slave ID 144 over Serial (port 0)
+  node.preTransmission(RS485_TX);
+  node.postTransmission(RS485_RX);
+  node.begin(0x90, Serial485);
+	RS485_Mode(RS485_TX_ENABLE);
+	delay(20);
+
 
   //WiFiManager
   WiFiManager wifiManager;
@@ -85,10 +118,57 @@ void setup() {
 	server.begin();
 
 	ElegantOTA.begin(&server);
+
+	/*
+	// KNX stuff
+	knx.setProgLedOffCallback(progLedOff);
+	knx.setProgLedOnCallback(progLedOn);
+	*/
 }
+
+unsigned long lastChange = 0;
+unsigned long delayTime  = 2000;
 
 void loop() {
 	server.handleClient();
 	ArduinoOTA.handle();
 	ElegantOTA.loop();
+
+
+	if (millis()-lastChange >= delayTime) {
+		lastChange = millis();
+		
+		uint8_t j;
+		uint8_t c=10;
+		uint8_t result = node.readHoldingRegisters( 0x165, c );
+		Serial.print("result = ");
+		Serial.println( result );
+		
+		if (result == node.ku8MBSuccess) {
+			Serial.print("Light: "); Serial.print(node.getResponseBuffer(0) * 10 ); Serial.println(" Lux");
+			Serial.print("UVI: "); Serial.print(node.getResponseBuffer(1) / 10 , 1); Serial.println("");
+			Serial.print("Temperature: "); Serial.print(node.getResponseBuffer(2) / 10 - 40 , 1); Serial.println(" °C");
+			Serial.print("Humidity: "); Serial.print(node.getResponseBuffer(3)); Serial.println(" %");
+			Serial.print("Wind Speed: "); Serial.print(node.getResponseBuffer(4) / 10 , 1); Serial.println(" m/s");
+			Serial.print("Gust Speed: "); Serial.print(node.getResponseBuffer(5) / 10 , 1); Serial.println(" m/s");
+			Serial.print("Wind Direction: "); Serial.print(node.getResponseBuffer(6)); Serial.println(" °");
+			Serial.print("Rainfall: "); Serial.print(node.getResponseBuffer(7) / 10 , 1); Serial.println(" mm");
+			Serial.print("ABS Pressure: "); Serial.print(node.getResponseBuffer(8) / 10 , 1); Serial.println(" mbar");
+			Serial.print("Rain Counter: "); Serial.print(node.getResponseBuffer(9) / 100), 2; Serial.println(" mm");
+		} 
+	}
+
+
+}
+
+void RS485_Mode(int Mode) {
+	digitalWrite(RS485_CON_PIN, Mode);
+}
+
+void RS485_TX() {
+	RS485_Mode(RS485_TX_ENABLE);
+}
+
+void RS485_RX() {
+	RS485_Mode(RS485_RX_ENABLE);
 }
