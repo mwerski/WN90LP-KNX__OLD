@@ -11,6 +11,7 @@
 #include <PubSubClient.h>
 #include "Json.h"
 #include "knxprod.h"
+#include <knx.h>
 #define DEBUG_DISABLE_DEBUGGER true	// Debug Optionen in SerialDebug deaktivieren
 #define DEBUG_INITIAL_LEVEL DEBUG_LEVEL_VERBOSE	// Default Debug Level
 #include <RemoteDebug.h>
@@ -20,26 +21,7 @@ const char* hostname = "wn90";
 const char* mqtt_server = "broker.localnet";
 const char *mqtt_username = "";
 const char *mqtt_password = "";
-const long  gmtOffset_sec = 3600;
-const int   daylightOffset_sec = 3600;
-const char* ntpServer = "192.168.0.2";
 u_int8_t	lastHour = NAN;	// last hour (if this changes, a full hour has passed)
-void printLocalTime() {
-  struct tm timeinfo;
-  if(!getLocalTime(&timeinfo)){
-    Serial.println("Failed to obtain time");
-    //return;
-  }
-  Serial.println(&timeinfo, "%A, %B %d %Y %H:%M:%S");
-}
-u_int8_t hour() {
-	struct tm timeinfo;
-	if ( !getLocalTime(&timeinfo) ) {
-    Serial.println("Failed to obtain time");
-    return NAN;
-  }
-	return timeinfo.tm_hour;
-}
 
 WebServer server(80);
 
@@ -137,9 +119,6 @@ void setup() {
 	Serial.print("IP Address: ");
 	Serial.println(WiFi.localIP());
 
-	//init and get the time
-	configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
-
 	// Arduino OTA on üport 3232
 	// ArduinoOTA.setPort(3232);
 	ArduinoOTA.setHostname(hostname);
@@ -201,11 +180,43 @@ void setup() {
 	// MQTT
 	mqttClient.setServer(mqtt_server, 1883);
 	
-	/*
+
 	// KNX stuff
+	knx.buttonPin(5);
+	//knx.ledPin(15);
+	//knx.ledPinActiveOn(HIGH);
+
+	// read adress table, association table, groupobject table and parameters from eeprom
+	knx.readMemory();
+
+	delay(5000);
+	Serial.println("Starting up...");
+	Serial.print("KNX configured: ");
+	Serial.println(knx.configured());
 	knx.setProgLedOffCallback(progLedOff);
 	knx.setProgLedOnCallback(progLedOn);
-	*/
+
+	if (knx.configured()) {
+		if (ParamAPP_Heartbeat > 0) {
+			Serial.print("Sende Neartbeat alle "); Serial.print(ParamAPP_Heartbeat); Serial.println("s");
+			// ParamAPP_Heartbeat=10:
+			KoAPP_Heartbeat.dataPointType(Dpt(1, 1));
+			//runner.addTask(task_heartbeat);
+			//task_heartbeat.setInterval(ParamAPP_Heartbeat*1000);
+			//task_heartbeat.enable();
+			Serial.println("Task(s) enabled");
+		} else {
+			Serial.println("Sende keinen Heartbeat");
+		}
+
+		if (ParamAPP_Uhrzeit_beim_Start_lesen == 1) {
+			Serial.print("Lese Uhrzeit vom Bus");
+
+		}
+
+
+
+	}
 }
 
 unsigned long lastChange = 0;
@@ -239,7 +250,7 @@ void loop() {
 			if ( node.getResponseBuffer(9) != 0xFFFF ) { rainCounter = node.getResponseBuffer(9) / 100.0; }
 			if ( (node.getResponseBuffer(2) != 0xFFFF) && (node.getResponseBuffer(3) != 0xFFFF) ) { dewPoint = dewpoint (temperature, humidity); }
 
-			printLocalTime();
+//			printLocalTime();
 			Serial.print("Light:          "); Serial.print( light ); Serial.println(" Lux");
 			Serial.print("UVI:            "); Serial.print( uvIndex , 1); Serial.println("");
 			Serial.print("Temperature:    "); Serial.print(temperature, 1); Serial.println(" °C");
@@ -279,6 +290,10 @@ void loop() {
 
 		}
 	}
+
+	knx.loop();
+	if(!knx.configured()) return;
+
 
 }
 
