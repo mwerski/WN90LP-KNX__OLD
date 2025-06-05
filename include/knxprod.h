@@ -31,9 +31,9 @@
 #define APP_Watchdog		0x0000
 // Offset: 0, BitOffset: 6, Size: 1 Bit, Text: Watchdog aktivieren
 #define ParamAPP_Watchdog knx.paramBit(APP_Watchdog, 6)
-#define APP_1wire_vorhanden?		0x0000
+#define APP_1wire_vorhanden		0x0000
 // Offset: 0, BitOffset: 7, Size: 1 Bit, Text: 1wire Sensor
-#define ParamAPP_1wire_vorhanden? knx.paramBit(APP_1wire_vorhanden?, 7)
+#define ParamAPP_1wire_vorhanden knx.paramBit(APP_1wire_vorhanden, 7)
 #define APP_Feinstaubsensor_vorhanden		0x0003
 // Offset: 3, Size: 1 Bit, Text: Feinstaubsensor
 #define ParamAPP_Feinstaubsensor_vorhanden knx.paramBit(APP_Feinstaubsensor_vorhanden, 0)
