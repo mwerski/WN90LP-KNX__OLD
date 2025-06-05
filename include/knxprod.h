@@ -32,10 +32,10 @@
 // Offset: 0, BitOffset: 6, Size: 1 Bit, Text: Watchdog aktivieren
 #define ParamAPP_Watchdog knx.paramBit(APP_Watchdog, 6)
 #define APP_1wire_vorhanden?		0x0000
-// Offset: 0, BitOffset: 7, Size: 1 Bit, Text: 1wire Sensor vorhanden
+// Offset: 0, BitOffset: 7, Size: 1 Bit, Text: 1wire Sensor
 #define ParamAPP_1wire_vorhanden? knx.paramBit(APP_1wire_vorhanden?, 7)
 #define APP_Feinstaubsensor_vorhanden?		0x0003
-// Offset: 3, Size: 1 Bit, Text: Feinstaubsensor vorhanden
+// Offset: 3, Size: 1 Bit, Text: Feinstaubsensor
 #define ParamAPP_Feinstaubsensor_vorhanden? knx.paramBit(APP_Feinstaubsensor_vorhanden?, 0)
 #define APP_Uhrzeit_beim_Start_lesen?		0x0003
 // Offset: 3, BitOffset: 1, Size: 1 Bit, Text: Uhrzeit beim Start lesen
@@ -43,7 +43,7 @@
 //!< Number: 1, Text: In Betrieb, Function: Statusmeldung
 #define APP_KoHeartbeat 1
 #define KoAPP_Heartbeat knx.getGroupObject(APP_KoHeartbeat)
-//!< Number: 0, Text: Fehlermeldung, Function: 
+//!< Number: 0, Text: Fehlermeldung, Function: Statusmeldung
 #define APP_KoFehlermeldung 0
 #define KoAPP_Fehlermeldung knx.getGroupObject(APP_KoFehlermeldung)
 //!< Number: 0, Text: Zeit, Function: Eingang
