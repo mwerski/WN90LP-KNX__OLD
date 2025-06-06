@@ -99,8 +99,8 @@
 #define APP_KoDate 4
 #define KoAPP_Date knx.getGroupObject(APP_KoDate)
 //!< Number: 5, Text: Datum/Zeit, Function: Eingang
-#define APP_KoDate/Time 5
-#define KoAPP_Date/Time knx.getGroupObject(APP_KoDate/Time)
+#define APP_KoDateTime 5
+#define KoAPP_DateTime knx.getGroupObject(APP_KoDateTime)
 //!< Number: 6, Text: Temperatur, Function: Messwert
 #define APP_KoTemperatur_DPT9 6
 #define KoAPP_Temperatur_DPT9 knx.getGroupObject(APP_KoTemperatur_DPT9)
