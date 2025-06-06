@@ -728,6 +728,25 @@
             ]
           }
         ]
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ParameterType, Kaenx.Creator.Share",
+        "UId": 15,
+        "Name": "Integer (0-65535)",
+        "Type": 8,
+        "IsSizeManual": false,
+        "TranslateEnums": true,
+        "SizeInBit": 16,
+        "OtherValue": true,
+        "ExportInHeader": false,
+        "UIHint": "None",
+        "BaggageUId": -1,
+        "Min": "0",
+        "Max": "65535",
+        "Increment": "1",
+        "DisplayOffset": "0",
+        "DisplayFactor": "1",
+        "Enums": []
       }
     ],
     "Parameters": [
@@ -1105,6 +1124,316 @@
       },
       {
         "$type": "Kaenx.Creator.Models.Parameter, Kaenx.Creator.Share",
+        "UId": 17,
+        "Id": 19,
+        "Name": "MQTT Host",
+        "SavePath": 1,
+        "MemoryId": 1,
+        "UnionId": 0,
+        "ParameterType": 9,
+        "Value": "",
+        "IsInUnion": false,
+        "IsUnionDefault": false,
+        "Offset": 4,
+        "OffsetBit": 0,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "MQTT Broker Hostname/IP",
+            "Preview": "MQTT Broker Hostname/IP"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "MQTT Broker Hostname/IP",
+            "Preview": "MQTT Broker Hostname/IP"
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationText": false,
+        "TranslationSuffix": true,
+        "Access": 2
+      },
+      {
+        "$type": "Kaenx.Creator.Models.Parameter, Kaenx.Creator.Share",
+        "UId": 18,
+        "Id": 20,
+        "Name": "MQTT Port",
+        "SavePath": 1,
+        "MemoryId": 1,
+        "UnionId": 0,
+        "ParameterType": 15,
+        "Value": "1883",
+        "IsInUnion": false,
+        "IsUnionDefault": false,
+        "Offset": 36,
+        "OffsetBit": 0,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "MQTT Broker Port",
+            "Preview": "MQTT Broker Port"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "MQTT Broker Port",
+            "Preview": "MQTT Broker Port"
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationText": false,
+        "TranslationSuffix": true,
+        "Access": 2
+      },
+      {
+        "$type": "Kaenx.Creator.Models.Parameter, Kaenx.Creator.Share",
+        "UId": 19,
+        "Id": 21,
+        "Name": "MQTT User",
+        "SavePath": 1,
+        "MemoryId": 1,
+        "UnionId": 0,
+        "ParameterType": 9,
+        "Value": "",
+        "IsInUnion": false,
+        "IsUnionDefault": false,
+        "Offset": 38,
+        "OffsetBit": 0,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "MQTT Broker Username",
+            "Preview": "MQTT Broker Username"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "MQTT Broker Username",
+            "Preview": "MQTT Broker Username"
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationText": false,
+        "TranslationSuffix": true,
+        "Access": 2
+      },
+      {
+        "$type": "Kaenx.Creator.Models.Parameter, Kaenx.Creator.Share",
+        "UId": 20,
+        "Id": 22,
+        "Name": "MQTT Password",
+        "SavePath": 1,
+        "MemoryId": 1,
+        "UnionId": 0,
+        "ParameterType": 9,
+        "Value": "",
+        "IsInUnion": false,
+        "IsUnionDefault": false,
+        "Offset": 70,
+        "OffsetBit": 0,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "MQTT Broker Password",
+            "Preview": "MQTT Broker Password"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "MQTT Broker Password",
+            "Preview": "MQTT Broker Password"
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationText": false,
+        "TranslationSuffix": true,
+        "Access": 2
+      },
+      {
+        "$type": "Kaenx.Creator.Models.Parameter, Kaenx.Creator.Share",
+        "UId": 21,
+        "Id": -1,
+        "Name": "MQTT Topic",
+        "SavePath": 1,
+        "MemoryId": 1,
+        "UnionId": 0,
+        "ParameterType": 9,
+        "Value": "",
+        "IsInUnion": false,
+        "IsUnionDefault": false,
+        "Offset": 102,
+        "OffsetBit": 0,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "MQTT Topic",
+            "Preview": "MQTT Topic"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "MQTT Topic",
+            "Preview": "MQTT Topic"
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationText": false,
+        "TranslationSuffix": true,
+        "Access": 2
+      },
+      {
+        "$type": "Kaenx.Creator.Models.Parameter, Kaenx.Creator.Share",
         "UId": 7,
         "Id": 6,
         "Name": "Uhrzeit beim Start lesen",
@@ -1239,7 +1568,7 @@
         "Value": "60",
         "IsInUnion": false,
         "IsUnionDefault": false,
-        "Offset": 4,
+        "Offset": 134,
         "OffsetBit": 0,
         "Text": [
           {
@@ -1293,7 +1622,7 @@
         "$type": "Kaenx.Creator.Models.Parameter, Kaenx.Creator.Share",
         "UId": 10,
         "Id": 9,
-        "Name": "Temperatur Senden Wertänderung absolut",
+        "Name": "Temperatur Senden Wertaenderung absolut",
         "SavePath": 1,
         "MemoryId": 1,
         "UnionId": 0,
@@ -1301,7 +1630,7 @@
         "Value": "1",
         "IsInUnion": false,
         "IsUnionDefault": false,
-        "Offset": 6,
+        "Offset": 136,
         "OffsetBit": 0,
         "Text": [
           {
@@ -1347,7 +1676,7 @@
             "Preview": "°K"
           }
         ],
-        "TranslationText": true,
+        "TranslationText": false,
         "TranslationSuffix": false,
         "Access": 2
       },
@@ -1355,7 +1684,7 @@
         "$type": "Kaenx.Creator.Models.Parameter, Kaenx.Creator.Share",
         "UId": 11,
         "Id": 10,
-        "Name": "Temperatur Senden Wertänderung relativ",
+        "Name": "Temperatur Senden Wertaenderung relativ",
         "SavePath": 1,
         "MemoryId": 1,
         "UnionId": 0,
@@ -1363,7 +1692,7 @@
         "Value": "1",
         "IsInUnion": false,
         "IsUnionDefault": false,
-        "Offset": 8,
+        "Offset": 138,
         "OffsetBit": 0,
         "Text": [
           {
@@ -1487,7 +1816,7 @@
         "Value": "120",
         "IsInUnion": false,
         "IsUnionDefault": false,
-        "Offset": 10,
+        "Offset": 140,
         "OffsetBit": 0,
         "Text": [
           {
@@ -1534,14 +1863,14 @@
           }
         ],
         "TranslationText": false,
-        "TranslationSuffix": true,
+        "TranslationSuffix": false,
         "Access": 2
       },
       {
         "$type": "Kaenx.Creator.Models.Parameter, Kaenx.Creator.Share",
         "UId": 13,
         "Id": 13,
-        "Name": "Feuchte Senden Wertänderung absolut",
+        "Name": "Feuchte Senden Wertaenderung absolut",
         "SavePath": 1,
         "MemoryId": 1,
         "UnionId": 0,
@@ -1549,69 +1878,7 @@
         "Value": "1",
         "IsInUnion": false,
         "IsUnionDefault": false,
-        "Offset": 12,
-        "OffsetBit": 0,
-        "Text": [
-          {
-            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
-            "Language": {
-              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
-              "CultureCode": "de-DE",
-              "Text": "Deutsch"
-            },
-            "Text": "Sende bei Änderung um",
-            "Preview": "Sende bei Änderung um"
-          },
-          {
-            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
-            "Language": {
-              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
-              "CultureCode": "en-US",
-              "Text": "Englisch"
-            },
-            "Text": "Send when changed by",
-            "Preview": "Send when changed by"
-          }
-        ],
-        "Suffix": [
-          {
-            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
-            "Language": {
-              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
-              "CultureCode": "de-DE",
-              "Text": "Deutsch"
-            },
-            "Text": "% (relativ)",
-            "Preview": "% (relativ)"
-          },
-          {
-            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
-            "Language": {
-              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
-              "CultureCode": "en-US",
-              "Text": "Englisch"
-            },
-            "Text": "% (relative)",
-            "Preview": "% (relative)"
-          }
-        ],
-        "TranslationText": true,
-        "TranslationSuffix": false,
-        "Access": 2
-      },
-      {
-        "$type": "Kaenx.Creator.Models.Parameter, Kaenx.Creator.Share",
-        "UId": 14,
-        "Id": 14,
-        "Name": "Feuchte Senden Wertänderung relativ",
-        "SavePath": 1,
-        "MemoryId": 1,
-        "UnionId": 0,
-        "ParameterType": 13,
-        "Value": "1",
-        "IsInUnion": false,
-        "IsUnionDefault": false,
-        "Offset": 14,
+        "Offset": 142,
         "OffsetBit": 0,
         "Text": [
           {
@@ -1659,6 +1926,130 @@
         ],
         "TranslationText": false,
         "TranslationSuffix": false,
+        "Access": 2
+      },
+      {
+        "$type": "Kaenx.Creator.Models.Parameter, Kaenx.Creator.Share",
+        "UId": 14,
+        "Id": 14,
+        "Name": "Feuchte Senden Wertaenderung relativ",
+        "SavePath": 1,
+        "MemoryId": 1,
+        "UnionId": 0,
+        "ParameterType": 13,
+        "Value": "1",
+        "IsInUnion": false,
+        "IsUnionDefault": false,
+        "Offset": 144,
+        "OffsetBit": 0,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "Sende bei Änderung um",
+            "Preview": "Sende bei Änderung um"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "Send when changed by",
+            "Preview": "Send when changed by"
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "% (relativ)",
+            "Preview": "% (relativ)"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "% (relative)",
+            "Preview": "% (relative)"
+          }
+        ],
+        "TranslationText": false,
+        "TranslationSuffix": false,
+        "Access": 2
+      },
+      {
+        "$type": "Kaenx.Creator.Models.Parameter, Kaenx.Creator.Share",
+        "UId": 16,
+        "Id": 23,
+        "Name": "RemoteDebug",
+        "SavePath": 1,
+        "MemoryId": 1,
+        "UnionId": 0,
+        "ParameterType": 7,
+        "Value": "1",
+        "IsInUnion": false,
+        "IsUnionDefault": false,
+        "Offset": 3,
+        "OffsetBit": 4,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "RemoteDebug aktivieren",
+            "Preview": "RemoteDebug aktivieren"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "Activate RemoteDebug",
+            "Preview": "Activate RemoteDebug"
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationText": false,
+        "TranslationSuffix": true,
         "Access": 2
       }
     ],
@@ -1790,7 +2181,7 @@
         "UId": 3,
         "Id": 2,
         "DisplayOrder": -1,
-        "Name": "Date/Time DPTs",
+        "Name": "Date_Time DPTs",
         "IsAutoGenerated": true,
         "Parameter": 3,
         "OverwriteValue": false,
@@ -2217,7 +2608,7 @@
         "UId": 10,
         "Id": 9,
         "DisplayOrder": -1,
-        "Name": "Temperatur Senden Wertänderung absolut",
+        "Name": "Temperatur Senden Wertaenderung absolut",
         "IsAutoGenerated": true,
         "Parameter": 10,
         "OverwriteValue": false,
@@ -2278,7 +2669,7 @@
         "UId": 11,
         "Id": 10,
         "DisplayOrder": -1,
-        "Name": "Temperatur Senden Wertänderung relativ",
+        "Name": "Temperatur Senden Wertaenderung relativ",
         "IsAutoGenerated": true,
         "Parameter": 11,
         "OverwriteValue": false,
@@ -2400,7 +2791,7 @@
         "UId": 13,
         "Id": 12,
         "DisplayOrder": -1,
-        "Name": "Feuchte Senden Wertänderung absolut",
+        "Name": "Feuchte Senden Wertaenderung absolut",
         "IsAutoGenerated": true,
         "Parameter": 13,
         "OverwriteValue": false,
@@ -2461,7 +2852,7 @@
         "UId": 14,
         "Id": 13,
         "DisplayOrder": -1,
-        "Name": "Feuchte Senden Wertänderung relativ",
+        "Name": "Feuchte Senden Wertaenderung relativ",
         "IsAutoGenerated": true,
         "Parameter": 14,
         "OverwriteValue": false,
@@ -2525,6 +2916,372 @@
         "Name": "Feuchte DPT",
         "IsAutoGenerated": true,
         "Parameter": 15,
+        "OverwriteValue": false,
+        "OverwriteAccess": false,
+        "Access": 2,
+        "Value": "",
+        "TranslationText": false,
+        "TranslationSuffix": false,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "OverwriteText": false,
+        "OverwriteSuffix": false
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ParameterRef, Kaenx.Creator.Share",
+        "UId": 16,
+        "Id": 15,
+        "DisplayOrder": -1,
+        "Name": "RemoteDebug",
+        "IsAutoGenerated": true,
+        "Parameter": 16,
+        "OverwriteValue": false,
+        "OverwriteAccess": false,
+        "Access": 2,
+        "Value": "",
+        "TranslationText": false,
+        "TranslationSuffix": false,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "OverwriteText": false,
+        "OverwriteSuffix": false
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ParameterRef, Kaenx.Creator.Share",
+        "UId": 17,
+        "Id": 16,
+        "DisplayOrder": -1,
+        "Name": "MQTT Host",
+        "IsAutoGenerated": true,
+        "Parameter": 17,
+        "OverwriteValue": false,
+        "OverwriteAccess": false,
+        "Access": 2,
+        "Value": "",
+        "TranslationText": false,
+        "TranslationSuffix": false,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "OverwriteText": false,
+        "OverwriteSuffix": false
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ParameterRef, Kaenx.Creator.Share",
+        "UId": 18,
+        "Id": 17,
+        "DisplayOrder": -1,
+        "Name": "MQTT Port",
+        "IsAutoGenerated": true,
+        "Parameter": 18,
+        "OverwriteValue": false,
+        "OverwriteAccess": false,
+        "Access": 2,
+        "Value": "",
+        "TranslationText": false,
+        "TranslationSuffix": false,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "OverwriteText": false,
+        "OverwriteSuffix": false
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ParameterRef, Kaenx.Creator.Share",
+        "UId": 19,
+        "Id": 18,
+        "DisplayOrder": -1,
+        "Name": "MQTT User",
+        "IsAutoGenerated": true,
+        "Parameter": 19,
+        "OverwriteValue": false,
+        "OverwriteAccess": false,
+        "Access": 2,
+        "Value": "",
+        "TranslationText": false,
+        "TranslationSuffix": false,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "OverwriteText": false,
+        "OverwriteSuffix": false
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ParameterRef, Kaenx.Creator.Share",
+        "UId": 20,
+        "Id": 19,
+        "DisplayOrder": -1,
+        "Name": "MQTT Password",
+        "IsAutoGenerated": true,
+        "Parameter": 20,
+        "OverwriteValue": false,
+        "OverwriteAccess": false,
+        "Access": 2,
+        "Value": "",
+        "TranslationText": false,
+        "TranslationSuffix": false,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "OverwriteText": false,
+        "OverwriteSuffix": false
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ParameterRef, Kaenx.Creator.Share",
+        "UId": 21,
+        "Id": -1,
+        "DisplayOrder": -1,
+        "Name": "MQTT Topic",
+        "IsAutoGenerated": true,
+        "Parameter": 21,
         "OverwriteValue": false,
         "OverwriteAccess": false,
         "Access": 2,
@@ -4940,7 +5697,7 @@
         "UId": 1,
         "Name": "Parameter",
         "Address": 0,
-        "Size": 16,
+        "Size": 146,
         "Offset": 0,
         "IsAutoPara": true,
         "IsAutoOrder": true,
@@ -5091,6 +5848,19 @@
                   {
                     "$type": "Kaenx.Creator.Models.Dynamic.DynParameter, Kaenx.Creator.Share",
                     "IsExpanded": false,
+                    "Name": "",
+                    "ParameterRef": 16,
+                    "HasHelptext": false,
+                    "HelptextId": 0,
+                    "UseIcon": true,
+                    "IconId": 13,
+                    "Cell": null,
+                    "Items": null,
+                    "HelpText": null
+                  },
+                  {
+                    "$type": "Kaenx.Creator.Models.Dynamic.DynParameter, Kaenx.Creator.Share",
+                    "IsExpanded": false,
                     "Name": "Uhrzeit DPTs",
                     "ParameterRef": 3,
                     "HasHelptext": false,
@@ -5184,6 +5954,114 @@
                     "HelptextId": 0,
                     "UseIcon": true,
                     "IconId": 6,
+                    "Cell": null,
+                    "Items": null,
+                    "HelpText": null
+                  }
+                ],
+                "Rows": [],
+                "Columns": []
+              },
+              {
+                "$type": "Kaenx.Creator.Models.Dynamic.DynParaBlock, Kaenx.Creator.Share",
+                "IsExpanded": false,
+                "Id": -1,
+                "Name": "MQTT",
+                "Text": [
+                  {
+                    "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+                    "Language": {
+                      "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+                      "CultureCode": "de-DE",
+                      "Text": "Deutsch"
+                    },
+                    "Text": "",
+                    "Preview": ""
+                  },
+                  {
+                    "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+                    "Language": {
+                      "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+                      "CultureCode": "en-US",
+                      "Text": "Englisch"
+                    },
+                    "Text": "",
+                    "Preview": ""
+                  }
+                ],
+                "TranslationText": false,
+                "UseParameterRef": false,
+                "ParameterRef": 0,
+                "UseTextParameter": false,
+                "TextRef": 0,
+                "Layout": 0,
+                "IsInline": false,
+                "UseIcon": true,
+                "IconId": 12,
+                "Access": 2,
+                "ShowInComObjectTree": false,
+                "Items": [
+                  {
+                    "$type": "Kaenx.Creator.Models.Dynamic.DynParameter, Kaenx.Creator.Share",
+                    "IsExpanded": false,
+                    "Name": "",
+                    "ParameterRef": 17,
+                    "HasHelptext": false,
+                    "HelptextId": 0,
+                    "UseIcon": false,
+                    "IconId": -1,
+                    "Cell": null,
+                    "Items": null,
+                    "HelpText": null
+                  },
+                  {
+                    "$type": "Kaenx.Creator.Models.Dynamic.DynParameter, Kaenx.Creator.Share",
+                    "IsExpanded": false,
+                    "Name": "",
+                    "ParameterRef": 18,
+                    "HasHelptext": false,
+                    "HelptextId": 0,
+                    "UseIcon": false,
+                    "IconId": -1,
+                    "Cell": null,
+                    "Items": null,
+                    "HelpText": null
+                  },
+                  {
+                    "$type": "Kaenx.Creator.Models.Dynamic.DynParameter, Kaenx.Creator.Share",
+                    "IsExpanded": false,
+                    "Name": "",
+                    "ParameterRef": 19,
+                    "HasHelptext": false,
+                    "HelptextId": 0,
+                    "UseIcon": false,
+                    "IconId": -1,
+                    "Cell": null,
+                    "Items": null,
+                    "HelpText": null
+                  },
+                  {
+                    "$type": "Kaenx.Creator.Models.Dynamic.DynParameter, Kaenx.Creator.Share",
+                    "IsExpanded": false,
+                    "Name": "",
+                    "ParameterRef": 20,
+                    "HasHelptext": false,
+                    "HelptextId": 0,
+                    "UseIcon": false,
+                    "IconId": -1,
+                    "Cell": null,
+                    "Items": null,
+                    "HelpText": null
+                  },
+                  {
+                    "$type": "Kaenx.Creator.Models.Dynamic.DynParameter, Kaenx.Creator.Share",
+                    "IsExpanded": false,
+                    "Name": "",
+                    "ParameterRef": 21,
+                    "HasHelptext": false,
+                    "HelptextId": 0,
+                    "UseIcon": false,
+                    "IconId": -1,
                     "Cell": null,
                     "Items": null,
                     "HelpText": null
@@ -5327,9 +6205,9 @@
                   {
                     "$type": "Kaenx.Creator.Models.Dynamic.DynSeparator, Kaenx.Creator.Share",
                     "IsExpanded": false,
-                    "Id": 1,
+                    "Id": 2,
                     "Name": "",
-                    "Hint": 0,
+                    "Hint": 1,
                     "Text": [
                       {
                         "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
@@ -5457,9 +6335,9 @@
                   {
                     "$type": "Kaenx.Creator.Models.Dynamic.DynSeparator, Kaenx.Creator.Share",
                     "IsExpanded": false,
-                    "Id": 2,
+                    "Id": 3,
                     "Name": "",
-                    "Hint": 0,
+                    "Hint": 1,
                     "Text": [
                       {
                         "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
@@ -5549,10 +6427,10 @@
     "IsSecureActive": false,
     "HasBusInterfaceRouter": false,
     "BusInterfaceCounter": 4,
-    "Procedure": "<LoadProcedures>\r\n  <LoadProcedure MergeId=\"2\">\r\n    <LdCtrlRelSegment LsmIdx=\"4\" Size=\"16\" Mode=\"0\" Fill=\"0\" />\r\n  </LoadProcedure>\r\n  <LoadProcedure MergeId=\"4\">\r\n    <LdCtrlWriteRelMem ObjIdx=\"4\" Offset=\"0\" Size=\"16\" Verify=\"true\" />\r\n  </LoadProcedure>\r\n</LoadProcedures>",
+    "Procedure": "<LoadProcedures>\r\n  <LoadProcedure MergeId=\"2\">\r\n    <LdCtrlRelSegment LsmIdx=\"4\" Size=\"114\" Mode=\"0\" Fill=\"0\" />\r\n  </LoadProcedure>\r\n  <LoadProcedure MergeId=\"4\">\r\n    <LdCtrlWriteRelMem ObjIdx=\"4\" Offset=\"0\" Size=\"114\" Verify=\"true\" />\r\n  </LoadProcedure>\r\n</LoadProcedures>",
     "IsPreETS4": false,
-    "LastParameterId": 18,
-    "LastParameterRefId": 14,
+    "LastParameterId": 23,
+    "LastParameterRefId": 19,
     "LastDynModuleId": 0,
     "LastDynSeparatorId": 0,
     "HighestComNumber": 7
@@ -5779,6 +6657,28 @@
       },
       "LastModified": "2025-06-05T21:51:22.9659168+02:00",
       "LastModifiedDisplay": "05.06.2025 21:51:22"
+    },
+    {
+      "$type": "Kaenx.Creator.Models.Icon, Kaenx.Creator.Share",
+      "UId": 12,
+      "Name": "server-network-outline",
+      "Data": {
+        "$type": "System.Byte[], System.Private.CoreLib",
+        "$value": "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"
+      },
+      "LastModified": "2025-06-06T08:13:21.3291531+02:00",
+      "LastModifiedDisplay": "06.06.2025 08:13:21"
+    },
+    {
+      "$type": "Kaenx.Creator.Models.Icon, Kaenx.Creator.Share",
+      "UId": 13,
+      "Name": "bug-outline",
+      "Data": {
+        "$type": "System.Byte[], System.Private.CoreLib",
+        "$value": "iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAAAXNSR0IArs4c6QAAHTZJREFUeF7tnQfUN0V1xh87NpqiQFCCRgWCYozUYAABBSwICKhIFAuooAJqxBSJKFFRQ1ARC5EqBqQoHWOjxBLFIFI8URQRUZqKFBti9sc73+Hl4y27+7+z/53d557zHQ7fN3tn5rmzz3/2zp177yOLETACo0XgPqOduSduBIyATABeBEZgxAiYAEZsfE/dCJgAvAaMwIgRMAGM2PieuhEwAXgNGIERI2ACGLHxPXUjYALwGjACI0bABDBi43vqRsAE4DVgBEaMgAlgxMb31I2ACcBrwAiMGAETwIiN76kbAROA14ARGDECJoARG99TNwImAK8BIzBiBEwAIza+p24ETABeA0ZgxAiYAEZsfE/dCJgAvAaMwIgRMAGM2PieuhEwAXgNGIERI2ACGLHxPXUjYALwGjACI0bABDBi43vqRsAE4DVgBEaMgAlgxMb31I2ACcBrwAiMGAETwIiN76kbAROA14ARGDECJoARG99TNwImgPxrYAVJ+0m6WNLJ+bsbRA87S1pH0lGSfjiIGfV0EiaAvIZZXtJ/SVpX0jWS3ibphLxdFq/9uZKOl/QQSedKeq2kq4ufVU8nYALIZxhe/jMqAvibWV3cKGn39Pf5ei5X8zbVL/9J6eVfMoszJe0m6ZflTqu/IzcB5LHNspJOlPTsOdTfXn0OvCDtDPL0XqbW5yTM+OVfWs6S9EJJvylzav0dtQkg3jYPq7b8p0racgHVt0l6saTT47svUuPzJR0jabkFRs/nAL6BXxc5w54O2gQQaxhefl7qzWqo5XPg9ZL+s0bbITdhN3SkJD6ZFpPTKl/KqyTdsFhD/3s9BEwA9XCq04qtKy//M+s0Tm1+LmnfEZPA1pI+XfPlXwLrZyTtLen6Bji76TwImABilga//Memb/umGvk141eNX7cxyVbpWPThLSaNoxDMbm7xrB+ZhYAJYPLlwMv/H+n7tK22WyXtMCLH4LOSt7/Ny78EY05YwOwPbUH3c5IJYLJV8OC0fceJNang4cbTjcd7yMI5/3GLOPzqzp8YC04PTAJ1EVuqnQmgJXCSlkm/YizAKMExuFc6DovS2Sc9EOXRDb/5Fxs/TtQ9JN2yWEP/+70RMAG0WxU4/IhW267d4ws+hWOQ0GGcY0MSjkVx4NXx9jedN/6XNzpYqCls/gRojpj00PQrtmObh2s+g4d7T0mfrdm+7802T3MhQCqXQAKvk4Q/xVITAe8AagKVmvHL/3FJuzZ7rFVrAl7wCfCdW7Lw8nPCgbM0t/A58FJJf8zd0VD0mwCaWfIT6fip2VPtW/82ebrPbq9iqk8SCs3lp4Ui/KIHCNnsJOn30YqHqM8E0Myq/MLs0uyRiVv/IkUM4nMoSQiI4pt/xY4HzZVrCOBPHfdbZHcmgGZmWyt56Lmr3qXgE3hTOj7rst+2fW2UoiIf0VZBy+f+Jx0LcppiqYGACaAGSEs1+QtJp1RRbE9u/uhET1yXnFz03WfpwuE31/y/mr7/f9RncPo2NhNAO4v8WfqF+6t2j7d+6lcp4rCvjsGNJZ0jaZIIvzbgfFnSSyRxhGppgIAJoAFYSzVdKZHABu1VtHrydyn+gOuxfRISn+CA6/qb/wuSnicJh6mlIQImgIaALdV8tXQPgNj2LoWdAJdh+pJjcIsUEv3ILkFImZWIx7DHvyXwJoCWwM16DBL4cKaowIVGx3b3zZI+NU8jbPt4SYxvZUmPre7dr17FMayaPOR3zvHcfdMNuysk/aQKsb1WEqcQ5DOcLyXXJikBStcvP0FSJAjxPYAJ1rAJYALwZj36qLQT4KJLl8LpwEGSvpS23k+tTinWlsR4iFgkIzFb8jUk8XI3Fa4qX5ni7MlixM7jgvR3N0l6dDoV6Xrbz3VgMird0XRCbn9PBEwAcSsCxxcLs+vPAWbAi5kjxn4hdHj57h8HX21NxGIQiTnXDqa2EjecQcAEELsSJkkMEjuSYWo7PGUD8ssfZF8TQBCQs9Rw4eUDHYcMx8+ifxoPTnUV/PIH2sYEEAjmLFXEvh9YOdDekEf9qLRysef96eV3eG+w6U0AwYDOUsfnwHur4JTXtHTA5RtZOZo53uPl/8dyhlzWSE0Aee31oPQ5AAncL29Xg9OOk/GdaSc1uMn1ZUImgPyW4MXHJ0ANgDZHcflH2L8e2Oq/tTrKfF//hjasEZkAurEnx2X7V6cu7zAJLAo43/wUBCX3giUzAiaAzADPUk9wDgTA54BlbgTY9nPUx6+/6wB2sEpMAB2AnLrgmuy/VrflNuyuyyJ7+lraAXynyNEXNmgTQDcGo/4dJwJP7Ka74nv5bnUX4ZVVco9vFj+Tnk/ABJDfQGxn3+2oy8ZAc/eA9OhUXXKSz8bw1XvABFAPpzatuH2HI2sadwPajLePz3AaQOw/xVLmu43Yx3EXMyYTQB5TkSmIktfr5lE/Oq2XpKQfV49u5pknbAKIB/jpyZPNfy1xCJDwkyvAP4xTaU0mgNg1QKJQat91nSswdhb91Xa+pJdLcuLPIBuZAIKArJxVj5H0+eqbdc04ldY0BwIkAKX6D9mKLBMiYAKYEMD0OGm3WJikDLfkR+BCSVQatmNwQqxNABMCWJ3vP1gSpbs2nVyVNTRAABKgNDs1FC0tETABtAQuPUaMPxd9Srr3/9PqWI1cfzenVGKE3JIolEQmfL4sMxkknT5NjAAVgZ0VuCXsJoCWwKXHiO1/+2Qqsjx9S3rJ+U7Ga85LT7ks/p9Eorz835/160m2YLL6UsqLRJ+rpISi/B2ZhR8niToIVEfukxAn8MaUldnJQlpYxgTQArT0CJd6SAfeh3v+pMmiYAgvO55ynJGUyuJljxAyDFPplz/cZSDLMAlP+rB++PXHH9C3QikRuGfX0QcDZp9khg7Wk8S59LQFJxjVeE5N6brJ4d+F8LmwlaTt03+56ThNYWezZVW5mXoGlgYImAAagJWaEuKLA4pjv2kJ23luFlJ+m+39tLa/JDjhD/f39007g2lhwstPeTKfDDSwgAmgAVhVEY4HSDoqFaJs9mRMayr0nF457P6tOgv/QYzKMC0cgf6dpN1TNaIwxQ0UHZ9qBjR4ZNxNTQDN7L+dJEpSdS1s7T8n6RBJl07xF7/OvImC3FPSTlMoFIo/ABtRodhSAwETQA2QUpMnpF/fJ9V/JKTlmVUFnndJ+nqItu6UbJROSLgN2WUuREqZreNqwfUMbQKoj9MRkl5Rr3lIKzz7r66Ken4yRNt0lPDi752Sez6wwyGQTJQcjC4isgjoJoB6q5L681Thpf5fF0JlXsp/c5w3BGEXcFyKJehiPgQ3YbMvdtFZyX2YABa3HoExnKkTDNOFnCfpLQNMhwWOHFmu3wWI6eUnG9PFzig0P+IlEQD59F6Wjpq6iP8GGwJg/rJy/FF2uwvBi00VnKu66GwKfRAvwHXprTvq+/JqJ3CRpNs76o9uuBtCdCIVm3svJREA38Mf7dih1KUBOdfH2Tf0dNhETh6WTgq6xLfLviC4IiITSyIAKut8sEsrdtjXe1Lxyw67nGpXrDvCqLnIM0QhcxG5DHsvJoDpm+gUSTuP8DuVoKqTUhz/9K0QOwLsSZRm78UEMF0TcXGH7DZ4/ccoXD3+hqSnDGzyBEFBbr0XE8D0TPR/6eUfe/ELMiefMcXw4RwrwASQAdUh+QBw9O2YMgllgKo4lS9KDt7lihv53AM2AWQw5JAIgOg4POGWuxF4cyqf1mXYcC78TQAZkB0KAXwh3aHPAFHRKvn1Jw5i26JnMTN4E0AGIw6BAAhI2WyAUX5R5qauwrereAhyLZYsJoAM1hsCAfi++sILA6f04QMIEjIBmADuhQBHfaSxpvS1ZX4ESFDKld4+5FpsaycTQFvkFniu9B3Ae9MV1QzQDE4lGY9IMVaqmAAyWK5kAiAFN86tvqXxymCmEJXcHPxOSlEeorBjJSaADICXTADUt/9IBkyGrPKAanL/UugETQAZDFcqAZDDj5TV12XAZMgqqVZEvUWugZcmu0g6sYRBOxQ4v5X2qarsHJq/m0H2QNm1/QqcGZGNJ5QwbhNAfiuRTNTf/u1w3jhlEaJkWUniT4AM1irxEwDn39qS7siAxxhUkkGIe/WbFzZZE0AGg5VIACQwIT2UpT0CfS3AutCMTADt7T3vk3tUVWs/lkFvLpUUqeCXi4SilvYIbFqFT3+l/eNTeZIj37On0nPDTkvyAVCTD4fa0yTd2nCe8zWnpt7Tq6uoKwfpm62GyD8yCUdu/zlNIL9+n+12Q7rrEFWvkM8AoidzFCD9uaTvSaKcetQtROxNebQiahT2eSFleCfnVEkpKy6gRAteYLzBUUI13lLqBEQeg0F4XJ2mTkK0UM+QsOPRiglg5upm9Jkt238q5kZW9aEUN/kD+y6kbN8tee+jxsodCrIGRQufaKV9XoRiYAKYKV31oVBUZ3L88esf+f2/g6STg8eZQ93NiQCoYhwlq1Vl2a7O8OlDnYljogZZoh4TgHRwqsQTab9L0r3/yO/AMRMAJdmIpKToRqQQbnxgpMLSdJkApGNTcs5I211YlaZ6RqTCVPZ6GqXJm04jxw6AF59v9VWaDmaR9kemW4eMeZRiApipV0chyUjhCCg6tdVzU3nyyHHm0JWDAEgf/q1Upi1yzBQP3XXM9zRMANJZVW76bSJXVcoJj3MxUsb8CcBJwDkZIgIvS/kZfxZpqJJ0jZ0AmD+/AtGhpkdIopZhpIyZAKgiRFFRSm5FCo7FTUZcmKXXASWRhp5PF8knuXLKIoiUHLX+xkwABOngrH1TpJHS1n+DKnDnx8F6i1E39h0AW0sIgFtnkbJ/ynEfqXO7qkz5WJ2AEABRoAdJwh8QJZzSrD/m25pjJwC8y+TpjyYALgBFVzIesxOQF57gIioKLxv19qcQYHYAVwTqLEqVCaAcAhjzJwAvFU5VLoOtEPiGUaJtvUo3zsBRignABBC98HMcA5oAoq2U9JkATADRS8sEEI1oRn0mABNA9PIyAUQjmlGfCcAEEL28TADRiGbUZwIwAUQvLxNANKIZ9ZkATADRy8sEEI1oRn0mABNA9PIyAUQjmlHf2AlgJUnnSiItWKTkCATauZBiE3+ocvjtmOHmYo44gNskkRaM3ICjlNIIgMg9AkEeNKG17pR0UyrXTdUeilFGSg4CIHnpBSl+nfH3UUjcQcJWXlau70ZKDgKArMg6fHkVubli0GCvrxLMQCxFSEkEsEW6DLJOAAEsMQ5x5ZGhpUv05iAAdJMai3yDfRbG96sMA8xBAAzz9sAs0+jjajFh29dkwCBcZUkEQF2AQ6pbYQ8JRyFeYS4CiB9pORpzEUAOBEhiSp6J3ktJBJAjeWcuA5kA4pEtiQBeWEgC16LyAZRUGswEMG4CcGmwePvLBJAB1IJUlrQDMAFkWFgmgAygFqTSBJDBWCX5AEwAGRZAQSpNABmMZQLIAGoqCR6dESjPSMvRagLIYCsTQAZQTQBZQDUBZIDVBJABVBNAFlBNABlgNQFkANUEkAVUE0AGWE0AGUA1AWQB1QSQAVYTQAZQTQBZQDUBZIDVBJABVBNAFlBNABlgNQFkANUEkAVUE0AGWE0AGUA1AWQB1QSQAVYTQAZQTQBZQDUBZIDVBJABVBNAFlBNABlgNQFkANUEkAVUE0AGWEsigL1SddgMMISrdD6AcEizFAeNH+WMRpKinpJLeaTekghgF0n/LmnlSAAy6cpJAKRE66vdSLLJnz9lwLWEHcDv0ry3lHRhBgzCVfZ1Ic010dUlbZUIIGLcLNI1JZG+adIsw0uPNwcBPKB6sQ7o8csPBmB6XUoJflXwas1BAIz3xGoNXBqIKzoPLiB5613miXiRgu28qLr7S+LPJIKRYOsNJB0t6UmTKJvj2RwEsHU13rODx5lD3W8lPU8zBVciJQcBsAbWkgRZRf0IMP9ipEQCiASXGgPnVBlc149UmskJWEphEF4qXtbTgzHNQQC/SQTw4+CxFqNu7ARAoRF+qTYOtliOHcAOhWSadWmw4MWUU50JwAQQvb5MANGIZtRnAjABRC8vE0A0ohn1mQBMANHLywQQjWhGfSYAE0D08jIBRCOaUZ8JwAQQvbxMANGIZtRnAjABRC8vE0A0ohn1mQDyEMA+kg4Nttv2hcSX5yIAQsE/WoWDLx+IK3EA61VxC5cF6ixK1dgJgPBa4gD+Nthqfy/pfcE6qTkfHVwTPMS71OUigNckTB8WOOhbUjToFYE6i1I1dgK4n6QvSto02GoHSfqnYJ0vkHRqsM4c6nIQwH0lvV3S/oEhu8ydewsbSfpRDiBK0Dl2AmD+EMDmwcb6mCR+sSJlzJGAEPXhkl4dCagkQoCfIeknwXqLUTd2AsBQ3AV4drDFTkrx8JFqx0wAD0xh0HwGRcr3JG0h6dpIpSXpMgHMbKvZXkcKt/a2jVQoacxOQG7qXZAcdpGwfl3SdpKuj1Raki4TgPRpSS8KNtp5kjYL1vkcSWcE68yhLocPYBlJl1dXt9cIHjC2f21yXAarLkOdCUCijPfrg831zXTD8I5AvWN2Aj40/UqTDSlS3i3pwMq5WNQd/kgATADSWyW9JxJUSRwrPUvSNYF6x+wDWEnSzyThDIyUV0g6MlJhabpMANKLJR0fbDiOl15WHTGdG6h3zAlB1q38NBcHYokqskLxmXZ+sN6i1JVIAJwJT5oSbImRfp/SV52WwWpvkfT+QL2k2coxzsAh3qWKpKB46z8fqHgPSRytRgoEsGE11m8lMiAoLEJYU8VISQSwasXWz6wWwiqBuQz/mM6B8QRHCy9A5PEiR2F8qkQt1Oj5ou/O9NnDMWhUcA1Zm9ihRZ/UMF5I5cpEAPywRAhriuzV/Lf3UhIB8A0MsI/pPaozA7wxJRv9ReB4WaQ4xPpqN379yQkIEUQJ2aB/ELjrixrXXHpuT39JbAFHjL2Xvi6kuYB7naTDeo/o3QPkF2DXKunkCQWNuY9DJW37Z/o4sAXG5MIgGQzGUR1HdiUJQUYshhyFMkrCoe1YCQD6UIYQ4LbjqfscGYz5DOq9lLQDKJEAuG1GJaMlW8PeL4ieDfCJKVQ7OgAo9zRNABkQLpEAgIEyUVw4sjRHAOfsZ5s/NvUnTAAZTFAqAeBp3ru6HhwZFZgB3l6qPFkSzt/ShNDyInw//gTIv7TwjHPn/KL8XQ2qB87oufvwiAJnRfYiag72XkwA3ZiIXQA7GMjAUg+BHLc06/U8eSt/AkyO4b00lPoJwEQ4G+c2n30B9RYGSTq+nCH2v17vk7cyAUyO4aAIgMlwRXgbSSSitCyMwH9nqNfYJeYmgAxol7wDAA6OAl9aSF6/DOarrZLwabI0lSwmgAzWK50AgOS71bHWU4NDZTNAPTWV3PfnBuUmUxtBTMcmgBgc76FlCATAhEgWGn2zLQPcU1H58oHczzcBZFg+QyGAX6Y05OwGLHcjsHG6Qsxlp9LFBJDBgkMhAKDhdhuxAdwYtMzk+sNJWspNz8VsZgJYDKEW/z4kAmD6HAlyUYgkmmMWKv18KUPG32liagLIgP7QCACIjpbEd+9YhcxOn6oy/pLubEhiAshgzSESADkD3lEFvLwzA159V0lyk7eluZcUkVoHVxNAHZQathkiAQABKakpeXVcQzxKbs4Lz0tCqq/oTL99wMWXgTJYgeOzQ6q8eBSJGJoQJMT8jh3axOaZz0skfTylNxvilJkfRUd6LyVtvbaSRKbdp0giUWQXAj5kpSEhZxdC9ps3dNHRlPoAR4pxsJvrIrkpmZhIytKlUL+AaEYKj/ZeSiIAwHy4pEcGl4iez0gsHpJbLlvVkKfWH8UpuhDuwO+VSld30V9XfTxa0ierZJlbV9V4ojLwLjR2shJT9OVrVXp2Thq6EmpCEOtRhJRGANMClbr0B3W0cJnjhemT4LJpTTi43ydLOqqqa/C0YL0LqeN0hVMWywIImADqLQ+Oq7igQrrnruSqKsf+qwZwhXhTScdUv/6P7Qq49P1NZSbnX1gEdBNA/VVJeSpIgCSfXQlXh/dJ8fElLmacYfwKR1VyqoM7gVV/nQp+1Gk/6jYmgGbm59v8w80eCWn91XRezk25ElKMU8Zs31R7r+s1tn2hiURDFkpTJV0bp+n4+tae04cjJPHL1rUQL0CijINTtpw+7gienxyYZELuwtG3tA2IK6AYi6UmAiaAmkDNakZtQpx0j2v+aMgTt6UioZyjf6MHGYY4Jt0gHV9y/NWlx302oJTioorQT0NQHokSE0A7Q+PN/ko6lmynYfKnCCOmZBbJM/lEuF5SV5Vp2QmtmBx7fBaR73D5yafUWgMv/W5pZ9RayRgfNAG0tzqRe5Qq6yKgZbFR8vJzo+7M9BJcm8FXwFph98P2nkq9/Je4jGkLPhFI6PBpD6TE/k0A7a0Gdh9Izq72WuKfZBdAshGCl9gdfL9lNBzzYzu/Zops4/t+vfjhTqyRTyEKxxZRjnvi2QYrMAFMBijbYH55+nqdlTsGv65CqPEbEBJLlBq7gxvSH0qXc9TILzuRevx3tfRfvu3J0cevPFv+Pq4VSA6vP2nXLS0Q6KNRW0xjqo/wwpDjb9upjmJ8nROTQdkwp1mfwPYmgAnAm/UoqawoYtllqGvMyMvUAtaU3+rK6VkmSjVGbQKoAVLNJqunWnbr1GzvZu0QOCtt+/3yt8PvHk+ZAAJAnKWCG4NUhd08Vq21JQS4U0DyFL/8QUvCBBAE5Cw13BUgcQlZYSxxCECsXPCxwy8O0156dgOnNzVVlLT+55T4YhohsVObeIaOeeHJrkPchV/+YIC9AwgGdJY6UpdxIeaAjhKY5JvJ9DRfXd0kfJekT0xvCMPu2QSQ375sWw+tPguWy9/VoHo4v4ph2E/SRYOaVc8mYwLoxiBrpcg8TgosiyNAcBXhvSVcfV58Nj1uYQLozjjsAAhZJU+ddwNz407Y8j9IOqk7s4y7JxNAt/YH7z9PnwRcne0q23C3s2zeG7/0/OpzekLdREtHCJgAOgJ6qW548UlaubckEmaOVci6fElKuHqaz/e7XwYmgO4xn90jPgG2vK8caIWchdDlYhLXqblHcdN0zTDe3k0A/bD941PcAOmsukygOY3Zc7THNWqO9nyRZxoWmNWnCWDKBliq+ydI2jM5C7uqftQVAmQtOkzS59L15K76dT8LIGAC6N/yoFjm2imKcJt0P79/o6w3Ipx756XCp4Ty3lrvMbfqCgETQFdIN++HTwGIYHdJG1f59dfosDxZ89He/QRJSK6scvOfnvImEshD4hFLDxEwAfTQKHMMCTttVKUFp0Aqufg4OaBmYV/sRzouimKSLZnahiRMvbEMaMc9yr4soHFbofnsV5W0UxUmSwEOkpCs0FzFxE/ckVKMfTuVNT/DTr2JMe1cgQmgc8jDOySmgOAicvNTEmvD9OlAQs8o++Kt50XnzP5/q/z7l6ZtPlt7iMBSKAJRC6TQ6Q9u2JABL/6SRJ5cS35UyuHP3/OHv+PfyeNP0k9eYKoOUdKauno46kggysvNWT1n9PwbyUX5Nx/dDWjZmAAGZExPxQg0RcAE0BQxtzcCA0LABDAgY3oqRqApAiaApoi5vREYEAImgAEZ01MxAk0RMAE0RcztjcCAEDABDMiYnooRaIqACaApYm5vBAaEgAlgQMb0VIxAUwRMAE0Rc3sjMCAETAADMqanYgSaImACaIqY2xuBASFgAhiQMT0VI9AUARNAU8Tc3ggMCAETwICM6akYgaYImACaIub2RmBACJgABmRMT8UINEXABNAUMbc3AgNCwAQwIGN6KkagKQImgKaIub0RGBACJoABGdNTMQJNETABNEXM7Y3AgBAwAQzImJ6KEWiKgAmgKWJubwQGhIAJYEDG9FSMQFMETABNEXN7IzAgBEwAAzKmp2IEmiJgAmiKmNsbgQEhYAIYkDE9FSPQFAETQFPE3N4IDAgBE8CAjOmpGIGmCJgAmiLm9kZgQAj8P+LslD03O74QAAAAAElFTkSuQmCC"
+      },
+      "LastModified": "2025-06-06T08:19:18.7160164+02:00",
+      "LastModifiedDisplay": "06.06.2025 08:19:18"
     }
   ],
   "ImportVersion": 10,
