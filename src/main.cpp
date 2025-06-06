@@ -17,6 +17,25 @@
 #include <RemoteDebug.h>
 #include "time.h"
 
+
+struct tm myTime;
+bool timeKnown = false;
+bool dateKnown = false;
+
+void timeCallback(GroupObject& go)
+{
+    if (go.value())
+    {
+			myTime = KoAPP_Time.value();
+			unsigned short tmp_sec = myTime.tm_sec;
+			Serial.print("Callback: "); Serial.println(myTime.tm_min);
+			//Serial.println(go.value);
+		}
+		setTime(Hour, Minute, Second, Day, Month, Year);
+}
+
+
+
 const char* hostname = "wn90";
 const char* mqtt_server = "broker.localnet";
 const char *mqtt_username = "";
@@ -50,6 +69,7 @@ void RS485_Mode(int Mode);
 void RS485_TX();
 void RS485_RX();
 
+u_int16_t pressureRing[12] = (NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN );	// Ringbuffer for calculating pressure tendencies
 u_int32_t light = NAN;
 double uvIndex = NAN;
 double temperature = NAN;
@@ -214,13 +234,15 @@ void setup() {
 
 		}
 
-
-
+		KoAPP_Time.dataPointType(DPT_TimeOfDay);
+		KoAPP_Time.callback(timeCallback);
 	}
+	knx.start();
+
 }
 
 unsigned long lastChange = 0;
-unsigned long delayTime  = 4000;
+unsigned long delayTime  = 30000;
 
 void loop() {
 	server.handleClient();
