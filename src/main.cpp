@@ -9,29 +9,72 @@
 #include <Adafruit_NeoPixel.h>
 #include <ModbusMaster.h>
 #include <PubSubClient.h>
-#include "Json.h"
+#include <Json.h>
 #include "knxprod.h"
 #include <knx.h>
 #define DEBUG_DISABLE_DEBUGGER true	// Debug Optionen in SerialDebug deaktivieren
 #define DEBUG_INITIAL_LEVEL DEBUG_LEVEL_VERBOSE	// Default Debug Level
 #include <RemoteDebug.h>
-#include "time.h"
+#include <TimeLib.h>
 
 
 struct tm myTime;
 bool timeKnown = false;
 bool dateKnown = false;
 
-void timeCallback(GroupObject& go)
-{
-    if (go.value())
-    {
-			myTime = KoAPP_Time.value();
-			unsigned short tmp_sec = myTime.tm_sec;
-			Serial.print("Callback: "); Serial.println(myTime.tm_min);
-			//Serial.println(go.value);
+void timeCallback(GroupObject& go) {
+	if (go.value()) {
+		timeKnown = true;
+		myTime = KoAPP_Time.value();
+		unsigned short tmp_sec = myTime.tm_sec;
+		unsigned short tmp_min = myTime.tm_min;
+		unsigned short tmp_hour = myTime.tm_hour;
+		char buf[52];
+		sprintf(buf, "Time received from bus: %02d:%02d:%02d", tmp_hour, tmp_min, tmp_sec );
+		Serial.println(buf);
+		time_t t = now();
+		setTime(tmp_hour, tmp_min, tmp_sec, day(t), month(t), year(t));
+		if (dateKnown == true) {
+			sprintf(buf, "Setting/Adjusting system time: %2d.%2d.%4d, %02d:%02d:%02d", day(t), month(t), year(t), tmp_hour, tmp_min, tmp_sec );
+			Serial.println(buf);
 		}
-		setTime(Hour, Minute, Second, Day, Month, Year);
+	}
+}
+void dateCallback(GroupObject& go) {
+	if (go.value()) {
+		dateKnown = true;
+		myTime = KoAPP_Date.value();
+		unsigned short tmp_mday = myTime.tm_mday;
+		unsigned short tmp_mon = myTime.tm_mon;
+		unsigned short tmp_year = myTime.tm_year;
+		char buf[52];
+		sprintf(buf, "Date received from bus: %2d.%2d.%4d", tmp_mday, tmp_mon, tmp_year );
+		Serial.println(buf);
+		time_t t = now();
+		setTime(hour(t), minute(t), second(t), tmp_mday, tmp_mon, tmp_year);
+		if (timeKnown == true) {
+			sprintf(buf, "Setting/Adjusting system time: %2d.%2d.%4d, %02d:%02d:%02d", tmp_mday, tmp_mon, tmp_year, hour(t), minute(t), second(t) );
+			Serial.println(buf);
+		}
+	}
+}
+void dateTimeCallback(GroupObject& go) {
+	if (go.value()) {
+		dateKnown = true;
+		timeKnown = true;
+		myTime = KoAPP_Date.value();
+		unsigned short tmp_sec = myTime.tm_sec;
+		unsigned short tmp_min = myTime.tm_min;
+		unsigned short tmp_hour = myTime.tm_hour;
+		unsigned short tmp_mday = myTime.tm_mday;
+		unsigned short tmp_mon = myTime.tm_mon;
+		unsigned short tmp_year = myTime.tm_year;
+		char buf[52];
+		sprintf(buf, "DateTime received from bus: %2d.%2d.%4d, %02d:%02d:%02d", tmp_mday, tmp_mon, tmp_year, tmp_hour, tmp_min, tmp_sec );
+		Serial.println(buf);
+		Serial.println("Setting/Adjusting system time");
+		setTime(tmp_hour, tmp_min, tmp_sec, tmp_mday, tmp_mon, tmp_year);
+	}
 }
 
 
@@ -69,7 +112,7 @@ void RS485_Mode(int Mode);
 void RS485_TX();
 void RS485_RX();
 
-u_int16_t pressureRing[12] = (NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN );	// Ringbuffer for calculating pressure tendencies
+u_int16_t pressureRing[12] = { NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN };	// Ringbuffer for calculating pressure tendencies
 u_int32_t light = NAN;
 double uvIndex = NAN;
 double temperature = NAN;
@@ -234,8 +277,17 @@ void setup() {
 
 		}
 
-		KoAPP_Time.dataPointType(DPT_TimeOfDay);
-		KoAPP_Time.callback(timeCallback);
+		if (ParamAPP_DateTime_DPTs == 0) {
+			Serial.println("Receive time and date from different KOs, define callbacks");
+			KoAPP_Time.dataPointType(DPT_TimeOfDay);
+			KoAPP_Time.callback(timeCallback);
+			KoAPP_Date.dataPointType(DPT_Date);
+			KoAPP_Date.callback(dateCallback);
+		} else {
+			Serial.println("Receive time and date from a single KOs, define callback");
+			KoAPP_DateTime.dataPointType(DPT_DateTime);
+			KoAPP_DateTime.callback(dateTimeCallback);
+		}
 	}
 	knx.start();
 
