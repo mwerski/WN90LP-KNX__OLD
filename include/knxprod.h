@@ -25,9 +25,9 @@
 #define APP_Heartbeat_Mask	0x0FFF
 // Offset: 1, Size: 12 Bit, Text: "In Betrieb" senden alle
 #define ParamAPP_Heartbeat ((uint32_t)((knx.paramWord(APP_Heartbeat) >> APP_Heartbeat_Shift) & APP_Heartbeat_Mask))
-#define APP_Date/Time_DPTs		0x0000
+#define APP_DateTime_DPTs		0x0000
 // Offset: 0, BitOffset: 5, Size: 1 Bit, Text: Zeit empfangen über
-#define ParamAPP_Date/Time_DPTs knx.paramBit(APP_Date/Time_DPTs, 5)
+#define ParamAPP_DateTime_DPTs knx.paramBit(APP_DateTime_DPTs, 5)
 #define APP_Watchdog		0x0000
 // Offset: 0, BitOffset: 6, Size: 1 Bit, Text: Watchdog aktivieren
 #define ParamAPP_Watchdog knx.paramBit(APP_Watchdog, 6)
