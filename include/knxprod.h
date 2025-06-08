@@ -11,8 +11,8 @@
 #define MAIN_ApplicationNumber 0x00
 #define MAIN_ApplicationVersion 0x01
 #define MAIN_OrderNumber "p3-00012.1"
-#define MAIN_ParameterSize 146
-#define MAIN_MaxKoNumber 7
+#define MAIN_ParameterSize 167
+#define MAIN_MaxKoNumber 13
 
 
 #define APP_startUp_Delay		0x0000
@@ -37,55 +37,105 @@
 #define APP_Feinstaubsensor_vorhanden		0x0003
 // Offset: 3, Size: 1 Bit, Text: Feinstaubsensor
 #define ParamAPP_Feinstaubsensor_vorhanden knx.paramBit(APP_Feinstaubsensor_vorhanden, 0)
+#define APP_useMQTT		0x0003
+// Offset: 3, BitOffset: 1, Size: 1 Bit, Text: MQTT nutzen
+#define ParamAPP_useMQTT knx.paramBit(APP_useMQTT, 1)
 #define APP_MQTT_Host		0x0004
-// Offset: 4, Size: 256 Bit (32 Byte), Text: MQTT Broker Hostname/IP
+// Offset: 4, Size: 256 Bit (32 Byte), Text: Broker Hostname/IP
 #define ParamAPP_MQTT_Host knx.paramData(APP_MQTT_Host)
 #define APP_MQTT_Port		0x0024
-// Offset: 36, Size: 16 Bit (2 Byte), Text: MQTT Broker Port
+// Offset: 36, Size: 16 Bit (2 Byte), Text: Broker Port
 #define ParamAPP_MQTT_Port ((uint32_t)((knx.paramWord(APP_MQTT_Port))))
 #define APP_MQTT_User		0x0026
-// Offset: 38, Size: 256 Bit (32 Byte), Text: MQTT Broker Username
+// Offset: 38, Size: 256 Bit (32 Byte), Text: Username
 #define ParamAPP_MQTT_User knx.paramData(APP_MQTT_User)
 #define APP_MQTT_Password		0x0046
-// Offset: 70, Size: 256 Bit (32 Byte), Text: MQTT Broker Password
+// Offset: 70, Size: 256 Bit (32 Byte), Text: Password
 #define ParamAPP_MQTT_Password knx.paramData(APP_MQTT_Password)
 #define APP_MQTT_Topic		0x0066
-// Offset: 102, Size: 256 Bit (32 Byte), Text: MQTT Topic
+// Offset: 102, Size: 256 Bit (32 Byte), Text: Topic
 #define ParamAPP_MQTT_Topic knx.paramData(APP_MQTT_Topic)
+#define APP_MQTT_Frequency		0x0086
+#define APP_MQTT_Frequency_Shift	4
+#define APP_MQTT_Frequency_Mask	0x0FFF
+// Offset: 134, Size: 12 Bit, Text: Sende Messwerte alle
+#define ParamAPP_MQTT_Frequency ((uint32_t)((knx.paramWord(APP_MQTT_Frequency) >> APP_MQTT_Frequency_Shift) & APP_MQTT_Frequency_Mask))
 #define APP_Uhrzeit_beim_Start_lesen		0x0003
-// Offset: 3, BitOffset: 1, Size: 1 Bit, Text: Uhrzeit beim Start lesen
-#define ParamAPP_Uhrzeit_beim_Start_lesen knx.paramBit(APP_Uhrzeit_beim_Start_lesen, 1)
+// Offset: 3, BitOffset: 2, Size: 1 Bit, Text: Uhrzeit beim Start lesen
+#define ParamAPP_Uhrzeit_beim_Start_lesen knx.paramBit(APP_Uhrzeit_beim_Start_lesen, 2)
+#define APP_RemoteDebug		0x0003
+// Offset: 3, BitOffset: 3, Size: 1 Bit, Text: RemoteDebug aktivieren
+#define ParamAPP_RemoteDebug knx.paramBit(APP_RemoteDebug, 3)
 #define APP_Temperatur_DPT		0x0003
-// Offset: 3, BitOffset: 2, Size: 1 Bit, Text: Sende Temperatur als
-#define ParamAPP_Temperatur_DPT knx.paramBit(APP_Temperatur_DPT, 2)
-#define APP_Temperatur_Senden_zyklisch		0x0086
+// Offset: 3, BitOffset: 4, Size: 1 Bit, Text: Sende Temperatur als
+#define ParamAPP_Temperatur_DPT knx.paramBit(APP_Temperatur_DPT, 4)
+#define APP_Temperatur_Senden_zyklisch		0x0088
 #define APP_Temperatur_Senden_zyklisch_Shift	4
 #define APP_Temperatur_Senden_zyklisch_Mask	0x0FFF
-// Offset: 134, Size: 12 Bit, Text: Sende Temperatur alle
+// Offset: 136, Size: 12 Bit, Text: Sende Temperatur alle
 #define ParamAPP_Temperatur_Senden_zyklisch ((uint32_t)((knx.paramWord(APP_Temperatur_Senden_zyklisch) >> APP_Temperatur_Senden_zyklisch_Shift) & APP_Temperatur_Senden_zyklisch_Mask))
-#define APP_Temperatur_Senden_Wertaenderung_absolut		0x0088
-// Offset: 136, Size: 16 Bit (2 Byte), Text: Sende bei Änderung um
-#define ParamAPP_Temperatur_Senden_Wertaenderung_absolut knx.paramFloat(APP_Temperatur_Senden_Wertaenderung_absolut, Float_Enc_DPT9)
-#define APP_Temperatur_Senden_Wertaenderung_relativ		0x008A
+#define APP_Temperatur_Senden_Wertaenderung_absolut		0x008A
 // Offset: 138, Size: 16 Bit (2 Byte), Text: Sende bei Änderung um
+#define ParamAPP_Temperatur_Senden_Wertaenderung_absolut knx.paramFloat(APP_Temperatur_Senden_Wertaenderung_absolut, Float_Enc_DPT9)
+#define APP_Temperatur_Senden_Wertaenderung_relativ		0x008C
+// Offset: 140, Size: 16 Bit (2 Byte), Text: Sende bei Änderung um
 #define ParamAPP_Temperatur_Senden_Wertaenderung_relativ knx.paramFloat(APP_Temperatur_Senden_Wertaenderung_relativ, Float_Enc_DPT9)
 #define APP_Feuchte_DPT		0x0003
-// Offset: 3, BitOffset: 3, Size: 1 Bit, Text: Sende Feuchte als
-#define ParamAPP_Feuchte_DPT knx.paramBit(APP_Feuchte_DPT, 3)
-#define APP_Feuchte_Senden_zyklisch		0x008C
+// Offset: 3, BitOffset: 5, Size: 1 Bit, Text: Sende Feuchte als
+#define ParamAPP_Feuchte_DPT knx.paramBit(APP_Feuchte_DPT, 5)
+#define APP_Feuchte_Senden_zyklisch		0x008E
 #define APP_Feuchte_Senden_zyklisch_Shift	4
 #define APP_Feuchte_Senden_zyklisch_Mask	0x0FFF
-// Offset: 140, Size: 12 Bit, Text: Sende relative Feuchte alle
+// Offset: 142, Size: 12 Bit, Text: Sende relative Feuchte alle
 #define ParamAPP_Feuchte_Senden_zyklisch ((uint32_t)((knx.paramWord(APP_Feuchte_Senden_zyklisch) >> APP_Feuchte_Senden_zyklisch_Shift) & APP_Feuchte_Senden_zyklisch_Mask))
-#define APP_Feuchte_Senden_Wertaenderung_absolut		0x008E
-// Offset: 142, Size: 16 Bit (2 Byte), Text: Sende bei Änderung um
-#define ParamAPP_Feuchte_Senden_Wertaenderung_absolut knx.paramFloat(APP_Feuchte_Senden_Wertaenderung_absolut, Float_Enc_DPT9)
-#define APP_Feuchte_Senden_Wertaenderung_relativ		0x0090
+#define APP_Feuchte_Senden_Wertaenderung_absolut		0x0090
 // Offset: 144, Size: 16 Bit (2 Byte), Text: Sende bei Änderung um
+#define ParamAPP_Feuchte_Senden_Wertaenderung_absolut knx.paramFloat(APP_Feuchte_Senden_Wertaenderung_absolut, Float_Enc_DPT9)
+#define APP_Feuchte_Senden_Wertaenderung_relativ		0x0092
+// Offset: 146, Size: 16 Bit (2 Byte), Text: Sende bei Änderung um
 #define ParamAPP_Feuchte_Senden_Wertaenderung_relativ knx.paramFloat(APP_Feuchte_Senden_Wertaenderung_relativ, Float_Enc_DPT9)
-#define APP_RemoteDebug		0x0003
-// Offset: 3, BitOffset: 4, Size: 1 Bit, Text: RemoteDebug aktivieren
-#define ParamAPP_RemoteDebug knx.paramBit(APP_RemoteDebug, 4)
+#define APP_WindSpeed_DPT		0x0003
+// Offset: 3, BitOffset: 6, Size: 1 Bit, Text: Sende Windgeschwindigkeit als
+#define ParamAPP_WindSpeed_DPT knx.paramBit(APP_WindSpeed_DPT, 6)
+#define APP_WindDir_DPT		0x0003
+// Offset: 3, BitOffset: 7, Size: 1 Bit, Text: Sende Windgeschwindigkeit als
+#define ParamAPP_WindDir_DPT knx.paramBit(APP_WindDir_DPT, 7)
+#define APP_WindSpeed_Senden_zyklisch		0x0094
+#define APP_WindSpeed_Senden_zyklisch_Shift	4
+#define APP_WindSpeed_Senden_zyklisch_Mask	0x0FFF
+// Offset: 148, Size: 12 Bit, Text: Sende Windgeschwindigket alle
+#define ParamAPP_WindSpeed_Senden_zyklisch ((uint32_t)((knx.paramWord(APP_WindSpeed_Senden_zyklisch) >> APP_WindSpeed_Senden_zyklisch_Shift) & APP_WindSpeed_Senden_zyklisch_Mask))
+#define APP_WindSpeed_Senden_Wertaenderung_absolut		0x0096
+// Offset: 150, Size: 16 Bit (2 Byte), Text: Sende bei Änderung um
+#define ParamAPP_WindSpeed_Senden_Wertaenderung_absolut knx.paramFloat(APP_WindSpeed_Senden_Wertaenderung_absolut, Float_Enc_DPT9)
+#define APP_WindSpeed_Senden_Wertaenderung_relativ		0x0098
+// Offset: 152, Size: 16 Bit (2 Byte), Text: Sende bei Änderung um
+#define ParamAPP_WindSpeed_Senden_Wertaenderung_relativ knx.paramFloat(APP_WindSpeed_Senden_Wertaenderung_relativ, Float_Enc_DPT9)
+#define APP_WindDir_Senden_zyklisch		0x009A
+#define APP_WindDir_Senden_zyklisch_Shift	4
+#define APP_WindDir_Senden_zyklisch_Mask	0x0FFF
+// Offset: 154, Size: 12 Bit, Text: Sende Windrichtung alle
+#define ParamAPP_WindDir_Senden_zyklisch ((uint32_t)((knx.paramWord(APP_WindDir_Senden_zyklisch) >> APP_WindDir_Senden_zyklisch_Shift) & APP_WindDir_Senden_zyklisch_Mask))
+#define APP_WindDir_Senden_Wertaenderung_absolut		0x009C
+// Offset: 156, Size: 16 Bit (2 Byte), Text: Sende bei Änderung um
+#define ParamAPP_WindDir_Senden_Wertaenderung_absolut knx.paramFloat(APP_WindDir_Senden_Wertaenderung_absolut, Float_Enc_DPT9)
+#define APP_WindDir_Senden_Wertaenderung_relativ		0x009E
+// Offset: 158, Size: 16 Bit (2 Byte), Text: Sende bei Änderung um
+#define ParamAPP_WindDir_Senden_Wertaenderung_relativ knx.paramFloat(APP_WindDir_Senden_Wertaenderung_relativ, Float_Enc_DPT9)
+#define APP_Pressure_DPT		0x00A0
+// Offset: 160, Size: 1 Bit, Text: Sende Luftdruck als
+#define ParamAPP_Pressure_DPT knx.paramBit(APP_Pressure_DPT, 0)
+#define APP_Pressure_Senden_zyklisch		0x00A1
+#define APP_Pressure_Senden_zyklisch_Shift	4
+#define APP_Pressure_Senden_zyklisch_Mask	0x0FFF
+// Offset: 161, Size: 12 Bit, Text: Sende Luftdruck alle
+#define ParamAPP_Pressure_Senden_zyklisch ((uint32_t)((knx.paramWord(APP_Pressure_Senden_zyklisch) >> APP_Pressure_Senden_zyklisch_Shift) & APP_Pressure_Senden_zyklisch_Mask))
+#define APP_Pressure_Senden_Wertaenderung_absolut		0x00A3
+// Offset: 163, Size: 16 Bit (2 Byte), Text: Sende bei Änderung um
+#define ParamAPP_Pressure_Senden_Wertaenderung_absolut knx.paramFloat(APP_Pressure_Senden_Wertaenderung_absolut, Float_Enc_DPT9)
+#define APP_Pressure_Senden_Wertaenderung_relativ		0x00A5
+// Offset: 165, Size: 16 Bit (2 Byte), Text: Sende bei Änderung um
+#define ParamAPP_Pressure_Senden_Wertaenderung_relativ knx.paramFloat(APP_Pressure_Senden_Wertaenderung_relativ, Float_Enc_DPT9)
 //!< Number: 1, Text: In Betrieb, Function: Statusmeldung
 #define APP_KoHeartbeat 1
 #define KoAPP_Heartbeat knx.getGroupObject(APP_KoHeartbeat)
@@ -101,16 +151,52 @@
 //!< Number: 5, Text: Datum/Zeit, Function: Eingang
 #define APP_KoDateTime 5
 #define KoAPP_DateTime knx.getGroupObject(APP_KoDateTime)
-//!< Number: 6, Text: Temperatur, Function: Messwert
+//!< Number: 6, Text: Temperatur (°C), Function: Messwert
 #define APP_KoTemperatur_DPT9 6
 #define KoAPP_Temperatur_DPT9 knx.getGroupObject(APP_KoTemperatur_DPT9)
-//!< Number: 6, Text: Temperatur, Function: Messwert
+//!< Number: 6, Text: Temperatur (°C), Function: Messwert
 #define APP_KoTemperatur_DPT14 6
 #define KoAPP_Temperatur_DPT14 knx.getGroupObject(APP_KoTemperatur_DPT14)
-//!< Number: 7, Text: relative Feuchte, Function: Messwert
+//!< Number: 7, Text: relative Feuchte (%), Function: Messwert
 #define APP_KoFeuchte_DPT6 7
 #define KoAPP_Feuchte_DPT6 knx.getGroupObject(APP_KoFeuchte_DPT6)
-//!< Number: 7, Text: relative Feuchte, Function: Messwert
+//!< Number: 7, Text: relative Feuchte (%), Function: Messwert
 #define APP_KoFeuchte_DPT9 7
 #define KoAPP_Feuchte_DPT9 knx.getGroupObject(APP_KoFeuchte_DPT9)
+//!< Number: 8, Text: Luftdruck (mBar), Function: Messwert
+#define APP_KoPressure_DPT9 8
+#define KoAPP_Pressure_DPT9 knx.getGroupObject(APP_KoPressure_DPT9)
+//!< Number: 8, Text: Luftdruck (mBar), Function: Messwert
+#define APP_KoPressure_DPT14 8
+#define KoAPP_Pressure_DPT14 knx.getGroupObject(APP_KoPressure_DPT14)
+//!< Number: 9, Text: Luftdruck Tendenz (stündlch), Function: Messwert
+#define APP_KoPressureTrend1h_DPT9 9
+#define KoAPP_PressureTrend1h_DPT9 knx.getGroupObject(APP_KoPressureTrend1h_DPT9)
+//!< Number: 9, Text: Luftdruck Tendenz (stündlch), Function: Messwert
+#define APP_KoPressureTrend1h_DPT14 9
+#define KoAPP_PressureTrend1h_DPT14 knx.getGroupObject(APP_KoPressureTrend1h_DPT14)
+//!< Number: 10, Text: Luftdruck Tendenz (3 stündlch), Function: Messwert
+#define APP_KoPressureTrend3h_DPT9 10
+#define KoAPP_PressureTrend3h_DPT9 knx.getGroupObject(APP_KoPressureTrend3h_DPT9)
+//!< Number: 10, Text: Luftdruck Tendenz (3 stündlch), Function: Messwert
+#define APP_KoPressureTrend3h_DPT14 10
+#define KoAPP_PressureTrend3h_DPT14 knx.getGroupObject(APP_KoPressureTrend3h_DPT14)
+//!< Number: 11, Text: Windgeschwindigkeit (m/s), Function: Messwert
+#define APP_KoWindSpeed_DPT9 11
+#define KoAPP_WindSpeed_DPT9 knx.getGroupObject(APP_KoWindSpeed_DPT9)
+//!< Number: 11, Text: Windgeschwindigkeit (m/s), Function: Messwert
+#define APP_KoWindSpeed_DPT14 11
+#define KoAPP_WindSpeed_DPT14 knx.getGroupObject(APP_KoWindSpeed_DPT14)
+//!< Number: 12, Text: Windgeschwindigkeit in Böen (m/s), Function: Messwert
+#define APP_KoGustSpeed_DPT9 12
+#define KoAPP_GustSpeed_DPT9 knx.getGroupObject(APP_KoGustSpeed_DPT9)
+//!< Number: 12, Text: Windgeschwindigkeit in Böen (m/s), Function: Messwert
+#define APP_KoGustSpeed_DPT14 12
+#define KoAPP_GustSpeed_DPT14 knx.getGroupObject(APP_KoGustSpeed_DPT14)
+//!< Number: 13, Text: Windrichtung (Grad), Function: Messwert
+#define APP_KoWindDir_DPT9 13
+#define KoAPP_WindDir_DPT9 knx.getGroupObject(APP_KoWindDir_DPT9)
+//!< Number: 13, Text: Windrichtung (Grad), Function: Messwert
+#define APP_KoWindDir_DPT14 13
+#define KoAPP_WindDir_DPT14 knx.getGroupObject(APP_KoWindDir_DPT14)
 
