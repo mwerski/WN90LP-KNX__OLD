@@ -12,7 +12,7 @@
 #define MAIN_ApplicationVersion 0x01
 #define MAIN_OrderNumber "p3-00012.1"
 #define MAIN_ParameterSize 167
-#define MAIN_MaxKoNumber 13
+#define MAIN_MaxKoNumber 16
 
 
 #define APP_startUp_Delay		0x0000
@@ -163,6 +163,9 @@
 //!< Number: 7, Text: relative Feuchte (%), Function: Messwert
 #define APP_KoFeuchte_DPT9 7
 #define KoAPP_Feuchte_DPT9 knx.getGroupObject(APP_KoFeuchte_DPT9)
+//!< Number: 7, Text: relative Feuchte (%), Function: Messwert
+#define APP_KoFeuchte_DPT14 7
+#define KoAPP_Feuchte_DPT14 knx.getGroupObject(APP_KoFeuchte_DPT14)
 //!< Number: 8, Text: Luftdruck (mBar), Function: Messwert
 #define APP_KoPressure_DPT9 8
 #define KoAPP_Pressure_DPT9 knx.getGroupObject(APP_KoPressure_DPT9)
@@ -199,4 +202,28 @@
 //!< Number: 13, Text: Windrichtung (Grad), Function: Messwert
 #define APP_KoWindDir_DPT14 13
 #define KoAPP_WindDir_DPT14 knx.getGroupObject(APP_KoWindDir_DPT14)
+//!< Number: 14, Text: Helligkeit (Lux), Function: Messwert
+#define APP_KoHelligkeit_DPT9 14
+#define KoAPP_Helligkeit_DPT9 knx.getGroupObject(APP_KoHelligkeit_DPT9)
+//!< Number: 15, Text: Helligkeit (Lux), Function: Messwert
+#define APP_KoHelligkeit_DPT14 15
+#define KoAPP_Helligkeit_DPT14 knx.getGroupObject(APP_KoHelligkeit_DPT14)
+//!< Number: 14, Text: UV-Index, Function: Messwert
+#define APP_KoUVindex_DPT9 14
+#define KoAPP_UVindex_DPT9 knx.getGroupObject(APP_KoUVindex_DPT9)
+//!< Number: 14, Text: UV-Index, Function: Messwert
+#define APP_KoUVindex_DPT14 14
+#define KoAPP_UVindex_DPT14 knx.getGroupObject(APP_KoUVindex_DPT14)
+//!< Number: 15, Text: Regenmenge (0.1mm), Function: Messwert
+#define APP_KoRainFall_DPT9 15
+#define KoAPP_RainFall_DPT9 knx.getGroupObject(APP_KoRainFall_DPT9)
+//!< Number: 15, Text: Regenmenge (0.1mm), Function: Messwert
+#define APP_KoRainFall_DPT14 15
+#define KoAPP_RainFall_DPT14 knx.getGroupObject(APP_KoRainFall_DPT14)
+//!< Number: 16, Text: Regenmenge (0.01mm), Function: Messwert
+#define APP_KoRainCounter_DPT9 16
+#define KoAPP_RainCounter_DPT9 knx.getGroupObject(APP_KoRainCounter_DPT9)
+//!< Number: 16, Text: Regenmenge (0.01mm), Function: Messwert
+#define APP_KoRainCounter_DPT14 16
+#define KoAPP_RainCounter_DPT14 knx.getGroupObject(APP_KoRainCounter_DPT14)
 
