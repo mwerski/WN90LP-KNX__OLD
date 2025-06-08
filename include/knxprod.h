@@ -12,7 +12,7 @@
 #define MAIN_ApplicationVersion 0x01
 #define MAIN_OrderNumber "p3-00012.1"
 #define MAIN_ParameterSize 233
-#define MAIN_MaxKoNumber 18
+#define MAIN_MaxKoNumber 36
 
 
 #define APP_startUp_Delay		0x0000
@@ -216,8 +216,8 @@
 //!< Number: 6, Text: Temperatur (°C), Function: Messwert
 #define APP_KoTemperatur_DPT9 6
 #define KoAPP_Temperatur_DPT9 knx.getGroupObject(APP_KoTemperatur_DPT9)
-//!< Number: 6, Text: Temperatur (°C), Function: Messwert
-#define APP_KoTemperatur_DPT14 6
+//!< Number: 36, Text: Temperatur (°C), Function: Messwert
+#define APP_KoTemperatur_DPT14 36
 #define KoAPP_Temperatur_DPT14 knx.getGroupObject(APP_KoTemperatur_DPT14)
 //!< Number: 7, Text: Taupunkt (°C), Function: Messwert
 #define APP_KoTaupunkt_DPT9 7

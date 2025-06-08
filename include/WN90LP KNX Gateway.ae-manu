@@ -766,6 +766,44 @@
         "DisplayOffset": "0",
         "DisplayFactor": "1",
         "Enums": []
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ParameterType, Kaenx.Creator.Share",
+        "UId": 17,
+        "Name": "IPv4 Netmask",
+        "Type": 6,
+        "IsSizeManual": false,
+        "TranslateEnums": true,
+        "SizeInBit": 32,
+        "OtherValue": true,
+        "ExportInHeader": false,
+        "UIHint": "SubnetMask",
+        "BaggageUId": -1,
+        "Min": "0",
+        "Max": "255",
+        "Increment": "IPv4",
+        "DisplayOffset": "0",
+        "DisplayFactor": "1",
+        "Enums": []
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ParameterType, Kaenx.Creator.Share",
+        "UId": 18,
+        "Name": "IPv4 Gateway",
+        "Type": 6,
+        "IsSizeManual": false,
+        "TranslateEnums": true,
+        "SizeInBit": 32,
+        "OtherValue": true,
+        "ExportInHeader": false,
+        "UIHint": "GatewayAddress",
+        "BaggageUId": -1,
+        "Min": "0",
+        "Max": "255",
+        "Increment": "IPv4",
+        "DisplayOffset": "0",
+        "DisplayFactor": "1",
+        "Enums": []
       }
     ],
     "Parameters": [
@@ -3815,7 +3853,7 @@
         "SavePath": 1,
         "MemoryId": 1,
         "UnionId": 0,
-        "ParameterType": 8,
+        "ParameterType": 17,
         "Value": "255.255.255.0",
         "IsInUnion": false,
         "IsUnionDefault": false,
@@ -3877,7 +3915,7 @@
         "SavePath": 1,
         "MemoryId": 1,
         "UnionId": 0,
-        "ParameterType": 8,
+        "ParameterType": 18,
         "Value": "192.168.4.2",
         "IsInUnion": false,
         "IsUnionDefault": false,
@@ -8106,7 +8144,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 6,
+        "Number": 36,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -23090,7 +23128,7 @@
     "LastParameterRefId": 52,
     "LastDynModuleId": 0,
     "LastDynSeparatorId": 0,
-    "HighestComNumber": 18
+    "HighestComNumber": 36
   },
   "Catalog": [
     {
