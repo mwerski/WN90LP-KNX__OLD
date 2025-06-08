@@ -35,7 +35,7 @@ void timeCallback(GroupObject& go) {
 		time_t t = now();
 		setTime(tmp_hour, tmp_min, tmp_sec, day(t), month(t), year(t));
 		if (dateKnown == true) {
-			sprintf(buf, "Setting/Adjusting system time: %2d.%2d.%4d, %02d:%02d:%02d", day(t), month(t), year(t), tmp_hour, tmp_min, tmp_sec );
+			sprintf(buf, "Setting/Adjusting system time: %d.%d.%d, %02d:%02d:%02d", day(t), month(t), year(t), tmp_hour, tmp_min, tmp_sec );
 			Serial.println(buf);
 		}
 	}
@@ -48,17 +48,18 @@ void dateCallback(GroupObject& go) {
 		unsigned short tmp_mon = myTime.tm_mon;
 		unsigned short tmp_year = myTime.tm_year;
 		char buf[52];
-		sprintf(buf, "Date received from bus: %2d.%2d.%4d", tmp_mday, tmp_mon, tmp_year );
+		sprintf(buf, "Date received from bus: %d.%d.%d", tmp_mday, tmp_mon, tmp_year );
 		Serial.println(buf);
 		time_t t = now();
 		setTime(hour(t), minute(t), second(t), tmp_mday, tmp_mon, tmp_year);
 		if (timeKnown == true) {
-			sprintf(buf, "Setting/Adjusting system time: %2d.%2d.%4d, %02d:%02d:%02d", tmp_mday, tmp_mon, tmp_year, hour(t), minute(t), second(t) );
+			sprintf(buf, "Setting/Adjusting system time: %d.%d.%d, %02d:%02d:%02d", tmp_mday, tmp_mon, tmp_year, hour(t), minute(t), second(t) );
 			Serial.println(buf);
 		}
 	}
 }
 void dateTimeCallback(GroupObject& go) {
+	// Untested
 	if (go.value()) {
 		dateKnown = true;
 		timeKnown = true;
@@ -70,7 +71,7 @@ void dateTimeCallback(GroupObject& go) {
 		unsigned short tmp_mon = myTime.tm_mon;
 		unsigned short tmp_year = myTime.tm_year;
 		char buf[52];
-		sprintf(buf, "DateTime received from bus: %2d.%2d.%4d, %02d:%02d:%02d", tmp_mday, tmp_mon, tmp_year, tmp_hour, tmp_min, tmp_sec );
+		sprintf(buf, "DateTime received from bus: %d.%d.%d, %02d:%02d:%02d", tmp_mday, tmp_mon, tmp_year, tmp_hour, tmp_min, tmp_sec );
 		Serial.println(buf);
 		Serial.println("Setting/Adjusting system time");
 		setTime(tmp_hour, tmp_min, tmp_sec, tmp_mday, tmp_mon, tmp_year);
@@ -272,22 +273,29 @@ void setup() {
 			Serial.println("Sende keinen Heartbeat");
 		}
 
-		if (ParamAPP_Uhrzeit_beim_Start_lesen == 1) {
-			Serial.print("Lese Uhrzeit vom Bus");
-
-		}
-
+		#pragma region KNX Time
 		if (ParamAPP_DateTime_DPTs == 0) {
-			Serial.println("Receive time and date from different KOs, define callbacks");
+			Serial.println("Receive time and date from different KOs, registering callbacks");
 			KoAPP_Time.dataPointType(DPT_TimeOfDay);
 			KoAPP_Time.callback(timeCallback);
 			KoAPP_Date.dataPointType(DPT_Date);
 			KoAPP_Date.callback(dateCallback);
+			if (ParamAPP_Uhrzeit_beim_Start_lesen == 1) {
+				Serial.println("Reading time and date from Bus");
+				KoAPP_Time.requestObjectRead();
+				KoAPP_Date.requestObjectRead();
+			}
 		} else {
-			Serial.println("Receive time and date from a single KOs, define callback");
+			Serial.println("Receive time and date from a single KO, registering callback");
 			KoAPP_DateTime.dataPointType(DPT_DateTime);
 			KoAPP_DateTime.callback(dateTimeCallback);
+			if (ParamAPP_Uhrzeit_beim_Start_lesen == 1) {
+				Serial.println("Reading time and date from Bus");
+				KoAPP_DateTime.requestObjectRead();
+			}
 		}
+		#pragma endregion
+
 	}
 	knx.start();
 
@@ -324,18 +332,22 @@ void loop() {
 			if ( node.getResponseBuffer(9) != 0xFFFF ) { rainCounter = node.getResponseBuffer(9) / 100.0; }
 			if ( (node.getResponseBuffer(2) != 0xFFFF) && (node.getResponseBuffer(3) != 0xFFFF) ) { dewPoint = dewpoint (temperature, humidity); }
 
-//			printLocalTime();
-			Serial.print("Light:          "); Serial.print( light ); Serial.println(" Lux");
-			Serial.print("UVI:            "); Serial.print( uvIndex , 1); Serial.println("");
-			Serial.print("Temperature:    "); Serial.print(temperature, 1); Serial.println(" °C");
-			Serial.print("Humidity:       "); Serial.print(humidity); Serial.println(" %");
-			Serial.print("Wind Speed:     "); Serial.print(windSpeed, 1); Serial.println(" m/s");
-			Serial.print("Gust Speed:     "); Serial.print(gustSpeed , 1); Serial.println(" m/s");
-			Serial.print("Wind Direction: "); Serial.print(windDirection); Serial.println(" °");
-			Serial.print("Rainfall:       "); Serial.print(rainfall , 1); Serial.println(" mm");
-			Serial.print("ABS Pressure:   "); Serial.print(absPressure , 1); Serial.println(" mbar");
-			Serial.print("Rain Counter:   "); Serial.print(rainCounter, 2); Serial.println(" mm");
-			Serial.print("Dewpoint:       "); Serial.print(dewPoint, 2); Serial.println(" °C");
+			time_t t = now();
+			char buf[40];
+			sprintf(buf, "Localtime...... %d.%d.%d, %02d:%02d:%02d", day(t), month(t), year(t), hour(t), minute(t), second(t));
+			Serial.println(buf);
+			Serial.print("Time status.... "); Serial.println(timeStatus());
+			Serial.print("Light.......... "); Serial.print( light ); Serial.println(" Lux");
+			Serial.print("UVI............ "); Serial.print( uvIndex , 1); Serial.println("");
+			Serial.print("Temperature.... "); Serial.print(temperature, 1); Serial.println(" °C");
+			Serial.print("Humidity....... "); Serial.print(humidity); Serial.println(" %");
+			Serial.print("Wind Speed..... "); Serial.print(windSpeed, 1); Serial.println(" m/s");
+			Serial.print("Gust Speed..... "); Serial.print(gustSpeed , 1); Serial.println(" m/s");
+			Serial.print("Wind Direction. "); Serial.print(windDirection); Serial.println(" °");
+			Serial.print("Rainfall....... "); Serial.print(rainfall , 1); Serial.println(" mm");
+			Serial.print("ABS Pressure... "); Serial.print(absPressure , 1); Serial.println(" mbar");
+			Serial.print("Rain Counter... "); Serial.print(rainCounter, 2); Serial.println(" mm");
+			Serial.print("Dewpoint....... "); Serial.print(dewPoint, 2); Serial.println(" °C");
 			
 
 			if (light != NAN) { mqttMsg.add("light", light ); }
@@ -361,6 +373,8 @@ void loop() {
 				msg.toCharArray(msgChar, msgLength);
 				mqttClient.publish("environmental/wn90", msgChar );
 			}
+
+			Serial.println();
 
 		}
 	}
