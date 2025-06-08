@@ -12,11 +12,17 @@
 #include <Json.h>
 #include "knxprod.h"
 #include <knx.h>
-#define DEBUG_DISABLE_DEBUGGER true	// Debug Optionen in SerialDebug deaktivieren
-#define DEBUG_INITIAL_LEVEL DEBUG_LEVEL_VERBOSE	// Default Debug Level
 #include <RemoteDebug.h>
 #include <TimeLib.h>
 
+#define DEBUG_DISABLE_DEBUGGER true	// Debug Optionen in SerialDebug deaktivieren
+#define DEBUG_INITIAL_LEVEL DEBUG_LEVEL_VERBOSE	// Default Debug Level
+
+#pragma region Scheduler definitions and prototypes
+#include <TaskScheduler.h>
+//Task task_updatePressureRingbuffer(RINGBUFFER_UPDATE, TASK_FOREVER, &updatePressureRingbuffer);	// update ringbuffer for trends of pressure readings
+Scheduler runner;
+#pragma endregion
 
 struct tm myTime;
 bool timeKnown = false;
@@ -35,11 +41,12 @@ void timeCallback(GroupObject& go) {
 		time_t t = now();
 		setTime(tmp_hour, tmp_min, tmp_sec, day(t), month(t), year(t));
 		if (dateKnown == true) {
-			sprintf(buf, "Setting/Adjusting system time: %2d.%2d.%4d, %02d:%02d:%02d", day(t), month(t), year(t), tmp_hour, tmp_min, tmp_sec );
+			sprintf(buf, "Setting/Adjusting system time: %d.%d.%d, %02d:%02d:%02d", day(t), month(t), year(t), tmp_hour, tmp_min, tmp_sec );
 			Serial.println(buf);
 		}
 	}
 }
+
 void dateCallback(GroupObject& go) {
 	if (go.value()) {
 		dateKnown = true;
@@ -48,17 +55,19 @@ void dateCallback(GroupObject& go) {
 		unsigned short tmp_mon = myTime.tm_mon;
 		unsigned short tmp_year = myTime.tm_year;
 		char buf[52];
-		sprintf(buf, "Date received from bus: %2d.%2d.%4d", tmp_mday, tmp_mon, tmp_year );
+		sprintf(buf, "Date received from bus: %d.%d.%d", tmp_mday, tmp_mon, tmp_year );
 		Serial.println(buf);
 		time_t t = now();
 		setTime(hour(t), minute(t), second(t), tmp_mday, tmp_mon, tmp_year);
 		if (timeKnown == true) {
-			sprintf(buf, "Setting/Adjusting system time: %2d.%2d.%4d, %02d:%02d:%02d", tmp_mday, tmp_mon, tmp_year, hour(t), minute(t), second(t) );
+			sprintf(buf, "Setting/Adjusting system time: %d.%d.%d, %02d:%02d:%02d", tmp_mday, tmp_mon, tmp_year, hour(t), minute(t), second(t) );
 			Serial.println(buf);
 		}
 	}
 }
+
 void dateTimeCallback(GroupObject& go) {
+	// Untested
 	if (go.value()) {
 		dateKnown = true;
 		timeKnown = true;
@@ -70,7 +79,7 @@ void dateTimeCallback(GroupObject& go) {
 		unsigned short tmp_mon = myTime.tm_mon;
 		unsigned short tmp_year = myTime.tm_year;
 		char buf[52];
-		sprintf(buf, "DateTime received from bus: %2d.%2d.%4d, %02d:%02d:%02d", tmp_mday, tmp_mon, tmp_year, tmp_hour, tmp_min, tmp_sec );
+		sprintf(buf, "DateTime received from bus: %d.%d.%d, %02d:%02d:%02d", tmp_mday, tmp_mon, tmp_year, tmp_hour, tmp_min, tmp_sec );
 		Serial.println(buf);
 		Serial.println("Setting/Adjusting system time");
 		setTime(tmp_hour, tmp_min, tmp_sec, tmp_mday, tmp_mon, tmp_year);
@@ -112,20 +121,43 @@ void RS485_Mode(int Mode);
 void RS485_TX();
 void RS485_RX();
 
-u_int16_t pressureRing[12] = { NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN, NAN };	// Ringbuffer for calculating pressure tendencies
-u_int32_t light = NAN;
-double uvIndex = NAN;
-double temperature = NAN;
-u_int8_t humidity = NAN;
-double absHumidity = NAN;
-double windSpeed = NAN;
-u_int16_t windDirection = NAN;
-double gustSpeed = NAN;
-double rainfall = NAN;
-double absPressure = NAN;
-double rainCounter = NAN;
-float dewPoint = NAN;
+#define RINGBUFFERSIZE 12
+u_int8_t lasthour = NAN;	// last ringbuffer update hour
+u_int8_t lastminute = NAN; // last ringbuffer update minute
+int16_t pressureRing[RINGBUFFERSIZE];	// Ringbuffer for calculating pressure tendencies
+#pragma region Weather data structures and variables
+struct wsdata_float {
+	double value;
+	bool read = false;
+};
+struct wsdata_integer {
+	int32_t value;
+	bool read = false;
+};
+wsdata_float uvIndex; // UV index
+wsdata_integer light; // brightness in Lux
+wsdata_float temperature; // temperature in degree celsius
+wsdata_integer humidity; // relative humidity in percent
+wsdata_float windSpeed; // windspeed in m/s
+wsdata_float gustSpeed; // gust speed in m/s
+wsdata_integer windDirection; // wind direction in degrees
+wsdata_float pressure; // absolute pressure in hPa / mBar
+wsdata_integer pressureTrend1; // gets measured and updated every 15 minutes, shows pressure differences from now to -1 hour, available after ~1 hour uptime
+wsdata_integer pressureTrend3; // gets measured every full hour, shows pressure differences from now to -3 hours, available after ~3 hours uptime
+wsdata_float rainFall; // rainfall in mm / liter - 0.1mm resolution
+wsdata_float rainCounter; // rainfall in mm / liter - 0.01mm resolution
+wsdata_float dewPoint; // dewpoint in degree celsius
+#pragma endregion
+
+#pragma region KNX stuff
+char* mqtt_host;
+char* mqtt_user;
+char* mqtt_pass;
+#pragma endregion
+
+
 float dewpoint(float t, float f) {
+	// calculates dewpoint from given temperature and relative hjmidity
 	float a, b;
   if (t >= 0) {
     a = 7.5;
@@ -272,103 +304,102 @@ void setup() {
 			Serial.println("Sende keinen Heartbeat");
 		}
 
-		if (ParamAPP_Uhrzeit_beim_Start_lesen == 1) {
-			Serial.print("Lese Uhrzeit vom Bus");
+		// convert Params to char arrays
+		mqtt_host = (char *) ParamAPP_MQTT_Host;
+		mqtt_user = (char *) ParamAPP_MQTT_Host;
+		mqtt_pass = (char *) ParamAPP_MQTT_Host;
+//		char mqtth[32];
+//		char* mqtth = (char*) ParamAPP_MQTT_Host;
+		//uint8_t* mqtth[32];
+		//mqtth = ParamAPP_MQTT_Host;
+		//	mqtth=knx.paramData(ParamAPP_MQTT_Host,32);
+		Serial.print("MQTT Host: "); Serial.println( mqtt_host);
+//		Serial.printf("Text: %s\n", (char*)mqtth);
+//		Serial.printf("[%u] get Text: %s\n", num, payload);
 
-		}
-
-		if (ParamAPP_DateTime_DPTs == 0) {
-			Serial.println("Receive time and date from different KOs, define callbacks");
+		#pragma region KNX Time
+		if (ParamAPP_DateTime_DPTs == 1) {
+			Serial.println("Receive time and date from different KOs, registering callbacks");
 			KoAPP_Time.dataPointType(DPT_TimeOfDay);
 			KoAPP_Time.callback(timeCallback);
 			KoAPP_Date.dataPointType(DPT_Date);
 			KoAPP_Date.callback(dateCallback);
+			if (ParamAPP_Uhrzeit_beim_Start_lesen == 1) {
+				Serial.println("Reading time and date from Bus");
+				KoAPP_Time.requestObjectRead();
+				KoAPP_Date.requestObjectRead();
+			}
 		} else {
-			Serial.println("Receive time and date from a single KOs, define callback");
+			Serial.println("Receive time and date from a single KO, registering callback");
 			KoAPP_DateTime.dataPointType(DPT_DateTime);
 			KoAPP_DateTime.callback(dateTimeCallback);
+			if (ParamAPP_Uhrzeit_beim_Start_lesen == 1) {
+				Serial.println("Reading time and date from Bus");
+				KoAPP_DateTime.requestObjectRead();
+			}
 		}
+		#pragma endregion
+
 	}
 	knx.start();
 
+	// initialize ringbuffer
+	for (u_int8_t i=0; i<RINGBUFFERSIZE; i++) { pressureRing[i] = NAN; }
+
+	Serial.println("Initializing scheduler");
+	runner.init();
+//	runner.addTask(task_updatePressureRingbuffer);
+
 }
 
-unsigned long lastChange = 0;
-unsigned long delayTime  = 30000;
+void printLocaltime(bool newline=false) {
+	time_t t = now();
+	char buf[20];
+	sprintf(buf, "%d.%d.%d, %02d:%02d:%02d", day(t), month(t), year(t), hour(t), minute(t), second(t));
+	Serial.print(buf);
+	if (newline == true) Serial.println();
+}
 
-void loop() {
-	server.handleClient();
-	ArduinoOTA.handle();
-	ElegantOTA.loop();
+uint8_t read_ws90() {
+	Serial.println("Read weather station data");
+	uint8_t c=10;
+	uint8_t result = node.readHoldingRegisters( 0x165, c );
+	Serial.print("result = ");
+	Serial.println( result );
 
+	if (result == node.ku8MBSuccess) {
+		if ( node.getResponseBuffer(0) != 0xFFFF ) { light.value = node.getResponseBuffer(0) * 10; light.read = true; }
+		if ( node.getResponseBuffer(1) != 0xFFFF ) { uvIndex.value = node.getResponseBuffer(1) / 10.0; uvIndex.read = true; }
+		if ( node.getResponseBuffer(2) != 0xFFFF ) { temperature.value = node.getResponseBuffer(2) / 10.0 - 40; temperature.read = true; }
+		if ( node.getResponseBuffer(3) != 0xFFFF ) { humidity.value = node.getResponseBuffer(3); humidity.read = true; }
+		if ( node.getResponseBuffer(4) != 0xFFFF ) { windSpeed.value = node.getResponseBuffer(4) / 10.0; windSpeed.read = true; }
+		if ( node.getResponseBuffer(5) != 0xFFFF ) { gustSpeed.value = node.getResponseBuffer(5) / 10.0; gustSpeed.read = true; }
+		if ( node.getResponseBuffer(6) != 0xFFFF ) { windDirection.value = node.getResponseBuffer(6); windDirection.read = true; }
+		if ( node.getResponseBuffer(7) != 0xFFFF ) { rainFall.value = node.getResponseBuffer(7) / 10.0; rainFall.read = true; }
+		if ( node.getResponseBuffer(8) != 0xFFFF ) { pressure.value = node.getResponseBuffer(8) / 10.0; pressure.read = true; }
+		if ( node.getResponseBuffer(9) != 0xFFFF ) { rainCounter.value = node.getResponseBuffer(9) / 100.0; rainCounter.read = true; }
+		if ( temperature.read && humidity.read ) { dewPoint.value = dewpoint (temperature.value, humidity.value); dewPoint.read = true; }
 
-	if (millis()-lastChange >= delayTime) {
-		lastChange = millis();
-		
-		uint8_t j;
-		uint8_t c=10;
-		uint8_t result = node.readHoldingRegisters( 0x165, c );
-		Serial.print("result = ");
-		Serial.println( result );
-		
-		if (result == node.ku8MBSuccess) {
-			if ( node.getResponseBuffer(0) != 0xFFFF ) { light = node.getResponseBuffer(0) * 10; }
-			if ( node.getResponseBuffer(1) != 0xFFFF ) { uvIndex = node.getResponseBuffer(1) / 10.0; }
-			if ( node.getResponseBuffer(2) != 0xFFFF ) { temperature = node.getResponseBuffer(2) / 10.0 - 40; }
-			if ( node.getResponseBuffer(3) != 0xFFFF ) { humidity = node.getResponseBuffer(3); }
-			if ( node.getResponseBuffer(4) != 0xFFFF ) { windSpeed = node.getResponseBuffer(4) / 10.0; }
-			if ( node.getResponseBuffer(5) != 0xFFFF ) { gustSpeed = node.getResponseBuffer(5) / 10.0; }
-			if ( node.getResponseBuffer(6) != 0xFFFF ) { windDirection = node.getResponseBuffer(6); }
-			if ( node.getResponseBuffer(7) != 0xFFFF ) { rainfall = node.getResponseBuffer(7) / 10.0; }
-			if ( node.getResponseBuffer(8) != 0xFFFF ) { absPressure = node.getResponseBuffer(8) / 10.0; }
-			if ( node.getResponseBuffer(9) != 0xFFFF ) { rainCounter = node.getResponseBuffer(9) / 100.0; }
-			if ( (node.getResponseBuffer(2) != 0xFFFF) && (node.getResponseBuffer(3) != 0xFFFF) ) { dewPoint = dewpoint (temperature, humidity); }
-
-//			printLocalTime();
-			Serial.print("Light:          "); Serial.print( light ); Serial.println(" Lux");
-			Serial.print("UVI:            "); Serial.print( uvIndex , 1); Serial.println("");
-			Serial.print("Temperature:    "); Serial.print(temperature, 1); Serial.println(" °C");
-			Serial.print("Humidity:       "); Serial.print(humidity); Serial.println(" %");
-			Serial.print("Wind Speed:     "); Serial.print(windSpeed, 1); Serial.println(" m/s");
-			Serial.print("Gust Speed:     "); Serial.print(gustSpeed , 1); Serial.println(" m/s");
-			Serial.print("Wind Direction: "); Serial.print(windDirection); Serial.println(" °");
-			Serial.print("Rainfall:       "); Serial.print(rainfall , 1); Serial.println(" mm");
-			Serial.print("ABS Pressure:   "); Serial.print(absPressure , 1); Serial.println(" mbar");
-			Serial.print("Rain Counter:   "); Serial.print(rainCounter, 2); Serial.println(" mm");
-			Serial.print("Dewpoint:       "); Serial.print(dewPoint, 2); Serial.println(" °C");
-			
-
-			if (light != NAN) { mqttMsg.add("light", light ); }
-			if (uvIndex != NAN) { mqttMsg.add("uvIndex", uvIndex ); }
-			if (temperature != NAN) { mqttMsg.add("temperature", temperature ); }
-			if (humidity != NAN) { mqttMsg.add("humidity", humidity ); }
-			if (windSpeed != NAN) { mqttMsg.add("windSpeed", windSpeed ); }
-			if (gustSpeed != NAN) { mqttMsg.add("gustSpeed", gustSpeed ); }
-			if (windDirection != NAN) { mqttMsg.add("windDirection", windDirection ); }
-			if (rainfall != NAN) { mqttMsg.add("rainFall", rainfall ); }
-			if (absPressure != NAN) { mqttMsg.add("pressure", absPressure ); }
-			if (rainCounter != NAN) { mqttMsg.add("rainCounter", rainCounter ); }
-			if (dewPoint != NAN) { mqttMsg.add("dewPoint", dewPoint ); }
-
-			if (!mqttClient.connected()) {
-				mqtt_reconnect();
-			}
-
-			if (mqttClient.connected()) {
-				String msg = mqttMsg.toString();
-				uint16_t msgLength = msg.length() + 1;
-				char msgChar[msgLength];
-				msg.toCharArray(msgChar, msgLength);
-				mqttClient.publish("environmental/wn90", msgChar );
-			}
-
+		Serial.print("Localtime...... "); printLocaltime(true);
+		Serial.print("Light.......... "); Serial.print(light.value ); Serial.println(" Lux");
+		Serial.print("UVI............ "); Serial.print(uvIndex.value , 1); Serial.println("");
+		Serial.print("Temperature.... "); Serial.print(temperature.value, 1); Serial.println(" °C");
+		Serial.print("Humidity....... "); Serial.print(humidity.value); Serial.println(" %");
+		Serial.print("Wind Speed..... "); Serial.print(windSpeed.value, 1); Serial.println(" m/s");
+		Serial.print("Gust Speed..... "); Serial.print(gustSpeed.value , 1); Serial.println(" m/s");
+		Serial.print("Wind Direction. "); Serial.print(windDirection.value); Serial.println(" °");
+		Serial.print("Rainfall....... "); Serial.print(rainFall.value , 1); Serial.println(" mm");
+		Serial.print("ABS Pressure... "); Serial.print(pressure.value , 1); Serial.println(" mbar");
+		Serial.print("Rain Counter... "); Serial.print(rainCounter.value, 2); Serial.println(" mm");
+		Serial.print("Dewpoint....... "); Serial.print(dewPoint.value, 2); Serial.println(" °C");
+		if ( pressureTrend1.read ) {
+			Serial.print("Trend (1h)..... "); Serial.println(pressureTrend1.value);
+		}
+		if ( pressureTrend3.read ) {
+			Serial.print("Trend (3h)..... "); Serial.println(pressureTrend3.value);
 		}
 	}
-
-	knx.loop();
-	if(!knx.configured()) return;
-
-
+	return result;
 }
 
 void RS485_Mode(int Mode) {
@@ -383,3 +414,76 @@ void RS485_RX() {
 	RS485_Mode(RS485_RX_ENABLE);
 }
 
+void updatePressureRingbuffer() {
+	Serial.print("Update ringbuffer: ");
+	for (u_int8_t i=1; i<RINGBUFFERSIZE; i++) {
+		if ( pressureRing[i] > 0 ) pressureRing[i-1]=pressureRing[i];
+		Serial.print(pressureRing[i]); Serial.print(", ");
+	}
+	pressureRing[RINGBUFFERSIZE-1] = pressure.value*10;
+	Serial.println(pressureRing[RINGBUFFERSIZE-1]);
+}
+
+u_int8_t publish() {
+	if (light.read) mqttMsg.add("light", light.value );
+/*	if (uvIndex != NAN) { mqttMsg.add("uvIndex", uvIndex ); }
+	if (temperature != NAN) { mqttMsg.add("temperature", temperature ); }
+	if (humidity != NAN) { mqttMsg.add("humidity", humidity ); }
+	if (windSpeed != NAN) { mqttMsg.add("windSpeed", windSpeed ); }
+	if (gustSpeed != NAN) { mqttMsg.add("gustSpeed", gustSpeed ); }
+	if (windDirection != NAN) { mqttMsg.add("windDirection", windDirection ); }
+	if (rainfall != NAN) { mqttMsg.add("rainFall", rainfall ); }
+	if (absPressure != NAN) { mqttMsg.add("pressure", absPressure ); }
+	if (rainCounter != NAN) { mqttMsg.add("rainCounter", rainCounter ); }
+	if (dewPoint != NAN) { mqttMsg.add("dewPoint", dewPoint ); }
+*/
+	if (!mqttClient.connected()) {
+	mqtt_reconnect();
+	}
+
+	if (mqttClient.connected()) {
+	String msg = mqttMsg.toString();
+	uint16_t msgLength = msg.length() + 1;
+	char msgChar[msgLength];
+	msg.toCharArray(msgChar, msgLength);
+	mqttClient.publish("environmental/wn90", msgChar );
+	}
+
+	Serial.println();
+}
+
+unsigned long lastChange = 0;
+unsigned long delayTime  = 5000;
+
+void loop() {
+	time_t t = now();
+	server.handleClient();
+	ArduinoOTA.handle();
+	ElegantOTA.loop();
+	runner.execute();
+	knx.loop();
+	if(!knx.configured()) return;
+
+
+	if (millis()-lastChange >= delayTime) {
+		lastChange = millis();
+		read_ws90();
+
+
+
+	}
+
+	if ( (minute(t) != lastminute) && (minute(t) % 15 == 0) ) {   // every 15 minutes
+		updatePressureRingbuffer();
+		lastminute = minute(t);
+		// every 15 minutes
+		if ( pressureRing[RINGBUFFERSIZE-4] > 0) { pressureTrend1.value = pressureRing[RINGBUFFERSIZE-1] - pressureRing[RINGBUFFERSIZE-4]; pressureTrend1.read = true; } else { pressureTrend1.read = false; }
+		// every full hour
+		if ( lastminute == 0 && pressureRing[0] > 0 ) { pressureTrend3.value = pressureRing[RINGBUFFERSIZE-1] - pressureRing[0]; pressureTrend3.read = true; }; // else { pressureTrend3.read = false; }
+		Serial.println();
+	}
+
+
+
+
+}
