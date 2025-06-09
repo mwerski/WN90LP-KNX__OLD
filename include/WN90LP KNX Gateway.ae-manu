@@ -4092,6 +4092,254 @@
         "TranslationText": false,
         "TranslationSuffix": true,
         "Access": 2
+      },
+      {
+        "$type": "Kaenx.Creator.Models.Parameter, Kaenx.Creator.Share",
+        "UId": 54,
+        "Id": 57,
+        "Name": "Feinstaub DPT",
+        "SavePath": 1,
+        "MemoryId": 1,
+        "UnionId": 0,
+        "ParameterType": 4,
+        "Value": "0",
+        "IsInUnion": false,
+        "IsUnionDefault": false,
+        "Offset": 148,
+        "OffsetBit": 6,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "Sende Feinstaubwerte als",
+            "Preview": "Sende Feinstaubwerte als"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "Send particle concentration as",
+            "Preview": "Send particle concentration as"
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationText": false,
+        "TranslationSuffix": true,
+        "Access": 2
+      },
+      {
+        "$type": "Kaenx.Creator.Models.Parameter, Kaenx.Creator.Share",
+        "UId": 55,
+        "Id": 58,
+        "Name": "Feinstaub Senden zyklisch",
+        "SavePath": 1,
+        "MemoryId": 1,
+        "UnionId": 0,
+        "ParameterType": 5,
+        "Value": "120",
+        "IsInUnion": false,
+        "IsUnionDefault": false,
+        "Offset": 233,
+        "OffsetBit": 0,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "Sende Feinstaubwerte allle",
+            "Preview": "Sende Feinstaubwerte allle"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "Send particle concentration every",
+            "Preview": "Send particle concentration every"
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "s",
+            "Preview": "s"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "s",
+            "Preview": "s"
+          }
+        ],
+        "TranslationText": false,
+        "TranslationSuffix": true,
+        "Access": 2
+      },
+      {
+        "$type": "Kaenx.Creator.Models.Parameter, Kaenx.Creator.Share",
+        "UId": 56,
+        "Id": 59,
+        "Name": "Feinstaub Senden Wertaenderung absolut",
+        "SavePath": 1,
+        "MemoryId": 1,
+        "UnionId": 0,
+        "ParameterType": 11,
+        "Value": "0",
+        "IsInUnion": false,
+        "IsUnionDefault": false,
+        "Offset": 235,
+        "OffsetBit": 0,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "Sende bei Änderung um",
+            "Preview": "Sende bei Änderung um"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "Send when changed by",
+            "Preview": "Send when changed by"
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "mm",
+            "Preview": "mm"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "mm",
+            "Preview": "mm"
+          }
+        ],
+        "TranslationText": false,
+        "TranslationSuffix": false,
+        "Access": 2
+      },
+      {
+        "$type": "Kaenx.Creator.Models.Parameter, Kaenx.Creator.Share",
+        "UId": 57,
+        "Id": 60,
+        "Name": "Feinstaub Senden Wertaenderung relativ",
+        "SavePath": 1,
+        "MemoryId": 1,
+        "UnionId": 0,
+        "ParameterType": 13,
+        "Value": "0",
+        "IsInUnion": false,
+        "IsUnionDefault": false,
+        "Offset": 237,
+        "OffsetBit": 0,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "Sende bei Änderung um",
+            "Preview": "Sende bei Änderung um"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "Send when changed by",
+            "Preview": "Send when changed by"
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "%",
+            "Preview": "%"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "%",
+            "Preview": "%"
+          }
+        ],
+        "TranslationText": false,
+        "TranslationSuffix": false,
+        "Access": 2
       }
     ],
     "ParameterRefs": [
@@ -7327,6 +7575,250 @@
         ],
         "OverwriteText": false,
         "OverwriteSuffix": false
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ParameterRef, Kaenx.Creator.Share",
+        "UId": 54,
+        "Id": 53,
+        "DisplayOrder": -1,
+        "Name": "Feinstaub DPT",
+        "IsAutoGenerated": true,
+        "Parameter": 54,
+        "OverwriteValue": false,
+        "OverwriteAccess": false,
+        "Access": 2,
+        "Value": "",
+        "TranslationText": false,
+        "TranslationSuffix": false,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "OverwriteText": false,
+        "OverwriteSuffix": false
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ParameterRef, Kaenx.Creator.Share",
+        "UId": 55,
+        "Id": 54,
+        "DisplayOrder": -1,
+        "Name": "Feinstaub Senden zyklisch",
+        "IsAutoGenerated": true,
+        "Parameter": 55,
+        "OverwriteValue": false,
+        "OverwriteAccess": false,
+        "Access": 2,
+        "Value": "",
+        "TranslationText": false,
+        "TranslationSuffix": false,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "OverwriteText": false,
+        "OverwriteSuffix": false
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ParameterRef, Kaenx.Creator.Share",
+        "UId": 56,
+        "Id": 55,
+        "DisplayOrder": -1,
+        "Name": "Feinstaub Senden Wertaenderung absolut",
+        "IsAutoGenerated": true,
+        "Parameter": 56,
+        "OverwriteValue": false,
+        "OverwriteAccess": false,
+        "Access": 2,
+        "Value": "",
+        "TranslationText": false,
+        "TranslationSuffix": false,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "OverwriteText": false,
+        "OverwriteSuffix": false
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ParameterRef, Kaenx.Creator.Share",
+        "UId": 57,
+        "Id": 56,
+        "DisplayOrder": -1,
+        "Name": "Feinstaub Senden Wertaenderung relativ",
+        "IsAutoGenerated": true,
+        "Parameter": 57,
+        "OverwriteValue": false,
+        "OverwriteAccess": false,
+        "Access": 2,
+        "Value": "",
+        "TranslationText": false,
+        "TranslationSuffix": false,
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "Suffix": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "OverwriteText": false,
+        "OverwriteSuffix": false
       }
     ],
     "ComObjects": [
@@ -8668,6 +9160,792 @@
       },
       {
         "$type": "Kaenx.Creator.Models.ComObject, Kaenx.Creator.Share",
+        "UId": 33,
+        "Id": 32,
+        "Name": "Temperatur 1wire DPT9",
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "Temperatur 1wire (°C)",
+            "Preview": "Temperatur 1wire (°C)"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "Temperature 1wire (°C)",
+            "Preview": "Temperature 1wire (°C)"
+          }
+        ],
+        "TranslationText": false,
+        "FunctionText": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "Messwert",
+            "Preview": "Messwert"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "Measurement",
+            "Preview": "Measurement"
+          }
+        ],
+        "TranslationFunctionText": true,
+        "Number": 7,
+        "FlagRead": true,
+        "FlagWrite": false,
+        "FlagTrans": true,
+        "FlagComm": true,
+        "FlagUpdate": false,
+        "FlagOnInit": false,
+        "TypeValue": null,
+        "HasDpt": true,
+        "HasDpts": true,
+        "ObjectSize": 16,
+        "SubTypeNumber": "1",
+        "SubType": {
+          "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+          "Name": "9.001 temperature (°C)",
+          "Number": "1",
+          "ParentNumber": "9"
+        },
+        "TypeNumber": "9",
+        "Type": {
+          "$type": "Kaenx.Creator.Models.DataPointType, Kaenx.Creator.Share",
+          "Name": "9.xxx 2-byte float value",
+          "Number": "9",
+          "Size": 16,
+          "SubTypes": [
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.001 temperature (°C)",
+              "Number": "1",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.002 temperature difference (K)",
+              "Number": "2",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.003 kelvin/hour (K/h)",
+              "Number": "3",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.004 lux (Lux)",
+              "Number": "4",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.005 speed (m/s)",
+              "Number": "5",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.006 pressure (Pa)",
+              "Number": "6",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.007 humidity (%)",
+              "Number": "7",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.008 parts/million (ppm)",
+              "Number": "8",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.009 air flow (m³/h)",
+              "Number": "9",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.010 time (s)",
+              "Number": "10",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.011 time (ms)",
+              "Number": "11",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.020 voltage (mV)",
+              "Number": "20",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.021 current (mA)",
+              "Number": "21",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.022 power density (W/m²)",
+              "Number": "22",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.023 kelvin/percent (K/%)",
+              "Number": "23",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.024 power (kW)",
+              "Number": "24",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.025 volume flow (l/h)",
+              "Number": "25",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.026 rain amount (l/m²)",
+              "Number": "26",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.027 temperature (°F)",
+              "Number": "27",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.028 wind speed (km/h)",
+              "Number": "28",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.029 absolute humidity (g/m³)",
+              "Number": "29",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.030 concentration (µg/m³)",
+              "Number": "30",
+              "ParentNumber": "9"
+            }
+          ]
+        },
+        "UseTextParameter": false,
+        "ParameterRef": 0
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ComObject, Kaenx.Creator.Share",
+        "UId": 34,
+        "Id": 33,
+        "Name": "Temperatur 1wire DPT14",
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "Temperatur 1wire (°C)",
+            "Preview": "Temperatur 1wire (°C)"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "Temperature 1wire (°C)",
+            "Preview": "Temperature 1wire (°C)"
+          }
+        ],
+        "TranslationText": false,
+        "FunctionText": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "Messwert",
+            "Preview": "Messwert"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "Measurement",
+            "Preview": "Measurement"
+          }
+        ],
+        "TranslationFunctionText": true,
+        "Number": 7,
+        "FlagRead": true,
+        "FlagWrite": false,
+        "FlagTrans": true,
+        "FlagComm": true,
+        "FlagUpdate": false,
+        "FlagOnInit": false,
+        "TypeValue": null,
+        "HasDpt": true,
+        "HasDpts": true,
+        "ObjectSize": 32,
+        "SubTypeNumber": "68",
+        "SubType": {
+          "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+          "Name": "14.068 temperature (°C)",
+          "Number": "68",
+          "ParentNumber": "14"
+        },
+        "TypeNumber": "14",
+        "Type": {
+          "$type": "Kaenx.Creator.Models.DataPointType, Kaenx.Creator.Share",
+          "Name": "14.xxx 4-byte float value",
+          "Number": "14",
+          "Size": 32,
+          "SubTypes": [
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.000 acceleration (m/s²)",
+              "Number": "0",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.001 angular acceleration (rad/s²)",
+              "Number": "1",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.002 activation energy (J/mol)",
+              "Number": "2",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.003 radioactive activity (1/s)",
+              "Number": "3",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.004 amount of substance (mol)",
+              "Number": "4",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.005 amplitude",
+              "Number": "5",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.006 angle (radiant)",
+              "Number": "6",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.007 angle (degree)",
+              "Number": "7",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.008 angular momentum (Js)",
+              "Number": "8",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.009 angular velocity (rad/s)",
+              "Number": "9",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.010 area (m*m)",
+              "Number": "10",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.011 capacitance (F)",
+              "Number": "11",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.012 flux density (C/m²)",
+              "Number": "12",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.013 charge density (C/m³)",
+              "Number": "13",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.014 compressibility (m²/N)",
+              "Number": "14",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.015 conductance (S)",
+              "Number": "15",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.016 conductivity  (S/m)",
+              "Number": "16",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.017 density (kg/m³)",
+              "Number": "17",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.018 electric charge (C)",
+              "Number": "18",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.019 electric current (A)",
+              "Number": "19",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.020 electric current density (A/m²)",
+              "Number": "20",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.021 electric dipole moment (Cm)",
+              "Number": "21",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.022 electric displacement (C/m²)",
+              "Number": "22",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.023 electric field strength (V/m)",
+              "Number": "23",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.024 electric flux (C)",
+              "Number": "24",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.025 electric flux density (C/m²)",
+              "Number": "25",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.026 electric polarization (C/m²)",
+              "Number": "26",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.027 electric potential (V)",
+              "Number": "27",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.028 electric potential difference (V)",
+              "Number": "28",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.029 electromagnetic moment (Am²)",
+              "Number": "29",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.030 electromotive force (V)",
+              "Number": "30",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.031 energy (J)",
+              "Number": "31",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.032 force (N)",
+              "Number": "32",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.033 frequency (Hz)",
+              "Number": "33",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.034 angular frequency (rad/s)",
+              "Number": "34",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.035 heat capacity (J/K)",
+              "Number": "35",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.036 heat flow rate (W)",
+              "Number": "36",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.037 heat quantity",
+              "Number": "37",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.038 impedance (Ω)",
+              "Number": "38",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.039 length (m)",
+              "Number": "39",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.040 light quantity (J)",
+              "Number": "40",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.041 luminance (cd/m²)",
+              "Number": "41",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.042 luminous flux (lm)",
+              "Number": "42",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.043 luminous intensity (cd)",
+              "Number": "43",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.044 magnetic field strength (A/m)",
+              "Number": "44",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.045 magnetic flux (Wb)",
+              "Number": "45",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.046 magnetic flux density (T)",
+              "Number": "46",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.047 magnetic moment (Am²)",
+              "Number": "47",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.048 magnetic polarization (T)",
+              "Number": "48",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.049 magnetization (A/m)",
+              "Number": "49",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.050 magnetomotive force (A)",
+              "Number": "50",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.051 mass (kg)",
+              "Number": "51",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.052 mass flux (kg/s)",
+              "Number": "52",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.053 momentum (N/s)",
+              "Number": "53",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.054 phase angle (rad)",
+              "Number": "54",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.055 phase angle (°)",
+              "Number": "55",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.056 power (W)",
+              "Number": "56",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.057 power factor (cos Φ)",
+              "Number": "57",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.058 pressure (Pa)",
+              "Number": "58",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.059 reactance (Ω)",
+              "Number": "59",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.060 resistance (Ω)",
+              "Number": "60",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.061 resistivity (Ωm)",
+              "Number": "61",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.062 self inductance (H)",
+              "Number": "62",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.063 solid angle (sr)",
+              "Number": "63",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.064 sound intensity (W/m²)",
+              "Number": "64",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.065 speed (m/s)",
+              "Number": "65",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.066 stress (Pa)",
+              "Number": "66",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.067 surface tension (N/m)",
+              "Number": "67",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.068 temperature (°C)",
+              "Number": "68",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.069 temperature absolute (K)",
+              "Number": "69",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.070 temperature difference (K)",
+              "Number": "70",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.071 thermal capacity (J/K)",
+              "Number": "71",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.072 thermal conductivity (W/mK)",
+              "Number": "72",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.073 thermoelectric power (V/K)",
+              "Number": "73",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.074 time (s)",
+              "Number": "74",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.075 torque (Nm)",
+              "Number": "75",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.076 volume (m³)",
+              "Number": "76",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.077 volume flux (m³/s)",
+              "Number": "77",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.078 weight (N)",
+              "Number": "78",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.079 work (J)",
+              "Number": "79",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.1200 volume flux for meters (m³/h)",
+              "Number": "1200",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.1201 volume flux for meters (1/ls)",
+              "Number": "1201",
+              "ParentNumber": "14"
+            }
+          ]
+        },
+        "UseTextParameter": false,
+        "ParameterRef": 0
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ComObject, Kaenx.Creator.Share",
         "UId": 31,
         "Id": 30,
         "Name": "Taupunkt DPT9",
@@ -8717,7 +9995,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 7,
+        "Number": 8,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -8930,7 +10208,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 7,
+        "Number": 8,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -9503,7 +10781,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 8,
+        "Number": 9,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -9602,7 +10880,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 8,
+        "Number": 9,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -9815,7 +11093,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 8,
+        "Number": 9,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -10388,7 +11666,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 9,
+        "Number": 10,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -10601,7 +11879,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 9,
+        "Number": 10,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -11174,7 +12452,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 10,
+        "Number": 11,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -11387,7 +12665,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 10,
+        "Number": 11,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -11960,7 +13238,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 11,
+        "Number": 12,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -12173,7 +13451,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 11,
+        "Number": 12,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -12746,7 +14024,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 12,
+        "Number": 13,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -12959,7 +14237,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 12,
+        "Number": 13,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -13532,7 +14810,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 13,
+        "Number": 14,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -13745,7 +15023,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 13,
+        "Number": 14,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -14318,7 +15596,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 14,
+        "Number": 15,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -14531,7 +15809,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 14,
+        "Number": 15,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -15104,7 +16382,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 15,
+        "Number": 16,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -15317,7 +16595,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 15,
+        "Number": 16,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -15890,7 +17168,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 16,
+        "Number": 17,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -16103,7 +17381,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 16,
+        "Number": 17,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -16676,7 +17954,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 17,
+        "Number": 18,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -16889,7 +18167,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 17,
+        "Number": 18,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -17462,7 +18740,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 18,
+        "Number": 19,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -17675,7 +18953,7 @@
           }
         ],
         "TranslationFunctionText": true,
-        "Number": 18,
+        "Number": 19,
         "FlagRead": true,
         "FlagWrite": false,
         "FlagTrans": true,
@@ -17691,6 +18969,1578 @@
           "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
           "Name": "9.026 rain amount (l/m²)",
           "Number": "26",
+          "ParentNumber": "9"
+        },
+        "TypeNumber": "14",
+        "Type": {
+          "$type": "Kaenx.Creator.Models.DataPointType, Kaenx.Creator.Share",
+          "Name": "14.xxx 4-byte float value",
+          "Number": "14",
+          "Size": 32,
+          "SubTypes": [
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.000 acceleration (m/s²)",
+              "Number": "0",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.001 angular acceleration (rad/s²)",
+              "Number": "1",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.002 activation energy (J/mol)",
+              "Number": "2",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.003 radioactive activity (1/s)",
+              "Number": "3",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.004 amount of substance (mol)",
+              "Number": "4",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.005 amplitude",
+              "Number": "5",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.006 angle (radiant)",
+              "Number": "6",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.007 angle (degree)",
+              "Number": "7",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.008 angular momentum (Js)",
+              "Number": "8",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.009 angular velocity (rad/s)",
+              "Number": "9",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.010 area (m*m)",
+              "Number": "10",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.011 capacitance (F)",
+              "Number": "11",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.012 flux density (C/m²)",
+              "Number": "12",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.013 charge density (C/m³)",
+              "Number": "13",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.014 compressibility (m²/N)",
+              "Number": "14",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.015 conductance (S)",
+              "Number": "15",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.016 conductivity  (S/m)",
+              "Number": "16",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.017 density (kg/m³)",
+              "Number": "17",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.018 electric charge (C)",
+              "Number": "18",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.019 electric current (A)",
+              "Number": "19",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.020 electric current density (A/m²)",
+              "Number": "20",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.021 electric dipole moment (Cm)",
+              "Number": "21",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.022 electric displacement (C/m²)",
+              "Number": "22",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.023 electric field strength (V/m)",
+              "Number": "23",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.024 electric flux (C)",
+              "Number": "24",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.025 electric flux density (C/m²)",
+              "Number": "25",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.026 electric polarization (C/m²)",
+              "Number": "26",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.027 electric potential (V)",
+              "Number": "27",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.028 electric potential difference (V)",
+              "Number": "28",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.029 electromagnetic moment (Am²)",
+              "Number": "29",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.030 electromotive force (V)",
+              "Number": "30",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.031 energy (J)",
+              "Number": "31",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.032 force (N)",
+              "Number": "32",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.033 frequency (Hz)",
+              "Number": "33",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.034 angular frequency (rad/s)",
+              "Number": "34",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.035 heat capacity (J/K)",
+              "Number": "35",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.036 heat flow rate (W)",
+              "Number": "36",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.037 heat quantity",
+              "Number": "37",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.038 impedance (Ω)",
+              "Number": "38",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.039 length (m)",
+              "Number": "39",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.040 light quantity (J)",
+              "Number": "40",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.041 luminance (cd/m²)",
+              "Number": "41",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.042 luminous flux (lm)",
+              "Number": "42",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.043 luminous intensity (cd)",
+              "Number": "43",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.044 magnetic field strength (A/m)",
+              "Number": "44",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.045 magnetic flux (Wb)",
+              "Number": "45",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.046 magnetic flux density (T)",
+              "Number": "46",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.047 magnetic moment (Am²)",
+              "Number": "47",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.048 magnetic polarization (T)",
+              "Number": "48",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.049 magnetization (A/m)",
+              "Number": "49",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.050 magnetomotive force (A)",
+              "Number": "50",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.051 mass (kg)",
+              "Number": "51",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.052 mass flux (kg/s)",
+              "Number": "52",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.053 momentum (N/s)",
+              "Number": "53",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.054 phase angle (rad)",
+              "Number": "54",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.055 phase angle (°)",
+              "Number": "55",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.056 power (W)",
+              "Number": "56",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.057 power factor (cos Φ)",
+              "Number": "57",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.058 pressure (Pa)",
+              "Number": "58",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.059 reactance (Ω)",
+              "Number": "59",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.060 resistance (Ω)",
+              "Number": "60",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.061 resistivity (Ωm)",
+              "Number": "61",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.062 self inductance (H)",
+              "Number": "62",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.063 solid angle (sr)",
+              "Number": "63",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.064 sound intensity (W/m²)",
+              "Number": "64",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.065 speed (m/s)",
+              "Number": "65",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.066 stress (Pa)",
+              "Number": "66",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.067 surface tension (N/m)",
+              "Number": "67",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.068 temperature (°C)",
+              "Number": "68",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.069 temperature absolute (K)",
+              "Number": "69",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.070 temperature difference (K)",
+              "Number": "70",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.071 thermal capacity (J/K)",
+              "Number": "71",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.072 thermal conductivity (W/mK)",
+              "Number": "72",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.073 thermoelectric power (V/K)",
+              "Number": "73",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.074 time (s)",
+              "Number": "74",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.075 torque (Nm)",
+              "Number": "75",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.076 volume (m³)",
+              "Number": "76",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.077 volume flux (m³/s)",
+              "Number": "77",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.078 weight (N)",
+              "Number": "78",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.079 work (J)",
+              "Number": "79",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.1200 volume flux for meters (m³/h)",
+              "Number": "1200",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.1201 volume flux for meters (1/ls)",
+              "Number": "1201",
+              "ParentNumber": "14"
+            }
+          ]
+        },
+        "UseTextParameter": false,
+        "ParameterRef": 0
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ComObject, Kaenx.Creator.Share",
+        "UId": 35,
+        "Id": 34,
+        "Name": "PM25 DPT9",
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "PM2.5 Konzentration",
+            "Preview": "PM2.5 Konzentration"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "PM2.5 Concentration",
+            "Preview": "PM2.5 Concentration"
+          }
+        ],
+        "TranslationText": false,
+        "FunctionText": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "Messwert",
+            "Preview": "Messwert"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "Measurement",
+            "Preview": "Measurement"
+          }
+        ],
+        "TranslationFunctionText": true,
+        "Number": 20,
+        "FlagRead": true,
+        "FlagWrite": false,
+        "FlagTrans": true,
+        "FlagComm": true,
+        "FlagUpdate": false,
+        "FlagOnInit": false,
+        "TypeValue": null,
+        "HasDpt": true,
+        "HasDpts": true,
+        "ObjectSize": 16,
+        "SubTypeNumber": "30",
+        "SubType": {
+          "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+          "Name": "9.030 concentration (µg/m³)",
+          "Number": "30",
+          "ParentNumber": "9"
+        },
+        "TypeNumber": "9",
+        "Type": {
+          "$type": "Kaenx.Creator.Models.DataPointType, Kaenx.Creator.Share",
+          "Name": "9.xxx 2-byte float value",
+          "Number": "9",
+          "Size": 16,
+          "SubTypes": [
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.001 temperature (°C)",
+              "Number": "1",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.002 temperature difference (K)",
+              "Number": "2",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.003 kelvin/hour (K/h)",
+              "Number": "3",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.004 lux (Lux)",
+              "Number": "4",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.005 speed (m/s)",
+              "Number": "5",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.006 pressure (Pa)",
+              "Number": "6",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.007 humidity (%)",
+              "Number": "7",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.008 parts/million (ppm)",
+              "Number": "8",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.009 air flow (m³/h)",
+              "Number": "9",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.010 time (s)",
+              "Number": "10",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.011 time (ms)",
+              "Number": "11",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.020 voltage (mV)",
+              "Number": "20",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.021 current (mA)",
+              "Number": "21",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.022 power density (W/m²)",
+              "Number": "22",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.023 kelvin/percent (K/%)",
+              "Number": "23",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.024 power (kW)",
+              "Number": "24",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.025 volume flow (l/h)",
+              "Number": "25",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.026 rain amount (l/m²)",
+              "Number": "26",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.027 temperature (°F)",
+              "Number": "27",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.028 wind speed (km/h)",
+              "Number": "28",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.029 absolute humidity (g/m³)",
+              "Number": "29",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.030 concentration (µg/m³)",
+              "Number": "30",
+              "ParentNumber": "9"
+            }
+          ]
+        },
+        "UseTextParameter": false,
+        "ParameterRef": 0
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ComObject, Kaenx.Creator.Share",
+        "UId": 36,
+        "Id": 35,
+        "Name": "PM25 DPT14",
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "PM2.5 Konzentration",
+            "Preview": "PM2.5 Konzentration"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "PM2.5 Concentration",
+            "Preview": "PM2.5 Concentration"
+          }
+        ],
+        "TranslationText": false,
+        "FunctionText": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "Messwert",
+            "Preview": "Messwert"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "Measurement",
+            "Preview": "Measurement"
+          }
+        ],
+        "TranslationFunctionText": true,
+        "Number": 20,
+        "FlagRead": true,
+        "FlagWrite": false,
+        "FlagTrans": true,
+        "FlagComm": true,
+        "FlagUpdate": false,
+        "FlagOnInit": false,
+        "TypeValue": null,
+        "HasDpt": true,
+        "HasDpts": false,
+        "ObjectSize": 32,
+        "SubTypeNumber": "30",
+        "SubType": {
+          "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+          "Name": "9.030 concentration (µg/m³)",
+          "Number": "30",
+          "ParentNumber": "9"
+        },
+        "TypeNumber": "14",
+        "Type": {
+          "$type": "Kaenx.Creator.Models.DataPointType, Kaenx.Creator.Share",
+          "Name": "14.xxx 4-byte float value",
+          "Number": "14",
+          "Size": 32,
+          "SubTypes": [
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.000 acceleration (m/s²)",
+              "Number": "0",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.001 angular acceleration (rad/s²)",
+              "Number": "1",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.002 activation energy (J/mol)",
+              "Number": "2",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.003 radioactive activity (1/s)",
+              "Number": "3",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.004 amount of substance (mol)",
+              "Number": "4",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.005 amplitude",
+              "Number": "5",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.006 angle (radiant)",
+              "Number": "6",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.007 angle (degree)",
+              "Number": "7",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.008 angular momentum (Js)",
+              "Number": "8",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.009 angular velocity (rad/s)",
+              "Number": "9",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.010 area (m*m)",
+              "Number": "10",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.011 capacitance (F)",
+              "Number": "11",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.012 flux density (C/m²)",
+              "Number": "12",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.013 charge density (C/m³)",
+              "Number": "13",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.014 compressibility (m²/N)",
+              "Number": "14",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.015 conductance (S)",
+              "Number": "15",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.016 conductivity  (S/m)",
+              "Number": "16",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.017 density (kg/m³)",
+              "Number": "17",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.018 electric charge (C)",
+              "Number": "18",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.019 electric current (A)",
+              "Number": "19",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.020 electric current density (A/m²)",
+              "Number": "20",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.021 electric dipole moment (Cm)",
+              "Number": "21",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.022 electric displacement (C/m²)",
+              "Number": "22",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.023 electric field strength (V/m)",
+              "Number": "23",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.024 electric flux (C)",
+              "Number": "24",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.025 electric flux density (C/m²)",
+              "Number": "25",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.026 electric polarization (C/m²)",
+              "Number": "26",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.027 electric potential (V)",
+              "Number": "27",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.028 electric potential difference (V)",
+              "Number": "28",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.029 electromagnetic moment (Am²)",
+              "Number": "29",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.030 electromotive force (V)",
+              "Number": "30",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.031 energy (J)",
+              "Number": "31",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.032 force (N)",
+              "Number": "32",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.033 frequency (Hz)",
+              "Number": "33",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.034 angular frequency (rad/s)",
+              "Number": "34",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.035 heat capacity (J/K)",
+              "Number": "35",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.036 heat flow rate (W)",
+              "Number": "36",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.037 heat quantity",
+              "Number": "37",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.038 impedance (Ω)",
+              "Number": "38",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.039 length (m)",
+              "Number": "39",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.040 light quantity (J)",
+              "Number": "40",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.041 luminance (cd/m²)",
+              "Number": "41",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.042 luminous flux (lm)",
+              "Number": "42",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.043 luminous intensity (cd)",
+              "Number": "43",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.044 magnetic field strength (A/m)",
+              "Number": "44",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.045 magnetic flux (Wb)",
+              "Number": "45",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.046 magnetic flux density (T)",
+              "Number": "46",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.047 magnetic moment (Am²)",
+              "Number": "47",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.048 magnetic polarization (T)",
+              "Number": "48",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.049 magnetization (A/m)",
+              "Number": "49",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.050 magnetomotive force (A)",
+              "Number": "50",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.051 mass (kg)",
+              "Number": "51",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.052 mass flux (kg/s)",
+              "Number": "52",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.053 momentum (N/s)",
+              "Number": "53",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.054 phase angle (rad)",
+              "Number": "54",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.055 phase angle (°)",
+              "Number": "55",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.056 power (W)",
+              "Number": "56",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.057 power factor (cos Φ)",
+              "Number": "57",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.058 pressure (Pa)",
+              "Number": "58",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.059 reactance (Ω)",
+              "Number": "59",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.060 resistance (Ω)",
+              "Number": "60",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.061 resistivity (Ωm)",
+              "Number": "61",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.062 self inductance (H)",
+              "Number": "62",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.063 solid angle (sr)",
+              "Number": "63",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.064 sound intensity (W/m²)",
+              "Number": "64",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.065 speed (m/s)",
+              "Number": "65",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.066 stress (Pa)",
+              "Number": "66",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.067 surface tension (N/m)",
+              "Number": "67",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.068 temperature (°C)",
+              "Number": "68",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.069 temperature absolute (K)",
+              "Number": "69",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.070 temperature difference (K)",
+              "Number": "70",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.071 thermal capacity (J/K)",
+              "Number": "71",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.072 thermal conductivity (W/mK)",
+              "Number": "72",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.073 thermoelectric power (V/K)",
+              "Number": "73",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.074 time (s)",
+              "Number": "74",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.075 torque (Nm)",
+              "Number": "75",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.076 volume (m³)",
+              "Number": "76",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.077 volume flux (m³/s)",
+              "Number": "77",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.078 weight (N)",
+              "Number": "78",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.079 work (J)",
+              "Number": "79",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.1200 volume flux for meters (m³/h)",
+              "Number": "1200",
+              "ParentNumber": "14"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "14.1201 volume flux for meters (1/ls)",
+              "Number": "1201",
+              "ParentNumber": "14"
+            }
+          ]
+        },
+        "UseTextParameter": false,
+        "ParameterRef": 0
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ComObject, Kaenx.Creator.Share",
+        "UId": 37,
+        "Id": 36,
+        "Name": "PM10 DPT9",
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "PM10 Konzentration",
+            "Preview": "PM10 Konzentration"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "PM10 Concentration",
+            "Preview": "PM10 Concentration"
+          }
+        ],
+        "TranslationText": false,
+        "FunctionText": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "Messwert",
+            "Preview": "Messwert"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "Measurement",
+            "Preview": "Measurement"
+          }
+        ],
+        "TranslationFunctionText": true,
+        "Number": 21,
+        "FlagRead": true,
+        "FlagWrite": false,
+        "FlagTrans": true,
+        "FlagComm": true,
+        "FlagUpdate": false,
+        "FlagOnInit": false,
+        "TypeValue": null,
+        "HasDpt": true,
+        "HasDpts": true,
+        "ObjectSize": 16,
+        "SubTypeNumber": "30",
+        "SubType": {
+          "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+          "Name": "9.030 concentration (µg/m³)",
+          "Number": "30",
+          "ParentNumber": "9"
+        },
+        "TypeNumber": "9",
+        "Type": {
+          "$type": "Kaenx.Creator.Models.DataPointType, Kaenx.Creator.Share",
+          "Name": "9.xxx 2-byte float value",
+          "Number": "9",
+          "Size": 16,
+          "SubTypes": [
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.001 temperature (°C)",
+              "Number": "1",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.002 temperature difference (K)",
+              "Number": "2",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.003 kelvin/hour (K/h)",
+              "Number": "3",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.004 lux (Lux)",
+              "Number": "4",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.005 speed (m/s)",
+              "Number": "5",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.006 pressure (Pa)",
+              "Number": "6",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.007 humidity (%)",
+              "Number": "7",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.008 parts/million (ppm)",
+              "Number": "8",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.009 air flow (m³/h)",
+              "Number": "9",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.010 time (s)",
+              "Number": "10",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.011 time (ms)",
+              "Number": "11",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.020 voltage (mV)",
+              "Number": "20",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.021 current (mA)",
+              "Number": "21",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.022 power density (W/m²)",
+              "Number": "22",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.023 kelvin/percent (K/%)",
+              "Number": "23",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.024 power (kW)",
+              "Number": "24",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.025 volume flow (l/h)",
+              "Number": "25",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.026 rain amount (l/m²)",
+              "Number": "26",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.027 temperature (°F)",
+              "Number": "27",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.028 wind speed (km/h)",
+              "Number": "28",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.029 absolute humidity (g/m³)",
+              "Number": "29",
+              "ParentNumber": "9"
+            },
+            {
+              "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+              "Name": "9.030 concentration (µg/m³)",
+              "Number": "30",
+              "ParentNumber": "9"
+            }
+          ]
+        },
+        "UseTextParameter": false,
+        "ParameterRef": 0
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ComObject, Kaenx.Creator.Share",
+        "UId": 38,
+        "Id": 37,
+        "Name": "PM10 DPT14",
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "PM10 Konzentration",
+            "Preview": "PM10 Konzentration"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "PM10 Concentration",
+            "Preview": "PM10 Concentration"
+          }
+        ],
+        "TranslationText": false,
+        "FunctionText": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "Messwert",
+            "Preview": "Messwert"
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "Measurement",
+            "Preview": "Measurement"
+          }
+        ],
+        "TranslationFunctionText": true,
+        "Number": 21,
+        "FlagRead": true,
+        "FlagWrite": false,
+        "FlagTrans": true,
+        "FlagComm": true,
+        "FlagUpdate": false,
+        "FlagOnInit": false,
+        "TypeValue": null,
+        "HasDpt": true,
+        "HasDpts": false,
+        "ObjectSize": 32,
+        "SubTypeNumber": "30",
+        "SubType": {
+          "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
+          "Name": "9.030 concentration (µg/m³)",
+          "Number": "30",
           "ParentNumber": "9"
         },
         "TypeNumber": "14",
@@ -20694,6 +23544,474 @@
         "OverwriteFOI": false,
         "UseTextParameter": false,
         "ParameterRef": 0
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ComObjectRef, Kaenx.Creator.Share",
+        "IsAutoGenerated": true,
+        "UId": 33,
+        "Id": 32,
+        "Name": "Temperatur 1wire DPT9",
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationText": false,
+        "OverwriteText": false,
+        "FunctionText": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationFunctionText": false,
+        "OverwriteFunctionText": false,
+        "OverwriteDpt": false,
+        "OverwriteDpst": false,
+        "SubTypeNumber": null,
+        "SubType": null,
+        "TypeNumber": null,
+        "Type": null,
+        "OverwriteOS": false,
+        "ObjectSize": 1,
+        "ComObject": 33,
+        "FlagRead": false,
+        "OverwriteFR": false,
+        "FlagWrite": false,
+        "OverwriteFW": false,
+        "FlagTrans": false,
+        "OverwriteFT": false,
+        "FlagComm": true,
+        "OverwriteFC": false,
+        "FlagUpdate": false,
+        "OverwriteFU": false,
+        "FlagOnInit": false,
+        "OverwriteFOI": false,
+        "UseTextParameter": false,
+        "ParameterRef": 0
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ComObjectRef, Kaenx.Creator.Share",
+        "IsAutoGenerated": true,
+        "UId": 34,
+        "Id": 33,
+        "Name": "Temperatur 1wire DPT14",
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationText": false,
+        "OverwriteText": false,
+        "FunctionText": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationFunctionText": false,
+        "OverwriteFunctionText": false,
+        "OverwriteDpt": false,
+        "OverwriteDpst": false,
+        "SubTypeNumber": null,
+        "SubType": null,
+        "TypeNumber": null,
+        "Type": null,
+        "OverwriteOS": false,
+        "ObjectSize": 1,
+        "ComObject": 34,
+        "FlagRead": false,
+        "OverwriteFR": false,
+        "FlagWrite": false,
+        "OverwriteFW": false,
+        "FlagTrans": false,
+        "OverwriteFT": false,
+        "FlagComm": true,
+        "OverwriteFC": false,
+        "FlagUpdate": false,
+        "OverwriteFU": false,
+        "FlagOnInit": false,
+        "OverwriteFOI": false,
+        "UseTextParameter": false,
+        "ParameterRef": 0
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ComObjectRef, Kaenx.Creator.Share",
+        "IsAutoGenerated": true,
+        "UId": 35,
+        "Id": 34,
+        "Name": "PM25 DPT9",
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationText": false,
+        "OverwriteText": false,
+        "FunctionText": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationFunctionText": false,
+        "OverwriteFunctionText": false,
+        "OverwriteDpt": false,
+        "OverwriteDpst": false,
+        "SubTypeNumber": null,
+        "SubType": null,
+        "TypeNumber": null,
+        "Type": null,
+        "OverwriteOS": false,
+        "ObjectSize": 1,
+        "ComObject": 35,
+        "FlagRead": false,
+        "OverwriteFR": false,
+        "FlagWrite": false,
+        "OverwriteFW": false,
+        "FlagTrans": false,
+        "OverwriteFT": false,
+        "FlagComm": true,
+        "OverwriteFC": false,
+        "FlagUpdate": false,
+        "OverwriteFU": false,
+        "FlagOnInit": false,
+        "OverwriteFOI": false,
+        "UseTextParameter": false,
+        "ParameterRef": 0
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ComObjectRef, Kaenx.Creator.Share",
+        "IsAutoGenerated": true,
+        "UId": 36,
+        "Id": 35,
+        "Name": "PM25 DPT14",
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationText": false,
+        "OverwriteText": false,
+        "FunctionText": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationFunctionText": false,
+        "OverwriteFunctionText": false,
+        "OverwriteDpt": false,
+        "OverwriteDpst": false,
+        "SubTypeNumber": null,
+        "SubType": null,
+        "TypeNumber": null,
+        "Type": null,
+        "OverwriteOS": false,
+        "ObjectSize": 1,
+        "ComObject": 36,
+        "FlagRead": false,
+        "OverwriteFR": false,
+        "FlagWrite": false,
+        "OverwriteFW": false,
+        "FlagTrans": false,
+        "OverwriteFT": false,
+        "FlagComm": true,
+        "OverwriteFC": false,
+        "FlagUpdate": false,
+        "OverwriteFU": false,
+        "FlagOnInit": false,
+        "OverwriteFOI": false,
+        "UseTextParameter": false,
+        "ParameterRef": 0
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ComObjectRef, Kaenx.Creator.Share",
+        "IsAutoGenerated": true,
+        "UId": 37,
+        "Id": 36,
+        "Name": "PM10 DPT9",
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationText": false,
+        "OverwriteText": false,
+        "FunctionText": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationFunctionText": false,
+        "OverwriteFunctionText": false,
+        "OverwriteDpt": false,
+        "OverwriteDpst": false,
+        "SubTypeNumber": null,
+        "SubType": null,
+        "TypeNumber": null,
+        "Type": null,
+        "OverwriteOS": false,
+        "ObjectSize": 1,
+        "ComObject": 37,
+        "FlagRead": false,
+        "OverwriteFR": false,
+        "FlagWrite": false,
+        "OverwriteFW": false,
+        "FlagTrans": false,
+        "OverwriteFT": false,
+        "FlagComm": true,
+        "OverwriteFC": false,
+        "FlagUpdate": false,
+        "OverwriteFU": false,
+        "FlagOnInit": false,
+        "OverwriteFOI": false,
+        "UseTextParameter": false,
+        "ParameterRef": 0
+      },
+      {
+        "$type": "Kaenx.Creator.Models.ComObjectRef, Kaenx.Creator.Share",
+        "IsAutoGenerated": true,
+        "UId": 38,
+        "Id": 37,
+        "Name": "PM10 DPT14",
+        "Text": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationText": false,
+        "OverwriteText": false,
+        "FunctionText": [
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "de-DE",
+              "Text": "Deutsch"
+            },
+            "Text": "",
+            "Preview": ""
+          },
+          {
+            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+            "Language": {
+              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+              "CultureCode": "en-US",
+              "Text": "Englisch"
+            },
+            "Text": "",
+            "Preview": ""
+          }
+        ],
+        "TranslationFunctionText": false,
+        "OverwriteFunctionText": false,
+        "OverwriteDpt": false,
+        "OverwriteDpst": false,
+        "SubTypeNumber": null,
+        "SubType": null,
+        "TypeNumber": null,
+        "Type": null,
+        "OverwriteOS": false,
+        "ObjectSize": 1,
+        "ComObject": 38,
+        "FlagRead": false,
+        "OverwriteFR": false,
+        "FlagWrite": false,
+        "OverwriteFW": false,
+        "FlagTrans": false,
+        "OverwriteFT": false,
+        "FlagComm": true,
+        "OverwriteFC": false,
+        "FlagUpdate": false,
+        "OverwriteFU": false,
+        "FlagOnInit": false,
+        "OverwriteFOI": false,
+        "UseTextParameter": false,
+        "ParameterRef": 0
       }
     ],
     "Memories": [
@@ -20703,7 +24021,7 @@
         "UId": 1,
         "Name": "Parameter",
         "Address": 0,
-        "Size": 233,
+        "Size": 239,
         "Offset": 0,
         "IsAutoPara": true,
         "IsAutoOrder": true,
@@ -21453,6 +24771,31 @@
                                 "Name": "",
                                 "ComObjectRef": 31,
                                 "Items": null
+                              },
+                              {
+                                "$type": "Kaenx.Creator.Models.Dynamic.DynChooseBlock, Kaenx.Creator.Share",
+                                "IsExpanded": false,
+                                "Name": "",
+                                "IsGlobal": false,
+                                "ParameterRef": 5,
+                                "Items": [
+                                  {
+                                    "$type": "Kaenx.Creator.Models.Dynamic.DynWhenBlock, Kaenx.Creator.Share",
+                                    "IsExpanded": false,
+                                    "Name": "",
+                                    "IsDefault": false,
+                                    "Condition": "=1",
+                                    "Items": [
+                                      {
+                                        "$type": "Kaenx.Creator.Models.Dynamic.DynComObject, Kaenx.Creator.Share",
+                                        "IsExpanded": false,
+                                        "Name": "",
+                                        "ComObjectRef": 33,
+                                        "Items": null
+                                      }
+                                    ]
+                                  }
+                                ]
                               }
                             ]
                           },
@@ -21476,6 +24819,38 @@
                                 "Name": "",
                                 "ComObjectRef": 32,
                                 "Items": null
+                              },
+                              {
+                                "$type": "Kaenx.Creator.Models.Dynamic.DynComObject, Kaenx.Creator.Share",
+                                "IsExpanded": false,
+                                "Name": "",
+                                "ComObjectRef": 34,
+                                "Items": null
+                              },
+                              {
+                                "$type": "Kaenx.Creator.Models.Dynamic.DynChooseBlock, Kaenx.Creator.Share",
+                                "IsExpanded": false,
+                                "Name": "",
+                                "IsGlobal": false,
+                                "ParameterRef": 5,
+                                "Items": [
+                                  {
+                                    "$type": "Kaenx.Creator.Models.Dynamic.DynWhenBlock, Kaenx.Creator.Share",
+                                    "IsExpanded": false,
+                                    "Name": "",
+                                    "IsDefault": false,
+                                    "Condition": "=1",
+                                    "Items": [
+                                      {
+                                        "$type": "Kaenx.Creator.Models.Dynamic.DynComObject, Kaenx.Creator.Share",
+                                        "IsExpanded": false,
+                                        "Name": "",
+                                        "ComObjectRef": 34,
+                                        "Items": null
+                                      }
+                                    ]
+                                  }
+                                ]
                               }
                             ]
                           }
@@ -23063,6 +26438,248 @@
                     ],
                     "Rows": [],
                     "Columns": []
+                  },
+                  {
+                    "$type": "Kaenx.Creator.Models.Dynamic.DynChooseBlock, Kaenx.Creator.Share",
+                    "IsExpanded": false,
+                    "Name": "",
+                    "IsGlobal": false,
+                    "ParameterRef": 6,
+                    "Items": [
+                      {
+                        "$type": "Kaenx.Creator.Models.Dynamic.DynWhenBlock, Kaenx.Creator.Share",
+                        "IsExpanded": false,
+                        "Name": "",
+                        "IsDefault": false,
+                        "Condition": "=1",
+                        "Items": [
+                          {
+                            "$type": "Kaenx.Creator.Models.Dynamic.DynParaBlock, Kaenx.Creator.Share",
+                            "IsExpanded": false,
+                            "Id": 13,
+                            "Name": "Regen",
+                            "Text": [
+                              {
+                                "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+                                "Language": {
+                                  "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+                                  "CultureCode": "de-DE",
+                                  "Text": "Deutsch"
+                                },
+                                "Text": "",
+                                "Preview": ""
+                              },
+                              {
+                                "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+                                "Language": {
+                                  "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+                                  "CultureCode": "en-US",
+                                  "Text": "Englisch"
+                                },
+                                "Text": "",
+                                "Preview": ""
+                              }
+                            ],
+                            "TranslationText": false,
+                            "UseParameterRef": false,
+                            "ParameterRef": 0,
+                            "UseTextParameter": false,
+                            "TextRef": 0,
+                            "Layout": 0,
+                            "IsInline": true,
+                            "UseIcon": false,
+                            "IconId": -1,
+                            "Access": 2,
+                            "ShowInComObjectTree": true,
+                            "Items": [
+                              {
+                                "$type": "Kaenx.Creator.Models.Dynamic.DynSeparator, Kaenx.Creator.Share",
+                                "IsExpanded": false,
+                                "Id": 17,
+                                "Name": "",
+                                "Hint": 2,
+                                "Text": [
+                                  {
+                                    "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+                                    "Language": {
+                                      "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+                                      "CultureCode": "de-DE",
+                                      "Text": "Deutsch"
+                                    },
+                                    "Text": "Feinstaub",
+                                    "Preview": "Feinstaub"
+                                  },
+                                  {
+                                    "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+                                    "Language": {
+                                      "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+                                      "CultureCode": "en-US",
+                                      "Text": "Englisch"
+                                    },
+                                    "Text": "Particle Concentration",
+                                    "Preview": "Particle Concentration"
+                                  }
+                                ],
+                                "TranslationText": false,
+                                "UseTextParameter": false,
+                                "TextRef": 0,
+                                "UseIcon": true,
+                                "IconId": 25,
+                                "Access": 2,
+                                "Cell": null,
+                                "Items": null
+                              },
+                              {
+                                "$type": "Kaenx.Creator.Models.Dynamic.DynParameter, Kaenx.Creator.Share",
+                                "IsExpanded": false,
+                                "Name": "",
+                                "ParameterRef": 55,
+                                "HasHelptext": false,
+                                "HelptextId": 0,
+                                "UseIcon": false,
+                                "IconId": -1,
+                                "Cell": null,
+                                "Items": null,
+                                "HelpText": null
+                              },
+                              {
+                                "$type": "Kaenx.Creator.Models.Dynamic.DynParameter, Kaenx.Creator.Share",
+                                "IsExpanded": false,
+                                "Name": "",
+                                "ParameterRef": 56,
+                                "HasHelptext": false,
+                                "HelptextId": 0,
+                                "UseIcon": false,
+                                "IconId": -1,
+                                "Cell": null,
+                                "Items": null,
+                                "HelpText": null
+                              },
+                              {
+                                "$type": "Kaenx.Creator.Models.Dynamic.DynParameter, Kaenx.Creator.Share",
+                                "IsExpanded": false,
+                                "Name": "",
+                                "ParameterRef": 57,
+                                "HasHelptext": false,
+                                "HelptextId": 0,
+                                "UseIcon": false,
+                                "IconId": -1,
+                                "Cell": null,
+                                "Items": null,
+                                "HelpText": null
+                              },
+                              {
+                                "$type": "Kaenx.Creator.Models.Dynamic.DynParameter, Kaenx.Creator.Share",
+                                "IsExpanded": false,
+                                "Name": "",
+                                "ParameterRef": 54,
+                                "HasHelptext": false,
+                                "HelptextId": 0,
+                                "UseIcon": false,
+                                "IconId": -1,
+                                "Cell": null,
+                                "Items": null,
+                                "HelpText": null
+                              },
+                              {
+                                "$type": "Kaenx.Creator.Models.Dynamic.DynChooseBlock, Kaenx.Creator.Share",
+                                "IsExpanded": false,
+                                "Name": "",
+                                "IsGlobal": false,
+                                "ParameterRef": 54,
+                                "Items": [
+                                  {
+                                    "$type": "Kaenx.Creator.Models.Dynamic.DynWhenBlock, Kaenx.Creator.Share",
+                                    "IsExpanded": false,
+                                    "Name": "",
+                                    "IsDefault": false,
+                                    "Condition": "=0",
+                                    "Items": [
+                                      {
+                                        "$type": "Kaenx.Creator.Models.Dynamic.DynComObject, Kaenx.Creator.Share",
+                                        "IsExpanded": false,
+                                        "Name": "",
+                                        "ComObjectRef": 35,
+                                        "Items": null
+                                      },
+                                      {
+                                        "$type": "Kaenx.Creator.Models.Dynamic.DynComObject, Kaenx.Creator.Share",
+                                        "IsExpanded": false,
+                                        "Name": "",
+                                        "ComObjectRef": 37,
+                                        "Items": null
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "$type": "Kaenx.Creator.Models.Dynamic.DynWhenBlock, Kaenx.Creator.Share",
+                                    "IsExpanded": false,
+                                    "Name": "",
+                                    "IsDefault": false,
+                                    "Condition": "=1",
+                                    "Items": [
+                                      {
+                                        "$type": "Kaenx.Creator.Models.Dynamic.DynComObject, Kaenx.Creator.Share",
+                                        "IsExpanded": false,
+                                        "Name": "",
+                                        "ComObjectRef": 37,
+                                        "Items": null
+                                      },
+                                      {
+                                        "$type": "Kaenx.Creator.Models.Dynamic.DynComObject, Kaenx.Creator.Share",
+                                        "IsExpanded": false,
+                                        "Name": "",
+                                        "ComObjectRef": 38,
+                                        "Items": null
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "$type": "Kaenx.Creator.Models.Dynamic.DynSeparator, Kaenx.Creator.Share",
+                                "IsExpanded": false,
+                                "Id": 18,
+                                "Name": "",
+                                "Hint": 1,
+                                "Text": [
+                                  {
+                                    "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+                                    "Language": {
+                                      "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+                                      "CultureCode": "de-DE",
+                                      "Text": "Deutsch"
+                                    },
+                                    "Text": "",
+                                    "Preview": ""
+                                  },
+                                  {
+                                    "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
+                                    "Language": {
+                                      "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
+                                      "CultureCode": "en-US",
+                                      "Text": "Englisch"
+                                    },
+                                    "Text": "",
+                                    "Preview": ""
+                                  }
+                                ],
+                                "TranslationText": false,
+                                "UseTextParameter": false,
+                                "TextRef": 0,
+                                "UseIcon": false,
+                                "IconId": 17,
+                                "Access": 2,
+                                "Cell": null,
+                                "Items": null
+                              }
+                            ],
+                            "Rows": [],
+                            "Columns": []
+                          }
+                        ]
+                      }
+                    ]
                   }
                 ],
                 "Rows": [],
@@ -23122,13 +26739,13 @@
     "IsSecureActive": false,
     "HasBusInterfaceRouter": false,
     "BusInterfaceCounter": 4,
-    "Procedure": "<LoadProcedures>\r\n  <LoadProcedure MergeId=\"2\">\r\n    <LdCtrlRelSegment LsmIdx=\"4\" Size=\"233\" Mode=\"0\" Fill=\"0\" />\r\n  </LoadProcedure>\r\n  <LoadProcedure MergeId=\"4\">\r\n    <LdCtrlWriteRelMem ObjIdx=\"4\" Offset=\"0\" Size=\"233\" Verify=\"true\" />\r\n  </LoadProcedure>\r\n</LoadProcedures>",
+    "Procedure": "<LoadProcedures>\r\n  <LoadProcedure MergeId=\"2\">\r\n    <LdCtrlRelSegment LsmIdx=\"4\" Size=\"239\" Mode=\"0\" Fill=\"0\" />\r\n  </LoadProcedure>\r\n  <LoadProcedure MergeId=\"4\">\r\n    <LdCtrlWriteRelMem ObjIdx=\"4\" Offset=\"0\" Size=\"239\" Verify=\"true\" />\r\n  </LoadProcedure>\r\n</LoadProcedures>",
     "IsPreETS4": false,
-    "LastParameterId": 56,
-    "LastParameterRefId": 52,
+    "LastParameterId": 60,
+    "LastParameterRefId": 56,
     "LastDynModuleId": 0,
     "LastDynSeparatorId": 0,
-    "HighestComNumber": 36
+    "HighestComNumber": 21
   },
   "Catalog": [
     {
@@ -23495,6 +27112,17 @@
       },
       "LastModified": "2025-06-08T15:22:41.1540313+02:00",
       "LastModifiedDisplay": "08.06.2025 15:22:41"
+    },
+    {
+      "$type": "Kaenx.Creator.Models.Icon, Kaenx.Creator.Share",
+      "UId": 25,
+      "Name": "liquid-spot",
+      "Data": {
+        "$type": "System.Byte[], System.Private.CoreLib",
+        "$value": "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"
+      },
+      "LastModified": "2025-06-09T12:57:36.8849053+02:00",
+      "LastModifiedDisplay": "09.06.2025 12:57:36"
     }
   ],
   "ImportVersion": 10,

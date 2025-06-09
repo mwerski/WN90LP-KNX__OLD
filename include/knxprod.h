@@ -11,8 +11,8 @@
 #define MAIN_ApplicationNumber 0x00
 #define MAIN_ApplicationVersion 0x01
 #define MAIN_OrderNumber "p3-00012.1"
-#define MAIN_ParameterSize 233
-#define MAIN_MaxKoNumber 18
+#define MAIN_ParameterSize 239
+#define MAIN_MaxKoNumber 21
 
 
 #define APP_startUp_Delay		0x0000
@@ -198,6 +198,20 @@
 #define APP_UseDHCP		0x0094
 // Offset: 148, BitOffset: 5, Size: 1 Bit, Text: Nutze DHCP
 #define ParamAPP_UseDHCP knx.paramBit(APP_UseDHCP, 5)
+#define APP_Feinstaub_DPT		0x0094
+// Offset: 148, BitOffset: 6, Size: 1 Bit, Text: Sende Feinstaubwerte als
+#define ParamAPP_Feinstaub_DPT knx.paramBit(APP_Feinstaub_DPT, 6)
+#define APP_Feinstaub_Senden_zyklisch		0x00E9
+#define APP_Feinstaub_Senden_zyklisch_Shift	4
+#define APP_Feinstaub_Senden_zyklisch_Mask	0x0FFF
+// Offset: 233, Size: 12 Bit, Text: Sende Feinstaubwerte allle
+#define ParamAPP_Feinstaub_Senden_zyklisch ((uint32_t)((knx.paramWord(APP_Feinstaub_Senden_zyklisch) >> APP_Feinstaub_Senden_zyklisch_Shift) & APP_Feinstaub_Senden_zyklisch_Mask))
+#define APP_Feinstaub_Senden_Wertaenderung_absolut		0x00EB
+// Offset: 235, Size: 16 Bit (2 Byte), Text: Sende bei Änderung um
+#define ParamAPP_Feinstaub_Senden_Wertaenderung_absolut knx.paramFloat(APP_Feinstaub_Senden_Wertaenderung_absolut, Float_Enc_DPT9)
+#define APP_Feinstaub_Senden_Wertaenderung_relativ		0x00ED
+// Offset: 237, Size: 16 Bit (2 Byte), Text: Sende bei Änderung um
+#define ParamAPP_Feinstaub_Senden_Wertaenderung_relativ knx.paramFloat(APP_Feinstaub_Senden_Wertaenderung_relativ, Float_Enc_DPT9)
 //!< Number: 1, Text: In Betrieb, Function: Statusmeldung
 #define APP_KoHeartbeat 1
 #define KoAPP_Heartbeat knx.getGroupObject(APP_KoHeartbeat)
@@ -219,79 +233,97 @@
 //!< Number: 6, Text: Temperatur (°C), Function: Messwert
 #define APP_KoTemperatur_DPT14 6
 #define KoAPP_Temperatur_DPT14 knx.getGroupObject(APP_KoTemperatur_DPT14)
-//!< Number: 7, Text: Taupunkt (°C), Function: Messwert
-#define APP_KoTaupunkt_DPT9 7
+//!< Number: 7, Text: Temperatur 1wire (°C), Function: Messwert
+#define APP_KoTemperatur_1wire_DPT9 7
+#define KoAPP_Temperatur_1wire_DPT9 knx.getGroupObject(APP_KoTemperatur_1wire_DPT9)
+//!< Number: 7, Text: Temperatur 1wire (°C), Function: Messwert
+#define APP_KoTemperatur_1wire_DPT14 7
+#define KoAPP_Temperatur_1wire_DPT14 knx.getGroupObject(APP_KoTemperatur_1wire_DPT14)
+//!< Number: 8, Text: Taupunkt (°C), Function: Messwert
+#define APP_KoTaupunkt_DPT9 8
 #define KoAPP_Taupunkt_DPT9 knx.getGroupObject(APP_KoTaupunkt_DPT9)
-//!< Number: 7, Text: Taupunkt (°C), Function: Messwert
-#define APP_KoTaupunkt_DPT14 7
+//!< Number: 8, Text: Taupunkt (°C), Function: Messwert
+#define APP_KoTaupunkt_DPT14 8
 #define KoAPP_Taupunkt_DPT14 knx.getGroupObject(APP_KoTaupunkt_DPT14)
-//!< Number: 8, Text: relative Feuchte (%), Function: Messwert
-#define APP_KoFeuchte_DPT6 8
+//!< Number: 9, Text: relative Feuchte (%), Function: Messwert
+#define APP_KoFeuchte_DPT6 9
 #define KoAPP_Feuchte_DPT6 knx.getGroupObject(APP_KoFeuchte_DPT6)
-//!< Number: 8, Text: relative Feuchte (%), Function: Messwert
-#define APP_KoFeuchte_DPT9 8
+//!< Number: 9, Text: relative Feuchte (%), Function: Messwert
+#define APP_KoFeuchte_DPT9 9
 #define KoAPP_Feuchte_DPT9 knx.getGroupObject(APP_KoFeuchte_DPT9)
-//!< Number: 8, Text: relative Feuchte (%), Function: Messwert
-#define APP_KoFeuchte_DPT14 8
+//!< Number: 9, Text: relative Feuchte (%), Function: Messwert
+#define APP_KoFeuchte_DPT14 9
 #define KoAPP_Feuchte_DPT14 knx.getGroupObject(APP_KoFeuchte_DPT14)
-//!< Number: 9, Text: Luftdruck (mBar), Function: Messwert
-#define APP_KoPressure_DPT9 9
+//!< Number: 10, Text: Luftdruck (mBar), Function: Messwert
+#define APP_KoPressure_DPT9 10
 #define KoAPP_Pressure_DPT9 knx.getGroupObject(APP_KoPressure_DPT9)
-//!< Number: 9, Text: Luftdruck (mBar), Function: Messwert
-#define APP_KoPressure_DPT14 9
+//!< Number: 10, Text: Luftdruck (mBar), Function: Messwert
+#define APP_KoPressure_DPT14 10
 #define KoAPP_Pressure_DPT14 knx.getGroupObject(APP_KoPressure_DPT14)
-//!< Number: 10, Text: Luftdruck Tendenz (stündlch), Function: Messwert
-#define APP_KoPressureTrend1h_DPT9 10
+//!< Number: 11, Text: Luftdruck Tendenz (stündlch), Function: Messwert
+#define APP_KoPressureTrend1h_DPT9 11
 #define KoAPP_PressureTrend1h_DPT9 knx.getGroupObject(APP_KoPressureTrend1h_DPT9)
-//!< Number: 10, Text: Luftdruck Tendenz (stündlch), Function: Messwert
-#define APP_KoPressureTrend1h_DPT14 10
+//!< Number: 11, Text: Luftdruck Tendenz (stündlch), Function: Messwert
+#define APP_KoPressureTrend1h_DPT14 11
 #define KoAPP_PressureTrend1h_DPT14 knx.getGroupObject(APP_KoPressureTrend1h_DPT14)
-//!< Number: 11, Text: Luftdruck Tendenz (3 stündlch), Function: Messwert
-#define APP_KoPressureTrend3h_DPT9 11
+//!< Number: 12, Text: Luftdruck Tendenz (3 stündlch), Function: Messwert
+#define APP_KoPressureTrend3h_DPT9 12
 #define KoAPP_PressureTrend3h_DPT9 knx.getGroupObject(APP_KoPressureTrend3h_DPT9)
-//!< Number: 11, Text: Luftdruck Tendenz (3 stündlch), Function: Messwert
-#define APP_KoPressureTrend3h_DPT14 11
+//!< Number: 12, Text: Luftdruck Tendenz (3 stündlch), Function: Messwert
+#define APP_KoPressureTrend3h_DPT14 12
 #define KoAPP_PressureTrend3h_DPT14 knx.getGroupObject(APP_KoPressureTrend3h_DPT14)
-//!< Number: 12, Text: Windgeschwindigkeit (m/s), Function: Messwert
-#define APP_KoWindSpeed_DPT9 12
+//!< Number: 13, Text: Windgeschwindigkeit (m/s), Function: Messwert
+#define APP_KoWindSpeed_DPT9 13
 #define KoAPP_WindSpeed_DPT9 knx.getGroupObject(APP_KoWindSpeed_DPT9)
-//!< Number: 12, Text: Windgeschwindigkeit (m/s), Function: Messwert
-#define APP_KoWindSpeed_DPT14 12
+//!< Number: 13, Text: Windgeschwindigkeit (m/s), Function: Messwert
+#define APP_KoWindSpeed_DPT14 13
 #define KoAPP_WindSpeed_DPT14 knx.getGroupObject(APP_KoWindSpeed_DPT14)
-//!< Number: 13, Text: Windgeschwindigkeit in Böen (m/s), Function: Messwert
-#define APP_KoGustSpeed_DPT9 13
+//!< Number: 14, Text: Windgeschwindigkeit in Böen (m/s), Function: Messwert
+#define APP_KoGustSpeed_DPT9 14
 #define KoAPP_GustSpeed_DPT9 knx.getGroupObject(APP_KoGustSpeed_DPT9)
-//!< Number: 13, Text: Windgeschwindigkeit in Böen (m/s), Function: Messwert
-#define APP_KoGustSpeed_DPT14 13
+//!< Number: 14, Text: Windgeschwindigkeit in Böen (m/s), Function: Messwert
+#define APP_KoGustSpeed_DPT14 14
 #define KoAPP_GustSpeed_DPT14 knx.getGroupObject(APP_KoGustSpeed_DPT14)
-//!< Number: 14, Text: Windrichtung (Grad), Function: Messwert
-#define APP_KoWindDir_DPT9 14
+//!< Number: 15, Text: Windrichtung (Grad), Function: Messwert
+#define APP_KoWindDir_DPT9 15
 #define KoAPP_WindDir_DPT9 knx.getGroupObject(APP_KoWindDir_DPT9)
-//!< Number: 14, Text: Windrichtung (Grad), Function: Messwert
-#define APP_KoWindDir_DPT14 14
+//!< Number: 15, Text: Windrichtung (Grad), Function: Messwert
+#define APP_KoWindDir_DPT14 15
 #define KoAPP_WindDir_DPT14 knx.getGroupObject(APP_KoWindDir_DPT14)
-//!< Number: 15, Text: Helligkeit (Lux), Function: Messwert
-#define APP_KoHelligkeit_DPT9 15
+//!< Number: 16, Text: Helligkeit (Lux), Function: Messwert
+#define APP_KoHelligkeit_DPT9 16
 #define KoAPP_Helligkeit_DPT9 knx.getGroupObject(APP_KoHelligkeit_DPT9)
-//!< Number: 15, Text: Helligkeit (Lux), Function: Messwert
-#define APP_KoHelligkeit_DPT14 15
+//!< Number: 16, Text: Helligkeit (Lux), Function: Messwert
+#define APP_KoHelligkeit_DPT14 16
 #define KoAPP_Helligkeit_DPT14 knx.getGroupObject(APP_KoHelligkeit_DPT14)
-//!< Number: 16, Text: UV-Index, Function: Messwert
-#define APP_KoUVindex_DPT9 16
+//!< Number: 17, Text: UV-Index, Function: Messwert
+#define APP_KoUVindex_DPT9 17
 #define KoAPP_UVindex_DPT9 knx.getGroupObject(APP_KoUVindex_DPT9)
-//!< Number: 16, Text: UV-Index, Function: Messwert
-#define APP_KoUVindex_DPT14 16
+//!< Number: 17, Text: UV-Index, Function: Messwert
+#define APP_KoUVindex_DPT14 17
 #define KoAPP_UVindex_DPT14 knx.getGroupObject(APP_KoUVindex_DPT14)
-//!< Number: 17, Text: Regenmenge (0.1mm), Function: Messwert
-#define APP_KoRainFall_DPT9 17
+//!< Number: 18, Text: Regenmenge (0.1mm), Function: Messwert
+#define APP_KoRainFall_DPT9 18
 #define KoAPP_RainFall_DPT9 knx.getGroupObject(APP_KoRainFall_DPT9)
-//!< Number: 17, Text: Regenmenge (0.1mm), Function: Messwert
-#define APP_KoRainFall_DPT14 17
+//!< Number: 18, Text: Regenmenge (0.1mm), Function: Messwert
+#define APP_KoRainFall_DPT14 18
 #define KoAPP_RainFall_DPT14 knx.getGroupObject(APP_KoRainFall_DPT14)
-//!< Number: 18, Text: Regenmenge (0.01mm), Function: Messwert
-#define APP_KoRainCounter_DPT9 18
+//!< Number: 19, Text: Regenmenge (0.01mm), Function: Messwert
+#define APP_KoRainCounter_DPT9 19
 #define KoAPP_RainCounter_DPT9 knx.getGroupObject(APP_KoRainCounter_DPT9)
-//!< Number: 18, Text: Regenmenge (0.01mm), Function: Messwert
-#define APP_KoRainCounter_DPT14 18
+//!< Number: 19, Text: Regenmenge (0.01mm), Function: Messwert
+#define APP_KoRainCounter_DPT14 19
 #define KoAPP_RainCounter_DPT14 knx.getGroupObject(APP_KoRainCounter_DPT14)
+//!< Number: 20, Text: PM2.5 Konzentration, Function: Messwert
+#define APP_KoPM25_DPT9 20
+#define KoAPP_PM25_DPT9 knx.getGroupObject(APP_KoPM25_DPT9)
+//!< Number: 20, Text: PM2.5 Konzentration, Function: Messwert
+#define APP_KoPM25_DPT14 20
+#define KoAPP_PM25_DPT14 knx.getGroupObject(APP_KoPM25_DPT14)
+//!< Number: 21, Text: PM10 Konzentration, Function: Messwert
+#define APP_KoPM10_DPT9 21
+#define KoAPP_PM10_DPT9 knx.getGroupObject(APP_KoPM10_DPT9)
+//!< Number: 21, Text: PM10 Konzentration, Function: Messwert
+#define APP_KoPM10_DPT14 21
+#define KoAPP_PM10_DPT14 knx.getGroupObject(APP_KoPM10_DPT14)
 
