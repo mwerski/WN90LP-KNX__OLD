@@ -20,7 +20,13 @@
 
 #pragma region Scheduler definitions and prototypes
 #include <TaskScheduler.h>
+void MQTTpublish();
+void sendTemperature();
+void sendHumidity();
 //Task task_updatePressureRingbuffer(RINGBUFFER_UPDATE, TASK_FOREVER, &updatePressureRingbuffer);	// update ringbuffer for trends of pressure readings
+Task task_MQTTpublish(10000, TASK_FOREVER, &MQTTpublish);
+Task task_sendTemperature(60000, TASK_FOREVER, &sendTemperature);
+//Task task_sendHumidity(60000, TASK_FOREVER, &sendHumidity);
 Scheduler runner;
 #pragma endregion
 
@@ -86,31 +92,21 @@ void dateTimeCallback(GroupObject& go) {
 	}
 }
 
+void callback_Temperature(GroupObject& go) {
+	sendTemperature();
+}
 
+/*
+char* hostname = "wn90";
+char* ip_addr;
+char* mqtt_server = "broker.localnet";
+char *mqtt_username = "";
+char *mqtt_password = "";
+*/
 
-const char* hostname = "wn90";
-const char* mqtt_server = "broker.localnet";
-const char *mqtt_username = "";
-const char *mqtt_password = "";
 u_int8_t	lastHour = NAN;	// last hour (if this changes, a full hour has passed)
 
 WebServer server(80);
-
-// MQTT
-WiFiClient espClient;
-PubSubClient mqttClient(espClient);
-Json mqttMsg;
-void mqtt_reconnect() {
-	Serial.print("Attempting MQTT connection...");
-	// Attempt to connect
-	if (mqttClient.connect(hostname, mqtt_username, mqtt_password)) {
-		Serial.println("connected");
-	} else {
-		Serial.print("failed, rc=");
-		Serial.print(mqttClient.state());
-		Serial.println(" try again next time");
-	}
-}
 
 Adafruit_NeoPixel pixels(NUMPIXELS, LED_PIN, NEO_GRB + NEO_KHZ800);
 
@@ -121,6 +117,23 @@ void RS485_Mode(int Mode);
 void RS485_TX();
 void RS485_RX();
 
+struct netconfig {
+	IPAddress ip;
+	IPAddress gateway;
+	IPAddress netmask;
+	IPAddress dns;
+	bool dhcp = true;
+	char*	hostname;
+	bool mqtt = false;
+	char* mqttHost;
+	u_int16_t mqttPort = 1883;
+	char* mqttUser;
+	char* mqttPass;
+	char* mqttTopic;
+	u_int16_t mqttFreq;
+};
+netconfig net;
+
 #define RINGBUFFERSIZE 12
 u_int8_t lasthour = NAN;	// last ringbuffer update hour
 u_int8_t lastminute = NAN; // last ringbuffer update minute
@@ -129,10 +142,14 @@ int16_t pressureRing[RINGBUFFERSIZE];	// Ringbuffer for calculating pressure ten
 struct wsdata_float {
 	double value;
 	bool read = false;
+	double last; // value that was last sent to the bus
+	bool lastread = false;
 };
 struct wsdata_integer {
 	int32_t value;
 	bool read = false;
+	int32_t last; // value that was last sent to the bus
+	bool lastread = false;
 };
 wsdata_float uvIndex; // UV index
 wsdata_integer light; // brightness in Lux
@@ -149,14 +166,26 @@ wsdata_float rainCounter; // rainfall in mm / liter - 0.01mm resolution
 wsdata_float dewPoint; // dewpoint in degree celsius
 #pragma endregion
 
-#pragma region KNX stuff
-char* mqtt_host;
-char* mqtt_user;
-char* mqtt_pass;
+#pragma region MQTT
+WiFiClient espClient;
+PubSubClient mqttClient(espClient);
+Json mqttMsg;
+void mqtt_reconnect() {
+	Serial.print("Attempting MQTT connection...");
+	// Attempt to connect
+	String client_id = net.hostname + String(WiFi.macAddress());
+	if (mqttClient.connect(client_id.c_str(), net.mqttUser, net.mqttPass)) {
+		Serial.println("connected");
+	} else {
+		Serial.print("failed, rc=");
+		Serial.print(mqttClient.state());
+		Serial.println(" try again next time");
+	}
+}
 #pragma endregion
 
 
-float dewpoint(float t, float f) {
+double dewpoint(float t, float f) {
 	// calculates dewpoint from given temperature and relative hjmidity
 	float a, b;
   if (t >= 0) {
@@ -166,12 +195,12 @@ float dewpoint(float t, float f) {
     a = 7.6;
     b = 240.7;
   }
-  float sdd = 6.1078 * pow(10, (a*t)/(b+t));  // Sättigungsdampfdruck in hPa
-  float dd = sdd * (f/100);  // Dampfdruck in mBar
-  float v = log10(dd/6.1078);  // v-Parameter
-  float dp = (b*v) / (a-v);  // Taupunkttemperatur (°C)
+  double sdd = 6.1078 * pow(10, (a*t)/(b+t));  // Sättigungsdampfdruck in hPa
+  double dd = sdd * (f/100);  // Dampfdruck in mBar
+  double v = log10(dd/6.1078);  // v-Parameter
+  double dp = (b*v) / (a-v);  // Taupunkttemperatur (°C)
 //	return dp;
-	float m = powf( 10.0f, 2 ); // truncate to x.yz
+	double m = powf( 10.0f, 2 ); // truncate to x.yz
 	dp = roundf( dp * m ) / m;
 	return dp;
 }
@@ -199,10 +228,106 @@ void setup() {
 	RS485_Mode(RS485_TX_ENABLE);
 	delay(20);
 
+	#pragma region KNX stuff
+	knx.buttonPin(5);
+
+	// read adress table, association table, groupobject table and parameters from eeprom
+	knx.readMemory();
+
+	Serial.println("Starting up...");
+	Serial.print("KNX configured: ");
+	Serial.println(knx.configured());
+	knx.setProgLedOffCallback(progLedOff);
+	knx.setProgLedOnCallback(progLedOn);
+
+	if (knx.configured()) {
+		if ( ParamAPP_UseDHCP == false ) {
+			// we are using a static IP config stored as KNX paramaeters
+			net.dhcp = false;
+			// convert IPs from little to big endian
+			net.ip = IPAddress((ParamAPP_IP & 0xFF) << 24) | ((ParamAPP_IP & 0xFF00) << 8) | ((ParamAPP_IP & 0xFF0000) >> 8) | ((ParamAPP_IP & 0xFF000000) >> 24);
+			net.netmask = IPAddress((ParamAPP_Netzmaske & 0xFF) << 24) | ((ParamAPP_Netzmaske & 0xFF00) << 8) | ((ParamAPP_Netzmaske & 0xFF0000) >> 8) | ((ParamAPP_Netzmaske & 0xFF000000) >> 24);
+			net.gateway = IPAddress((ParamAPP_Gateway & 0xFF) << 24) | ((ParamAPP_Gateway & 0xFF00) << 8) | ((ParamAPP_Gateway & 0xFF0000) >> 8) | ((ParamAPP_Gateway & 0xFF000000) >> 24);
+			net.dns = IPAddress((ParamAPP_DNS & 0xFF) << 24) | ((ParamAPP_DNS & 0xFF00) << 8) | ((ParamAPP_DNS & 0xFF0000) >> 8) | ((ParamAPP_DNS & 0xFF000000) >> 24);
+			Serial.println("Static network configuration:");
+			Serial.print("IP....... "); Serial.println(net.ip);
+			Serial.print("Netmask.. "); Serial.println(net.netmask);
+			Serial.print("Gateway.. "); Serial.println(net.gateway);
+			Serial.print("DNS...... "); Serial.println(net.dns);
+		} else {
+			net.dhcp = true;
+		}
+		net.hostname = (char *) ParamAPP_Hostname;
+		net.mqtt = ParamAPP_useMQTT;
+		if ( net.mqtt == true ) {
+			Serial.println("MQTT configured");
+			// convert data paraeters to char arrays
+			net.mqttHost = (char *) ParamAPP_MQTT_Host;
+			Serial.print("Broker... "); Serial.println(net.mqttHost);
+			net.mqttUser = (char *) ParamAPP_MQTT_User;
+			net.mqttPass = (char *) ParamAPP_MQTT_Password;
+			net.mqttTopic = (char *) ParamAPP_MQTT_Topic;
+			net.mqttPort = ParamAPP_MQTT_Port;
+			net.mqttFreq = ParamAPP_MQTT_Frequency;
+			Serial.print("Broker..... "); Serial.print(net.mqttHost); Serial.print(":"); Serial.println(net.mqttPort);
+			Serial.print("User....... "); Serial.println(net.mqttUser);
+			Serial.print("Topic...... "); Serial.println(net.mqttTopic);
+			Serial.print("Frequency.. "); Serial.println(net.mqttFreq);
+		} else {
+			Serial.println("MQTT disabled");
+		}
+
+		if (ParamAPP_Heartbeat > 0) {
+			Serial.print("Sende Neartbeat alle "); Serial.print(ParamAPP_Heartbeat); Serial.println("s");
+			// ParamAPP_Heartbeat=10:
+			KoAPP_Heartbeat.dataPointType(Dpt(1, 1));
+			//runner.addTask(task_heartbeat);
+			//task_heartbeat.setInterval(ParamAPP_Heartbeat*1000);
+			//task_heartbeat.enable();
+			Serial.println("Task(s) enabled");
+		} else {
+			Serial.println("Sende keinen Heartbeat");
+		}
+
+		switch ( ParamAPP_Temperatur_DPT ) {
+			case 0: 
+				KoAPP_Temperatur_DPT9.dataPointType(Dpt(9, 1));
+				KoAPP_Temperatur_DPT9.callback(callback_Temperature);
+				break;
+			case 1:
+				KoAPP_Temperatur_DPT14.dataPointType(Dpt(14, 1));
+				KoAPP_Temperatur_DPT14.callback(callback_Temperature);
+				break;
+		}
+
+		// convert Params to char arrays
+//		ip_addr   = (char *) ParamAPP_IP;
+//		mqtt_host = (char *) ParamAPP_MQTT_Host;
+//		mqtt_user = (char *) ParamAPP_MQTT_Host;
+//		mqtt_pass = (char *) ParamAPP_MQTT_Host;
+//		char mqtth[32];
+//		char* mqtth = (char*) ParamAPP_MQTT_Host;
+		//uint8_t* mqtth[32];
+		//mqtth = ParamAPP_MQTT_Host;
+		//	mqtth=knx.paramData(ParamAPP_MQTT_Host,32);
+//		Serial.print("MQTT Host: "); Serial.println( mqtt_host);
+//		Serial.printf("Text: %s\n", (char*)mqtth);
+//		Serial.printf("[%u] get Text: %s\n", num, payload);
+
+
+	}
+	#pragma endregion
+
 
   //WiFiManager
   WiFiManager wifiManager;
   //wifiManager.resetSettings();
+
+	if ( net.dhcp == false ) {
+		wifiManager.setSTAStaticIPConfig( net.ip, net.gateway, net.netmask, net.dns );
+		Serial.print("static setup: ");
+	}
+
   wifiManager.setConfigPortalTimeout(180);
 	if (!wifiManager.autoConnect("AutoConnectAP")) {
     Serial.println("failed to connect and hit timeout");
@@ -216,7 +341,7 @@ void setup() {
 
 	// Arduino OTA on üport 3232
 	// ArduinoOTA.setPort(3232);
-	ArduinoOTA.setHostname(hostname);
+	ArduinoOTA.setHostname(net.hostname);
 	// ArduinoOTA.setPassword("admin");
 	// Password can be set with it's md5 value as well
 	// MD5(admin) = 21232f297a57a5a743894a0e4a801fc3
@@ -273,82 +398,64 @@ void setup() {
 	ElegantOTA.begin(&server);
 
 	// MQTT
-	mqttClient.setServer(mqtt_server, 1883);
+	mqttClient.setServer(net.mqttHost, net.mqttPort);
 	
 
-	// KNX stuff
-	knx.buttonPin(5);
-	//knx.ledPin(15);
-	//knx.ledPinActiveOn(HIGH);
-
-	// read adress table, association table, groupobject table and parameters from eeprom
-	knx.readMemory();
-
-	delay(5000);
-	Serial.println("Starting up...");
-	Serial.print("KNX configured: ");
-	Serial.println(knx.configured());
-	knx.setProgLedOffCallback(progLedOff);
-	knx.setProgLedOnCallback(progLedOn);
-
-	if (knx.configured()) {
-		if (ParamAPP_Heartbeat > 0) {
-			Serial.print("Sende Neartbeat alle "); Serial.print(ParamAPP_Heartbeat); Serial.println("s");
-			// ParamAPP_Heartbeat=10:
-			KoAPP_Heartbeat.dataPointType(Dpt(1, 1));
-			//runner.addTask(task_heartbeat);
-			//task_heartbeat.setInterval(ParamAPP_Heartbeat*1000);
-			//task_heartbeat.enable();
-			Serial.println("Task(s) enabled");
-		} else {
-			Serial.println("Sende keinen Heartbeat");
-		}
-
-		// convert Params to char arrays
-		mqtt_host = (char *) ParamAPP_MQTT_Host;
-		mqtt_user = (char *) ParamAPP_MQTT_Host;
-		mqtt_pass = (char *) ParamAPP_MQTT_Host;
-//		char mqtth[32];
-//		char* mqtth = (char*) ParamAPP_MQTT_Host;
-		//uint8_t* mqtth[32];
-		//mqtth = ParamAPP_MQTT_Host;
-		//	mqtth=knx.paramData(ParamAPP_MQTT_Host,32);
-		Serial.print("MQTT Host: "); Serial.println( mqtt_host);
-//		Serial.printf("Text: %s\n", (char*)mqtth);
-//		Serial.printf("[%u] get Text: %s\n", num, payload);
-
-		#pragma region KNX Time
-		if (ParamAPP_DateTime_DPTs == 1) {
-			Serial.println("Receive time and date from different KOs, registering callbacks");
-			KoAPP_Time.dataPointType(DPT_TimeOfDay);
-			KoAPP_Time.callback(timeCallback);
-			KoAPP_Date.dataPointType(DPT_Date);
-			KoAPP_Date.callback(dateCallback);
-			if (ParamAPP_Uhrzeit_beim_Start_lesen == 1) {
-				Serial.println("Reading time and date from Bus");
-				KoAPP_Time.requestObjectRead();
-				KoAPP_Date.requestObjectRead();
-			}
-		} else {
-			Serial.println("Receive time and date from a single KO, registering callback");
-			KoAPP_DateTime.dataPointType(DPT_DateTime);
-			KoAPP_DateTime.callback(dateTimeCallback);
-			if (ParamAPP_Uhrzeit_beim_Start_lesen == 1) {
-				Serial.println("Reading time and date from Bus");
-				KoAPP_DateTime.requestObjectRead();
-			}
-		}
-		#pragma endregion
-
-	}
-	knx.start();
+	
 
 	// initialize ringbuffer
 	for (u_int8_t i=0; i<RINGBUFFERSIZE; i++) { pressureRing[i] = NAN; }
 
 	Serial.println("Initializing scheduler");
 	runner.init();
+
+	if ( net.mqtt == true ) {
+		runner.addTask(task_MQTTpublish);
+		task_MQTTpublish.setInterval(net.mqttFreq*1000);
+		task_MQTTpublish.enable();
+	}
+	if (ParamAPP_Temperatur_Senden_zyklisch > 0) {
+		Serial.print("Send temperature values every "); Serial.print(ParamAPP_Temperatur_Senden_zyklisch); Serial.println("s");
+		runner.addTask(task_sendTemperature);
+		task_sendTemperature.setInterval(ParamAPP_Temperatur_Senden_zyklisch*1000);
+		task_sendTemperature.enable();
+	}
 //	runner.addTask(task_updatePressureRingbuffer);
+
+	// define callbacks
+/*	if (ParamAPP_Temperatur_DPT == 0) {
+		// DPT9
+		KoAPP_Temperatur_DPT9.callback(callback_sendTemperature);
+	} else {
+		// DPT14
+		KoAPP_Temperatur_DPT14.callback(sendTemperature));
+	} */
+
+	knx.start();
+	#pragma region KNX Request Time
+	if (ParamAPP_DateTime_DPTs == 1) {
+		Serial.println("Receive time and date from different KOs, registering callbacks");
+		KoAPP_Time.dataPointType(DPT_TimeOfDay);
+		KoAPP_Time.callback(timeCallback);
+		KoAPP_Date.dataPointType(DPT_Date);
+		KoAPP_Date.callback(dateCallback);
+		if (ParamAPP_Uhrzeit_beim_Start_lesen == 1) {
+			Serial.println("Reading time and date from Bus");
+			KoAPP_Time.requestObjectRead();
+			KoAPP_Date.requestObjectRead();
+		}
+	} else {
+		Serial.println("Receive time and date from a single KO, registering callback");
+		KoAPP_DateTime.dataPointType(DPT_DateTime);
+		KoAPP_DateTime.callback(dateTimeCallback);
+		if (ParamAPP_Uhrzeit_beim_Start_lesen == 1) {
+			Serial.println("Reading time and date from Bus");
+			KoAPP_DateTime.requestObjectRead();
+		}
+	}
+	#pragma endregion
+
+
 
 }
 
@@ -381,23 +488,19 @@ uint8_t read_ws90() {
 		if ( temperature.read && humidity.read ) { dewPoint.value = dewpoint (temperature.value, humidity.value); dewPoint.read = true; }
 
 		Serial.print("Localtime...... "); printLocaltime(true);
-		Serial.print("Light.......... "); Serial.print(light.value ); Serial.println(" Lux");
-		Serial.print("UVI............ "); Serial.print(uvIndex.value , 1); Serial.println("");
-		Serial.print("Temperature.... "); Serial.print(temperature.value, 1); Serial.println(" °C");
-		Serial.print("Humidity....... "); Serial.print(humidity.value); Serial.println(" %");
-		Serial.print("Wind Speed..... "); Serial.print(windSpeed.value, 1); Serial.println(" m/s");
-		Serial.print("Gust Speed..... "); Serial.print(gustSpeed.value , 1); Serial.println(" m/s");
-		Serial.print("Wind Direction. "); Serial.print(windDirection.value); Serial.println(" °");
-		Serial.print("Rainfall....... "); Serial.print(rainFall.value , 1); Serial.println(" mm");
-		Serial.print("ABS Pressure... "); Serial.print(pressure.value , 1); Serial.println(" mbar");
-		Serial.print("Rain Counter... "); Serial.print(rainCounter.value, 2); Serial.println(" mm");
-		Serial.print("Dewpoint....... "); Serial.print(dewPoint.value, 2); Serial.println(" °C");
-		if ( pressureTrend1.read ) {
-			Serial.print("Trend (1h)..... "); Serial.println(pressureTrend1.value);
-		}
-		if ( pressureTrend3.read ) {
-			Serial.print("Trend (3h)..... "); Serial.println(pressureTrend3.value);
-		}
+		Serial.printf("Temperature.... %0.1f (%0.1f) °C\n", temperature.value, temperature.last);
+		Serial.printf("Dewpoint....... %0.2f (%0.2f) °C\n", dewPoint.value, dewPoint.last);
+		Serial.printf("Humidity....... %d (%d) %%\n", humidity.value, humidity.last);
+		Serial.printf("Wind Speed..... %0.2f (%0.2f) m/s\n", windSpeed.value, windSpeed.last);
+		Serial.printf("Gust Speed..... %0.2f (%0.2f) m/s\n", gustSpeed.value, gustSpeed.last);
+		Serial.printf("Wind Direction. %d (%d) degreee\n", windDirection.value, windDirection.last);
+		Serial.printf("Pressure....... %0.1f (%0.1f) hPa\n", pressure.value, pressure.last);
+		if ( pressureTrend1.read ) Serial.printf("Trend (1h)..... %df (%d)\n", pressureTrend1.value, pressureTrend1.last);
+		if ( pressureTrend3.read ) Serial.printf("Trend (3h)..... %df (%d)\n", pressureTrend3.value, pressureTrend3.last);
+		Serial.printf("Rainfall....... %0.1f (%0.1f) mm\n", rainFall.value, rainFall.last);
+		Serial.printf("Raincounter.... %0.2f (%0.2f) mm\n", rainCounter.value, rainCounter.last);
+		Serial.printf("Brightness..... %d (%d) mm\n", light.value, light.last);
+		Serial.printf("UV Index....... %0.1f (%0.1f) mm\n", uvIndex.value, uvIndex.last);
 	}
 	return result;
 }
@@ -424,29 +527,54 @@ void updatePressureRingbuffer() {
 	Serial.println(pressureRing[RINGBUFFERSIZE-1]);
 }
 
-u_int8_t publish() {
-	if (light.read) mqttMsg.add("light", light.value );
-/*	if (uvIndex != NAN) { mqttMsg.add("uvIndex", uvIndex ); }
-	if (temperature != NAN) { mqttMsg.add("temperature", temperature ); }
-	if (humidity != NAN) { mqttMsg.add("humidity", humidity ); }
-	if (windSpeed != NAN) { mqttMsg.add("windSpeed", windSpeed ); }
-	if (gustSpeed != NAN) { mqttMsg.add("gustSpeed", gustSpeed ); }
-	if (windDirection != NAN) { mqttMsg.add("windDirection", windDirection ); }
-	if (rainfall != NAN) { mqttMsg.add("rainFall", rainfall ); }
-	if (absPressure != NAN) { mqttMsg.add("pressure", absPressure ); }
-	if (rainCounter != NAN) { mqttMsg.add("rainCounter", rainCounter ); }
-	if (dewPoint != NAN) { mqttMsg.add("dewPoint", dewPoint ); }
-*/
+#pragma region KNX functions
+void sendTemperature() {
+	if (temperature.read) {
+		Serial.print("Sending temperature ("); Serial.print(temperature.value, 2); Serial.println(") to bus");
+		switch (ParamAPP_Temperatur_DPT) {
+			case 0: // DPT9
+				KoAPP_Temperatur_DPT9.value(temperature.value); break;
+			case 1: // DPT14
+				KoAPP_Temperatur_DPT14.value(temperature.value); break;
+		}
+		temperature.last = temperature.value;
+	} else {
+		Serial.println("Temperature not yet available, won't send to bus - delay task by 3s");
+		task_sendTemperature.delay(3000);
+	}
+	Serial.println();
+}
+
+void MQTTpublish() {
+	if ( temperature.read == true ) mqttMsg.add("temperature", temperature.value );
+	if ( humidity.read == true ) mqttMsg.add("humidity", humidity.value );
+	if ( dewPoint.read == true ) mqttMsg.add("dewpoint", dewPoint.value );
+	if ( pressure.read == true ) mqttMsg.add("pressure", pressure.value );
+	if ( pressureTrend1.read == true ) mqttMsg.add("pressuretrend1", pressureTrend1.value );
+	if ( pressureTrend3.read == true ) mqttMsg.add("pressuretrend3", pressureTrend3.value );
+	if ( humidity.read == true ) mqttMsg.add("humidity", humidity.value );
+	if ( light.read == true ) mqttMsg.add("light", light.value );
+	if ( uvIndex.read == true ) mqttMsg.add("uvindex", uvIndex.value );
+	if ( windSpeed.read == true ) mqttMsg.add("windspeed", windSpeed.value );
+	if ( gustSpeed.read == true ) mqttMsg.add("gustspeed", gustSpeed.value );
+	if ( windDirection.read == true ) mqttMsg.add("winddirection", windDirection.value );
+	if ( rainFall.read == true ) mqttMsg.add("rainfall", rainFall.value );
+	if ( rainCounter.read == true ) mqttMsg.add("raincounter", rainCounter.value );
+
 	if (!mqttClient.connected()) {
 	mqtt_reconnect();
 	}
 
 	if (mqttClient.connected()) {
-	String msg = mqttMsg.toString();
-	uint16_t msgLength = msg.length() + 1;
-	char msgChar[msgLength];
-	msg.toCharArray(msgChar, msgLength);
-	mqttClient.publish("environmental/wn90", msgChar );
+		String msg = mqttMsg.toString();
+		uint16_t msgLength = msg.length() + 1;
+		if (msgLength > 10) {
+			// only publish if messgae is not empty
+			Serial.println("Publish results to MQTT broker");
+			char msgChar[msgLength];
+			msg.toCharArray(msgChar, msgLength);
+			mqttClient.publish(net.mqttTopic, msgChar );
+		}
 	}
 
 	Serial.println();
@@ -468,7 +596,6 @@ void loop() {
 	if (millis()-lastChange >= delayTime) {
 		lastChange = millis();
 		read_ws90();
-
 
 
 	}
