@@ -11107,9 +11107,9 @@
         "SubTypeNumber": "7",
         "SubType": {
           "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
-          "Name": "9.007 humidity (%)",
+          "Name": "14.007 angle (degree)",
           "Number": "7",
-          "ParentNumber": "9"
+          "ParentNumber": "14"
         },
         "TypeNumber": "14",
         "Type": {
@@ -16609,9 +16609,9 @@
         "SubTypeNumber": "4",
         "SubType": {
           "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
-          "Name": "9.004 lux (Lux)",
+          "Name": "14.004 amount of substance (mol)",
           "Number": "4",
-          "ParentNumber": "9"
+          "ParentNumber": "14"
         },
         "TypeNumber": "14",
         "Type": {
@@ -17395,9 +17395,9 @@
         "SubTypeNumber": "4",
         "SubType": {
           "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
-          "Name": "9.004 lux (Lux)",
+          "Name": "14.004 amount of substance (mol)",
           "Number": "4",
-          "ParentNumber": "9"
+          "ParentNumber": "14"
         },
         "TypeNumber": "14",
         "Type": {
@@ -18181,9 +18181,9 @@
         "SubTypeNumber": "26",
         "SubType": {
           "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
-          "Name": "9.026 rain amount (l/m²)",
+          "Name": "14.026 electric polarization (C/m²)",
           "Number": "26",
-          "ParentNumber": "9"
+          "ParentNumber": "14"
         },
         "TypeNumber": "14",
         "Type": {
@@ -18967,9 +18967,9 @@
         "SubTypeNumber": "26",
         "SubType": {
           "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
-          "Name": "9.026 rain amount (l/m²)",
+          "Name": "14.026 electric polarization (C/m²)",
           "Number": "26",
-          "ParentNumber": "9"
+          "ParentNumber": "14"
         },
         "TypeNumber": "14",
         "Type": {
@@ -19535,7 +19535,7 @@
         "FlagOnInit": false,
         "TypeValue": null,
         "HasDpt": true,
-        "HasDpts": true,
+        "HasDpts": false,
         "ObjectSize": 16,
         "SubTypeNumber": "30",
         "SubType": {
@@ -19753,9 +19753,9 @@
         "SubTypeNumber": "30",
         "SubType": {
           "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
-          "Name": "9.030 concentration (µg/m³)",
+          "Name": "14.030 electromotive force (V)",
           "Number": "30",
-          "ParentNumber": "9"
+          "ParentNumber": "14"
         },
         "TypeNumber": "14",
         "Type": {
@@ -20321,7 +20321,7 @@
         "FlagOnInit": false,
         "TypeValue": null,
         "HasDpt": true,
-        "HasDpts": true,
+        "HasDpts": false,
         "ObjectSize": 16,
         "SubTypeNumber": "30",
         "SubType": {
@@ -20539,9 +20539,9 @@
         "SubTypeNumber": "30",
         "SubType": {
           "$type": "Kaenx.Creator.Models.DataPointSubType, Kaenx.Creator.Share",
-          "Name": "9.030 concentration (µg/m³)",
+          "Name": "14.030 electromotive force (V)",
           "Number": "30",
-          "ParentNumber": "9"
+          "ParentNumber": "14"
         },
         "TypeNumber": "14",
         "Type": {
@@ -22756,7 +22756,7 @@
         "OverwriteFW": false,
         "FlagTrans": false,
         "OverwriteFT": false,
-        "FlagComm": true,
+        "FlagComm": false,
         "OverwriteFC": false,
         "FlagUpdate": false,
         "OverwriteFU": false,
@@ -22834,7 +22834,7 @@
         "OverwriteFW": false,
         "FlagTrans": false,
         "OverwriteFT": false,
-        "FlagComm": true,
+        "FlagComm": false,
         "OverwriteFC": false,
         "FlagUpdate": false,
         "OverwriteFU": false,
@@ -22912,7 +22912,7 @@
         "OverwriteFW": false,
         "FlagTrans": false,
         "OverwriteFT": false,
-        "FlagComm": true,
+        "FlagComm": false,
         "OverwriteFC": false,
         "FlagUpdate": false,
         "OverwriteFU": false,
@@ -22990,7 +22990,7 @@
         "OverwriteFW": false,
         "FlagTrans": false,
         "OverwriteFT": false,
-        "FlagComm": true,
+        "FlagComm": false,
         "OverwriteFC": false,
         "FlagUpdate": false,
         "OverwriteFU": false,
@@ -23068,7 +23068,7 @@
         "OverwriteFW": false,
         "FlagTrans": false,
         "OverwriteFT": false,
-        "FlagComm": true,
+        "FlagComm": false,
         "OverwriteFC": false,
         "FlagUpdate": false,
         "OverwriteFU": false,
@@ -23146,7 +23146,7 @@
         "OverwriteFW": false,
         "FlagTrans": false,
         "OverwriteFT": false,
-        "FlagComm": true,
+        "FlagComm": false,
         "OverwriteFC": false,
         "FlagUpdate": false,
         "OverwriteFU": false,
@@ -23224,7 +23224,7 @@
         "OverwriteFW": false,
         "FlagTrans": false,
         "OverwriteFT": false,
-        "FlagComm": true,
+        "FlagComm": false,
         "OverwriteFC": false,
         "FlagUpdate": false,
         "OverwriteFU": false,
@@ -23302,7 +23302,7 @@
         "OverwriteFW": false,
         "FlagTrans": false,
         "OverwriteFT": false,
-        "FlagComm": true,
+        "FlagComm": false,
         "OverwriteFC": false,
         "FlagUpdate": false,
         "OverwriteFU": false,
@@ -23380,7 +23380,7 @@
         "OverwriteFW": false,
         "FlagTrans": false,
         "OverwriteFT": false,
-        "FlagComm": true,
+        "FlagComm": false,
         "OverwriteFC": false,
         "FlagUpdate": false,
         "OverwriteFU": false,
@@ -23458,7 +23458,7 @@
         "OverwriteFW": false,
         "FlagTrans": false,
         "OverwriteFT": false,
-        "FlagComm": true,
+        "FlagComm": false,
         "OverwriteFC": false,
         "FlagUpdate": false,
         "OverwriteFU": false,
@@ -23536,7 +23536,7 @@
         "OverwriteFW": false,
         "FlagTrans": false,
         "OverwriteFT": false,
-        "FlagComm": true,
+        "FlagComm": false,
         "OverwriteFC": false,
         "FlagUpdate": false,
         "OverwriteFU": false,
@@ -23614,7 +23614,7 @@
         "OverwriteFW": false,
         "FlagTrans": false,
         "OverwriteFT": false,
-        "FlagComm": true,
+        "FlagComm": false,
         "OverwriteFC": false,
         "FlagUpdate": false,
         "OverwriteFU": false,
@@ -23692,7 +23692,7 @@
         "OverwriteFW": false,
         "FlagTrans": false,
         "OverwriteFT": false,
-        "FlagComm": true,
+        "FlagComm": false,
         "OverwriteFC": false,
         "FlagUpdate": false,
         "OverwriteFU": false,
@@ -23770,7 +23770,7 @@
         "OverwriteFW": false,
         "FlagTrans": false,
         "OverwriteFT": false,
-        "FlagComm": true,
+        "FlagComm": false,
         "OverwriteFC": false,
         "FlagUpdate": false,
         "OverwriteFU": false,
@@ -23848,7 +23848,7 @@
         "OverwriteFW": false,
         "FlagTrans": false,
         "OverwriteFT": false,
-        "FlagComm": true,
+        "FlagComm": false,
         "OverwriteFC": false,
         "FlagUpdate": false,
         "OverwriteFU": false,
@@ -23926,7 +23926,7 @@
         "OverwriteFW": false,
         "FlagTrans": false,
         "OverwriteFT": false,
-        "FlagComm": true,
+        "FlagComm": false,
         "OverwriteFC": false,
         "FlagUpdate": false,
         "OverwriteFU": false,
@@ -24004,7 +24004,7 @@
         "OverwriteFW": false,
         "FlagTrans": false,
         "OverwriteFT": false,
-        "FlagComm": true,
+        "FlagComm": false,
         "OverwriteFC": false,
         "FlagUpdate": false,
         "OverwriteFU": false,
@@ -26694,9 +26694,9 @@
     "DefaultLanguage": "de-DE",
     "DefaultLanguageIndex": 0,
     "Name": "WN90LP Modbus KNX Gateway",
-    "ReplacesVersions": "",
+    "ReplacesVersions": "1",
     "Script": "",
-    "NameText": "V 0.1 WN90LP Modbus KNX Gateway",
+    "NameText": "V 0.2 WN90LP Modbus KNX Gateway",
     "Text": [
       {
         "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
@@ -26719,7 +26719,7 @@
         "Preview": "WN90LP Modbus KNX gateway"
       }
     ],
-    "Number": 1,
+    "Number": 2,
     "AddressTableMaxCount": 65535,
     "AddressTableOffset": 0,
     "AddressMemoryId": -1,
