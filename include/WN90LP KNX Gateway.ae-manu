@@ -24437,92 +24437,7 @@
         "Text": "Englisch"
       }
     ],
-    "Helptexts": [
-      {
-        "$type": "Kaenx.Creator.Models.Helptext, Kaenx.Creator.Share",
-        "UId": 1,
-        "Name": "StartupDelay",
-        "Text": [
-          {
-            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
-            "Language": {
-              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
-              "CultureCode": "de-DE",
-              "Text": "Deutsch"
-            },
-            "Text": "Nach Systemstart wird erst nach dieser Zeitspanne mit dem KNX Bus kommuniziert, andere Tasks auf dem Gerät sind davon ausgenommen.",
-            "Preview": "Nach Systemstart wird erst nach dieser Zeitspanne mit dem KNX Bus kommuniziert, andere Tasks auf dem..."
-          },
-          {
-            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
-            "Language": {
-              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
-              "CultureCode": "en-US",
-              "Text": "Englisch"
-            },
-            "Text": "When the deviceis starting, it will start communicating with the KNX bus after this delay. Other tasks on the device might not be influenced by this.",
-            "Preview": "When the deviceis starting, it will start communicating with the KNX bus after this delay. Other tas..."
-          }
-        ],
-        "TranslationText": false
-      },
-      {
-        "$type": "Kaenx.Creator.Models.Helptext, Kaenx.Creator.Share",
-        "UId": 2,
-        "Name": "Heartbeat",
-        "Text": [
-          {
-            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
-            "Language": {
-              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
-              "CultureCode": "de-DE",
-              "Text": "Deutsch"
-            },
-            "Text": "",
-            "Preview": ""
-          },
-          {
-            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
-            "Language": {
-              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
-              "CultureCode": "en-US",
-              "Text": "Englisch"
-            },
-            "Text": "",
-            "Preview": ""
-          }
-        ],
-        "TranslationText": false
-      },
-      {
-        "$type": "Kaenx.Creator.Models.Helptext, Kaenx.Creator.Share",
-        "UId": 3,
-        "Name": "Watchdog",
-        "Text": [
-          {
-            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
-            "Language": {
-              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
-              "CultureCode": "de-DE",
-              "Text": "Deutsch"
-            },
-            "Text": "Wenn über diese Zeitspanne keine Daten von einem der konfigurierten Sensoren empfangen werden, wird das Gerät neu starten.",
-            "Preview": "Wenn über diese Zeitspanne keine Daten von einem der konfigurierten Sensoren empfangen werden, wird ..."
-          },
-          {
-            "$type": "Kaenx.Creator.Models.Translation, Kaenx.Creator.Share",
-            "Language": {
-              "$type": "Kaenx.Creator.Models.Language, Kaenx.Creator.Share",
-              "CultureCode": "en-US",
-              "Text": "Englisch"
-            },
-            "Text": "If one of the configured sensors won't answer to read requests for this long, the device will automatically restart.",
-            "Preview": "If one of the configured sensors won't answer to read requests for this long, the device will automa..."
-          }
-        ],
-        "TranslationText": false
-      }
-    ],
+    "Helptexts": [],
     "Allocators": [],
     "OpenKnxModules": [],
     "Dynamics": [
@@ -27128,7 +27043,7 @@
     "IsModulesActive": false,
     "IsMessagesActive": false,
     "IsMemSizeAuto": true,
-    "IsHelpActive": true,
+    "IsHelpActive": false,
     "IsBusInterfaceActive": false,
     "IsSecureActive": false,
     "HasBusInterfaceRouter": false,
